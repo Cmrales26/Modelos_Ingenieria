@@ -1,0 +1,16 @@
+REQUERIMEINTOS:
+1- Desarrollar ejemplos de modelos físicos en cada una de las temaricas que se escogieron, estos deben contener
+	* Desarrollo Teorico Breve
+	* Solucion Numerica y simulacion Resultante
+
+Simuladores{
+    cinematica{
+        Rapidez
+        Velocidad Media
+        Limite
+        Velocidad instantanea
+        Aceleracion
+        Movimiento Rectilineo
+        Aceleracion Uniforme
+    }
+}

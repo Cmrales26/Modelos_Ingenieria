@@ -1,0 +1,65 @@
+.contenedor_simuladores_Newton{
+    display: flex;
+    overflow-x: auto;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 2%;
+    justify-content: center;
+}
+.contenedor_simuladores_Newton::-webkit-scrollbar, body::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 8px;
+    width: 8px;
+}
+
+.contenedor_simuladores_Newton::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    background: #020887;
+    margin-top: 4%;
+}
+
+.SIMULADORES h1{
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    color: #020887;
+}
+
+.contenedor_simuladores_Newton a{
+    margin: 16px; 
+    /* border: 1px solid red; */
+}
+a .cm_simulador{
+    padding: 25px;
+    height: 300px;
+}
+.contenedor_simuladores_Newton a:hover{
+    scale: 1.05;
+    transition: .3s ease;
+}
+.cm_simulador {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 10px;
+    background-color: white; 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+img{
+    width: 225px;
+    height: 100px;
+}
+.imagen{
+    border-radius: 10px;
+    padding: 10%;
+}
+.instantanea{
+    margin-top: 33px;
+}
+
+.Newton-contenido{
+    text-align: center;
+    padding-bottom: 10%;
+    color: #020887;
+}

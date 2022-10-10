@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../index/index.css">
+    <link rel="stylesheet" href="simu.css">
+    <title>Rapidez</title>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container_header">
+            <div class="logo">
+                <h2><a href="#">RAPIDEZ MEDIA</a></h2>
+            </div>
+            <nav id="nav">
+                <ul class="nav-menu">
+                    <li><a href="../../index/index.html">INICIO</a></li>
+                    <li><a href="../../Todos/todos-simuladores.html">SIMULADORES</a></li>
+                    <li><a href="#Footer" class="select">CONTACTO</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <center>
+        <div class="Simulacion">
+            <canvas id="Simulacion">
+                <img src="https://www.fisicaenlinea.com/04cinematica/images/rapidezyvelocidad02.jpg" alt="">
+            </canvas>
+            <div class="Respuesta">
+                <h1 id="Respuesta-valor"></h1>
+            </div>
+        </div>
+    </center>
+
+    <div class="Formulario">
+        <input type="number" placeholder="DISTANCIA (KM)" id="Distancia" min="0">
+        <input type="number" placeholder="TIEMPO INICIAL (S)" id="T_i" min="0">
+        <input type="number" placeholder="TIEMPO FINAL (S)" id="T_f" min="0">
+        <div class="botocito">
+            <input type="button" value="Resultado" id="Resultado">
+        </div>
+    </div>
+    <Footer id="Footer">
+        <div class="container_footer">
+            <div class="box_footer">
+                <div class="contacto">
+                        <H4>CREADO Y DISEÑADO POR</H4>
+                        <P><a href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=157198&course=11074" target="_blank">SHARITH BLANCO - </a> <a href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=149267&course=11074" target="_blank">NELSON MORALES - </a> <a href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=147797&course=11074" target="_blank">DIANA VIDAL</a></P>
+                </div>
+            </div>
+        </div>
+        <div class="aviso-footer">
+            <hr>
+            <p>Este sitio ha sido creado para fines académicos.</p>
+        </div>
+    </Footer>
+
+    <script>
+        const boton = document.getElementById("Resultado")
+        boton.addEventListener("click", Calcular);
+
+        function Calcular() {
+            count = 0
+            const Distancia = parseFloat(document.getElementById("Distancia").value);
+            const T_i = parseFloat(document.getElementById("T_i").value);
+            const T_f = parseFloat(document.getElementById("T_f").value);
+
+            resultado = (Distancia/(T_f-T_i))*(3600/1); 
+            document.getElementById("Respuesta-valor").innerHTML = resultado.toFixed(2)+ "Km/h"
+        }
+    </script>
+</body>
+
+</html>

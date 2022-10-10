@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="simu.css">
+    <link rel="stylesheet" href="../../index/index.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    import Plotly from 'plotly.js-cartesian-dist'
+
+    <title>Velocidad Media</title>
+</head>
+
+<body>
+
+    <body>
+        <header id="header">
+            <div class="container_header">
+                <div class="logo">
+                    <h2><a href="#">VELOCIDAD MEDIA</a></h2>
+                </div>
+                <nav id="nav">
+                    <ul class="nav-menu">
+                        <li><a href="../../index/index.html">INICIO</a></li>
+                        <li><a href="../../Todos/todos-simuladores.html">SIMULADORES</a></li>
+                        <li><a href="#Footer" class="select">CONTACTO</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <center>
+            <div class="Simulacion">
+                <canvas id="Simulacion">
+                    <img src="https://www.fisicaenlinea.com/04cinematica/images/rapidezyvelocidad02.jpg" alt="">
+                </canvas>
+                <div class="Respuesta">
+                    <h1 id="Respuesta-valor"></h1>
+                </div>
+            </div>
+        </center>
+        <div class="Formulario">
+            <input type="number" placeholder="DISTANCIA INICIAL (M)" id="Distancia_i" min="0">
+            <input type="number" placeholder="DISTANCIA FINAL (M)" id="Distancia_f" min="0">
+            <input type="number" placeholder="TIEMPO INICIAL (S)" id="T_i" min="0">
+            <input type="number" placeholder="TIEMPO FINAL (S)" id="T_f" min="0">
+            <div class="botocito">
+                <input type="button" value="Resultado" id="Resultado">
+            </div>
+        </div>
+
+        <div class="vectorial" style="text-align:center;">
+            <a href="#">Calculo de la velocidad media mediante vectores</a>
+        </div>
+        <Footer id="Footer">
+            <div class="container_footer">
+                <div class="box_footer">
+                    <div class="contacto">
+                        <H4>CREADO Y DISEÑADO POR</H4>
+                        <P><a href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=157198&course=11074"
+                                target="_blank">SHARITH BLANCO - </a> <a
+                                href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=149267&course=11074"
+                                target="_blank">NELSON MORALES - </a> <a
+                                href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=147797&course=11074"
+                                target="_blank">DIANA VIDAL</a></P>
+                    </div>
+                </div>
+            </div>
+            <div class="aviso-footer">
+                <hr>
+                <p>Este sitio ha sido creado para fines académicos.</p>
+            </div>
+        </Footer>
+        <div id="tester" style="width:90%;height:250px;"></div>
+
+        <script>
+            const boton = document.getElementById("Resultado")
+            boton.addEventListener("click", Calcular);
+
+            function Calcular() {
+                count = 0
+                const Distancia_i = parseFloat(document.getElementById("Distancia_i").value);
+                const Distancia_f = parseFloat(document.getElementById("Distancia_f").value);
+                const T_i = parseFloat(document.getElementById("T_i").value);
+                const T_f = parseFloat(document.getElementById("T_f").value);
+
+                alert(T_f - T_i)
+                alert(Distancia_f - Distancia_i)
+                resultado = ((Distancia_f - Distancia_i) / (T_f - T_i));
+                document.getElementById("Respuesta-valor").innerHTML = resultado.toFixed(2) + "m/s"
+            }
+
+            TESTER = document.getElementById('tester');
+
+            var trace1 = {
+                x: [0,20],
+                y: [0,10],
+                type: 'scatter'
+            };
+
+            var trace2 = {
+                x: [1, 2, 3, 4],
+                y: [16, 5, 11, 9],
+                type: 'scatter'
+            };
+
+            var data = [trace1];
+
+            Plotly.newPlot(TESTER, data);
+        </script>
+    </body>
+
+</html>

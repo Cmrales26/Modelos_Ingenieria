@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="simu.css">
     <link rel="stylesheet" href="../../index/index.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    import Plotly from 'plotly.js-cartesian-dist'
-
     <title>Velocidad Media</title>
 </head>
 
@@ -71,9 +69,11 @@
             <div class="aviso-footer">
                 <hr>
                 <p>Este sitio ha sido creado para fines académicos.</p>
-            </div>
+            </div   >
         </Footer>
-        <div id="tester" style="width:90%;height:250px;"></div>
+        <center>
+            <div id="tester" style="width:500px;height:700px;"></div>
+        </center>
 
         <script>
             const boton = document.getElementById("Resultado")
@@ -94,21 +94,38 @@
 
             TESTER = document.getElementById('tester');
 
-            var trace1 = {
-                x: [0,20],
-                y: [0,10],
-                type: 'scatter'
+            var A = {
+                x: [0,3],
+                y: [0,4],
+                mode: 'lines',
+                name: 'A',
+                // connectgaps: true
             };
 
-            var trace2 = {
-                x: [1, 2, 3, 4],
-                y: [16, 5, 11, 9],
-                type: 'scatter'
+            var B = {
+                x:[0,6],
+                y:[0,2],
+                mode: 'lines',
+                name: 'B'
             };
+            var PC = {
+                x:[3,6],
+                y:[4,2],
+                mode: '',
+                arrowhead:2,
+                name: "B-A"
+            };
+            var layout={
+                plot_bgcolor:"#fafafa",
+                paper_bgcolor:"#fafafa",
+                // showlegend: false,
+                xaxis:{
+                    showgrid: false
+                }
+            }
+            var data = [A,B,PC];
 
-            var data = [trace1];
-
-            Plotly.newPlot(TESTER, data);
+            Plotly.newPlot(TESTER, data,layout);
         </script>
     </body>
 

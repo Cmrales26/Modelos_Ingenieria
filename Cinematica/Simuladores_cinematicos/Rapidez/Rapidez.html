@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../index/index.css">
-    <link rel="stylesheet" href="simu.css">
+    <link rel="stylesheet" href="../../../index/index.css">
+    <link rel="stylesheet" href="../simu.css">
     <title>Rapidez</title>
 </head>
 
@@ -18,8 +18,8 @@
             </div>
             <nav id="nav">
                 <ul class="nav-menu">
-                    <li><a href="../../index/index.html">INICIO</a></li>
-                    <li><a href="../../Todos/todos-simuladores.html">SIMULADORES</a></li>
+                    <li><a href="../../../index/index.html">INICIO</a></li>
+                    <li><a href="../../../Todos/todos-simuladores.html">SIMULADORES</a></li>
                     <li><a href="#Footer" class="select">CONTACTO</a></li>
                 </ul>
             </nav>
@@ -60,20 +60,7 @@
         </div>
     </Footer>
 
-    <script>
-        const boton = document.getElementById("Resultado")
-        boton.addEventListener("click", Calcular);
-
-        function Calcular() {
-            count = 0
-            const Distancia = parseFloat(document.getElementById("Distancia").value);
-            const T_i = parseFloat(document.getElementById("T_i").value);
-            const T_f = parseFloat(document.getElementById("T_f").value);
-
-            resultado = (Distancia/(T_f-T_i))*(3600/1); 
-            document.getElementById("Respuesta-valor").innerHTML = resultado.toFixed(2)+ "Km/h"
-        }
-    </script>
+    <script src="Rapidez.js"></script>
 </body>
 
 </html>

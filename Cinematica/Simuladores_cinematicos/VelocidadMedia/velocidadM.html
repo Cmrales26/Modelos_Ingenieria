@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="simu.css">
-    <link rel="stylesheet" href="../../index/index.css">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="../simu.css">
+    <link rel="stylesheet" href="../../../index/index.css">
     <title>Velocidad Media</title>
 </head>
 
@@ -50,7 +49,7 @@
         </div>
 
         <div class="vectorial" style="text-align:center;">
-            <a href="#">Calculo de la velocidad media mediante vectores</a>
+            <a href="./VelocidadMV.html">Calculo de la velocidad media mediante vectores</a>
         </div>
         <Footer id="Footer">
             <div class="container_footer">
@@ -71,62 +70,7 @@
                 <p>Este sitio ha sido creado para fines académicos.</p>
             </div>
         </Footer>
-        <center>
-            <div id="tester" style="width:500px;height:700px;"></div>
-        </center>
-
-        <script>
-            const boton = document.getElementById("Resultado")
-            boton.addEventListener("click", Calcular);
-
-            function Calcular() {
-                count = 0
-                const Distancia_i = parseFloat(document.getElementById("Distancia_i").value);
-                const Distancia_f = parseFloat(document.getElementById("Distancia_f").value);
-                const T_i = parseFloat(document.getElementById("T_i").value);
-                const T_f = parseFloat(document.getElementById("T_f").value);
-
-                resultado = ((Distancia_f - Distancia_i) / (T_f - T_i));
-                document.getElementById("Respuesta-valor").innerHTML = resultado.toFixed(2) + "m/s"
-
-                TESTER = document.getElementById('tester');
-
-                var A = {
-                    x: [0, Distancia_i],
-                    y: [0, Distancia_f],
-                    mode: 'lines',
-                    name: 'A',
-                    // connectgaps: true
-                };
-
-                // var B = {
-                //     x:[0,6],
-                //     y:[0,2],
-                //     mode: 'lines',
-                //     name: 'B'
-                // };
-                // var PC = {
-                //     x:[3,6],
-                //     y:[4,2],
-                //     mode: '',
-                //     arrowhead:2,
-                //     name: "B-A"
-                // };
-                var layout = {
-                    plot_bgcolor: "#fafafa",
-                    paper_bgcolor: "#fafafa",
-                    // showlegend: false,
-                    xaxis: {
-                        showgrid: false
-                    }
-                }
-                // var data = [A,B,PC];
-                var data = [A];
-
-                Plotly.newPlot(TESTER, data, layout);
-
-            }
-        </script>
+        <script src="VelocidadMedia.js"></script>
     </body>
 
 </html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../index/index.css">
+    <link rel="stylesheet" href="../simu.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Velocidad Media Vectorial</title>
+</head>
+<body>
+    <header id="header">
+            <div class="container_header">
+                <div class="logo">
+                    <h2><a href="#">VELOCIDAD MEDIA VECTORES</a></h2>
+                </div>
+                <nav id="nav">
+                    <ul class="nav-menu">
+                        <li><a href="../../../index/index.html">INICIO</a></li>
+                        <li><a href="../../../Todos/todos-simuladores.html">SIMULADORES</a></li>
+                        <li><a href="#Footer" class="select">CONTACTO</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="Graficas">
+            <div class="GraficaSimV">
+                <canvas id="SimulacionV"></canvas>
+                <div id="plot" style="width:500px; height: 450px;"></div>
+            </div>
+            <div class="Respuesta">
+                <h2 id="Respuesta-valor"></h2>
+            </div>
+        </section>
+
+        <div class="FormularioV">
+            <div class="EntradasV">
+                <div class="vector1">
+                    <h2>Primer Vector</h2><hr>
+                    <div class="p_partida">
+                        <h6>PUNTO DE PARTIDA</h6>
+                        <input type="number" name="" id="ppx" placeholder="x">
+                        <input type="number" name="" id="ppy" placeholder="y">
+                    </div>
+                    <div class="p_llegada">
+                        <h6>PUNTO DE LLEGADA</h6>
+                        <input type="number" name="" id="pllx" placeholder="x">
+                        <input type="number" name="" id="plly" placeholder="y">
+                    </div>
+                </div>
+                <div class="vector2">
+                    <h2>Segundo Vector</h2><hr>
+                    <div class="p_partida">
+                        <h6>PUNTO DE PARTIDA</h6>
+                        <input type="number" name="" id="ppx2" placeholder="x">
+                        <input type="number" name="" id="ppy2" placeholder="y">
+                    </div>
+                    <div class="p_llegada">
+                        <h6>PUNTO DE LLEGADA</h6>
+                        <input type="number" name="" id="pllx2" placeholder="x">
+                        <input type="number" name="" id="plly2" placeholder="y">
+                    </div>
+                </div>
+            <div class="entradasT">
+                <h2>Tiempo</h2> <hr>
+                <div class="T_ini">
+                    <h6>TIEMPO INICIAL</h6>
+                    <input type="number" name="" id="ti" placeholder="tiempo Inicial (S)">
+                </div>
+                <div class="T_fini">
+                    <h6>TIEMPO FINAL</h6>
+                    <input type="number" name="" id="tf" placeholder="tiempo Final (S)">
+                </div>
+            </div>
+
+            </div>
+            <div class="botones">
+                <div class="agergarv1">
+                    <input type="button" value="Dibujar vector" id="aggv1">
+                </div>
+                <div class="botocitoV">
+                    <input type="button" value="Resultado" id="ResultadoV">
+                </div>
+            </div>
+        </div>
+
+        <Footer id="Footer">
+            <div class="container_footer">
+                <div class="box_footer">
+                    <div class="contacto">
+                        <H4>CREADO Y DISEÑADO POR</H4>
+                        <P><a href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=157198&course=11074"
+                                target="_blank">SHARITH BLANCO - </a> <a
+                                href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=149267&course=11074"
+                                target="_blank">NELSON MORALES - </a> <a
+                                href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=147797&course=11074"
+                                target="_blank">DIANA VIDAL</a></P>
+                    </div>
+                </div>
+            </div>
+            <div class="aviso-footer">
+                <hr>
+                <p>Este sitio ha sido creado para fines académicos.</p>
+            </div>
+        </Footer>
+        <script src="VelocidadMediaV.js"></script>
+</body>
+</html>

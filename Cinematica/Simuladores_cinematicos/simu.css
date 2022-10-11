@@ -1,32 +1,37 @@
-#Respuesta-valor{
+#Respuesta-valor {
     font-family: sans-serif;
 }
 
-#Simulacion{
+#Simulacion {
     margin-top: 2%;
     border: 1px solid blue;
     width: 1200px;
     height: 350px;
 }
-.Respuesta{
+
+.Respuesta {
+    text-align: center;
     color: #020887;
     margin-top: 1%;
     margin-bottom: 1%;
-    margin-left:20px;
+    margin-left: 20px;
 }
-.Formulario{
+
+.Formulario {
     text-align: center;
     margin-bottom: 1%;
 }
-.vectorial{
+
+.vectorial {
     margin-bottom: 2%;
     text-decoration: underline;
 }
+
 .botocito{
     margin-top: 1%;
 }
 
-input[type=number]{
+input[type=number] {
     border: 1px solid #020887;
     border-radius: 10px;
     width: 15%;
@@ -34,12 +39,14 @@ input[type=number]{
     margin-left: 20px;
     text-align: center;
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
-input[type=button]{
+
+input[type=button] {
     margin-left: 20px;
     border: none;
     padding: 1% 5%;
@@ -49,10 +56,111 @@ input[type=button]{
     cursor: pointer;
     transition: .2s;
 }
-input[type = button]:hover{
+
+input[type=button]:hover {
     scale: 1.1;
 }
 
-#Distancia::placeholder, #T_i::placeholder,#T_f::placeholder{
+#Distancia::placeholder,
+#T_i::placeholder,
+#T_f::placeholder {
     text-align: center;
+}
+
+/* VELOCIDAD MEDIA VECTORES */
+.GraficaSimV {
+    border-radius: 10px;
+    margin: 2.5%;
+    justify-content: center;
+    display: flex;
+    /* border: 2px solid red; */
+}
+
+#SimulacionV {
+    border-radius: inherit;
+    height: 450px;
+    margin-right: 10px;
+    width: 1000px;
+    border: 3px solid blue;
+}
+
+#plot {
+    border-radius: inherit;
+    border: 3px solid blue;
+}
+.FormularioV{
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+    justify-content: center;
+    align-items: center;
+}
+.FormularioV .botocitoV{
+    margin-left:10%;
+}
+.botocitoV{
+    margin: 0;
+}
+.EntradasV{
+    /* border: 1px solid red; */
+    display: flex;
+}
+.botones{
+    margin-right: 6%;
+    margin-top: 2%;
+    display: flex;
+    /* border: 1px solid red; */
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+#aggv1, #ResultadoV{
+    padding: 6% 50%;
+}
+
+.vector1 h2, .vector2 h2{
+    text-align: center;
+}
+hr{
+    background-color: #020887;
+    height: 2%;
+    border: none;
+    width: 90%;
+    margin: auto;
+}
+.p_partida, .p_llegada{
+    width: 100%;
+    margin: 2%;
+    display: flex;
+    flex-direction: row;
+}
+h6{
+    color: #020887;
+    margin-top: 2.5%;
+}
+#ppx, #ppy, #pllx, #plly,#ppx2, #ppy2, #pllx2, #plly2{
+    margin-bottom: 2%;
+    align-self: center;
+    width: 30%;
+    margin-left: 20px;
+    margin-right: 0px  !important;
+}
+.entradasT{
+    width: 30%;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+.T_ini, .T_fini{
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.T_ini h6, .T_fini h6{
+    color: #020887;
+    margin-top: 2.5%;
+}
+#ti, #tf{
+    width: 40%;
+    margin-bottom: 2%;
 }

@@ -68,10 +68,12 @@ input[type=button]:hover {
 }
 
 /* VELOCIDAD MEDIA VECTORES */
+
 .GraficaSimV {
     border-radius: 10px;
-    margin: 2.5%;
-    justify-content: center;
+    margin-left: 2%;
+    margin-top: 2%;
+    /* justify-content: center; */
     display: flex;
     /* border: 2px solid red; */
 }
@@ -80,13 +82,25 @@ input[type=button]:hover {
     border-radius: inherit;
     height: 450px;
     margin-right: 10px;
-    width: 1000px;
+    width: 600px;
     border: 3px solid blue;
 }
 
 #plot {
     border-radius: inherit;
     border: 3px solid blue;
+}
+.Salidas{
+    /* text-align: center; */
+    border: 3px solid blue;
+    width: 300px;
+    border-radius: inherit;
+    margin-left: 10px;
+    padding: 2.5%;
+    font-size: small;
+}
+.Salidas h1{
+    text-align: center;
 }
 .FormularioV{
     display: flex;

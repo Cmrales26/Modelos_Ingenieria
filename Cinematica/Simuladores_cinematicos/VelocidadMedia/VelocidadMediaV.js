@@ -16,7 +16,7 @@ function AddVector() {
     var vfy2 = document.getElementById("plly2").value;
 
     //TIEMPO
-    var ti = parseFloat(document.getElementById("ti").value) 
+    var ti = parseFloat(document.getElementById("ti").value)
     var tf = parseFloat(document.getElementById("tf").value)
 
 
@@ -61,14 +61,20 @@ function AddVector() {
     var data = [p_0, A, B, PC];
 
     Plotly.newPlot(Plot, data, layout);
-    var mg1 = TmagnitudV(vix, vfx, viy,vfy); var mg2 = TmagnitudV(vix2, vfx2, viy2,vfy2);
-    var ba = mg2 - mg1;
-    if (mg2 == undefined) {
-        Salidas(vix,vfx,viy,vfy,"","","","",mg1.toFixed(2),"","",ti,tf)
-    }else{
-        Salidas(vix,vfx,viy,vfy,vix2,vfx2,viy2,vfy2,mg1.toFixed(2),mg2.toFixed(2),ba.toFixed(2),ti,tf)
+    var mg1 = TmagnitudV(vix, vfx, viy, vfy); var mg2 = TmagnitudV(vix2, vfx2, viy2, vfy2);
+    var ba;
+    if (mg2 > mg1) {
+        ba = mg2 - mg1;
+    } else {
+        ba = mg1 - mg2
     }
-    
+    if (mg2 == undefined) {
+        Salidas(vix, vfx, viy, vfy, "", "", "", "", mg1.toFixed(2), "", "", ti, tf)
+    } else {
+
+        Salidas(vix, vfx, viy, vfy, vix2, vfx2, viy2, vfy2, mg1.toFixed(2), mg2.toFixed(2), ba.toFixed(2), ti, tf)
+    }
+
 }
 
 function Solver() {
@@ -84,19 +90,24 @@ function Solver() {
     var vfx2 = parseFloat(document.getElementById("pllx2").value);
     var vfy2 = parseFloat(document.getElementById("plly2").value);
 
-    var ti = parseFloat(document.getElementById("ti").value) 
+    var ti = parseFloat(document.getElementById("ti").value)
     var tf = parseFloat(document.getElementById("tf").value)
     var respuesta;
-    var mg1 = TmagnitudV(vix, vfx, viy,vfy);var mg2 = TmagnitudV(vix2, vfx2, viy2,vfy2);
+    var mg1 = TmagnitudV(vix, vfx, viy, vfy); var mg2 = TmagnitudV(vix2, vfx2, viy2, vfy2);
     var T = tf - ti;
-    var D = mg2 - mg1;
+    var D;
+    if (mg2 > mg1) {
+        D = mg2 - mg1;
+    } else {
+        D = mg1 - mg2
+    }
     var respu = document.getElementById("Respuesta-valor")
     if (mg2 == undefined) {
-        respuesta = mg1/T
-        respu. innerHTML = "Vm = ΔD/ΔT = " + mg1.toFixed(2) + "m /" + T.toFixed(2) + "s = " + respuesta.toFixed(2) + "m/s" 
-    }else{
-        respuesta = D/T
-        respu. innerHTML = "Vm = ΔD/ΔT = " + D.toFixed(2) + "m /" + T.toFixed(2) + "s = " + respuesta.toFixed(2) + "m/s" 
+        respuesta = mg1 / T
+        respu.innerHTML = "Vm = ΔD/ΔT = " + mg1.toFixed(2) + "m /" + T.toFixed(2) + "s = " + respuesta.toFixed(2) + "m/s"
+    } else {
+        respuesta = D / T
+        respu.innerHTML = "Vm = ΔD/ΔT = " + D.toFixed(2) + "m /" + T.toFixed(2) + "s = " + respuesta.toFixed(2) + "m/s"
     }
 }
 
@@ -123,7 +134,7 @@ function TmagnitudV(vix, vfx, viy, vfy) {
     }
     return magnitud
 }
-function Salidas(vix, vfx, viy, vfy,vix2, vfx2, viy2, vfy2,LongitudV1, LongitudV2, ba, ti, tf) {
+function Salidas(vix, vfx, viy, vfy, vix2, vfx2, viy2, vfy2, LongitudV1, LongitudV2, ba, ti, tf) {
     var outs = document.getElementById("Salidas")
-    outs.innerHTML = "<h1> VECTORES </h1> <br> Vector A = (" + vix + " , " +viy+") - (" + vfx + " , " + vfy + ")<br> Vector B = (" + vix2 + "," +viy2+") - (" + vfx2 + " , " + vfy2 + ")<br> Vector A - B = (" + vfx + " , " + vfy +") - (" + vfx2 + " , " + vfy2 + ") <br><br> <h1> Longitudes </h1><br> Longitud A = " + LongitudV1 +"m <br> Longitud B = " + LongitudV2 +"m <br> Longitud B-A = " + ba + "m<br><br> <h1>Tiempo</h1><br> Tiempo 1 = " + ti + "s<br> Tiempo 2 = " + tf + "s <br>"   ;
+    outs.innerHTML = "<h1> VECTORES </h1> <br> Vector A = (" + vix + " , " + viy + ") - (" + vfx + " , " + vfy + ")<br> Vector B = (" + vix2 + "," + viy2 + ") - (" + vfx2 + " , " + vfy2 + ")<br> Vector A - B = (" + vfx + " , " + vfy + ") - (" + vfx2 + " , " + vfy2 + ") <br><br> <h1> Longitudes </h1><br> Longitud A = " + LongitudV1 + "m <br> Longitud B = " + LongitudV2 + "m <br> Longitud B-A = " + ba + "m<br><br> <h1>Tiempo</h1><br> Tiempo 1 = " + ti + "s<br> Tiempo 2 = " + tf + "s <br>";
 }

@@ -71,11 +71,12 @@ input[type=button]:hover {
 
 .GraficaSimV {
     border-radius: 10px;
-    margin-left: 2%;
+    margin-left: 4%;
+    margin-right: 4%;
     margin-top: 2%;
     justify-content: center;
     display: flex;
-    /* border: 2px solid red; */
+    /* border: 2px solid red; */;
 }
 
 #SimulacionV {
@@ -83,16 +84,16 @@ input[type=button]:hover {
     height: 450px;
     margin-right: 10px;
     width: 600px;
-    border: 3px solid blue;
+    border: 1px solid blue;
 }
 
 #plot {
     border-radius: inherit;
-    border: 3px solid blue;
+    border: 1px solid blue;
 }
 .Salidas{
     /* text-align: center; */
-    border: 3px solid blue;
+    border: 1px solid blue;
     width: 300px;
     border-radius: inherit;
     margin-left: 10px;
@@ -137,7 +138,7 @@ input[type=button]:hover {
 }
 hr{
     background-color: #020887;
-    height: 2%;
+    height: 1%;
     border: none;
     width: 90%;
     margin: auto;
@@ -177,4 +178,7 @@ h6{
 #ti, #tf{
     width: 40%;
     margin-bottom: 2%;
+}
+.logo p{
+    font-size: 10px;
 }

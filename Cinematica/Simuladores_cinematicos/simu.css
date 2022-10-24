@@ -27,11 +27,13 @@
     text-decoration: underline;
 }
 
-.botocito{
+.botocito {
     margin-top: 1%;
 }
 
-input[type=number] {
+input[type=number],
+input[type=text],
+input[type=submit] {
     border: 1px solid #020887;
     border-radius: 10px;
     width: 15%;
@@ -76,7 +78,8 @@ input[type=button]:hover {
     margin-top: 2%;
     justify-content: center;
     display: flex;
-    /* border: 2px solid red; */;
+    /* border: 2px solid red; */
+    ;
 }
 
 #SimulacionV {
@@ -91,7 +94,8 @@ input[type=button]:hover {
     border-radius: inherit;
     border: 1px solid blue;
 }
-.Salidas{
+
+.Salidas {
     /* text-align: center; */
     border: 1px solid blue;
     width: 300px;
@@ -100,27 +104,33 @@ input[type=button]:hover {
     padding: 2.5%;
     font-size: small;
 }
-.Salidas h1{
+
+.Salidas h1 {
     text-align: center;
 }
-.FormularioV{
+
+.FormularioV {
     display: flex;
     flex-direction: column;
     margin: 2%;
     justify-content: center;
     align-items: center;
 }
-.FormularioV .botocitoV{
-    margin-left:10%;
+
+.FormularioV .botocitoV {
+    margin-left: 10%;
 }
-.botocitoV{
+
+.botocitoV {
     margin: 0;
 }
-.EntradasV{
+
+.EntradasV {
     /* border: 1px solid red; */
     display: flex;
 }
-.botones{
+
+.botones {
     margin-right: 6%;
     margin-top: 2%;
     display: flex;
@@ -129,56 +139,141 @@ input[type=button]:hover {
     justify-content: center;
     align-items: center;
 }
-#aggv1, #ResultadoV{
+
+#aggv1,
+#ResultadoV {
     padding: 6% 50%;
 }
 
-.vector1 h2, .vector2 h2{
+.vector1 h2,
+.vector2 h2 {
     text-align: center;
 }
-hr{
+
+hr {
     background-color: #020887;
     height: 1%;
     border: none;
     width: 90%;
     margin: auto;
 }
-.p_partida, .p_llegada{
+
+.p_partida,
+.p_llegada {
     width: 100%;
     margin: 2%;
     display: flex;
     flex-direction: row;
 }
-h6{
+
+h6 {
     color: #020887;
     margin-top: 2.5%;
 }
-#ppx, #ppy, #pllx, #plly,#ppx2, #ppy2, #pllx2, #plly2{
+
+#ppx,
+#ppy,
+#pllx,
+#plly,
+#ppx2,
+#ppy2,
+#pllx2,
+#plly2 {
     margin-bottom: 2%;
     align-self: center;
     width: 30%;
     margin-left: 20px;
-    margin-right: 0px  !important;
+    margin-right: 0px !important;
 }
-.entradasT{
+
+.entradasT {
     width: 30%;
     text-align: center;
     /* border: 1px solid red; */
 }
-.T_ini, .T_fini{
+
+.T_ini,
+.T_fini {
     margin-top: 2%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.T_ini h6, .T_fini h6{
+
+.T_ini h6,
+.T_fini h6 {
     color: #020887;
     margin-top: 2.5%;
 }
-#ti, #tf{
+
+#ti,
+#tf {
     width: 40%;
     margin-bottom: 2%;
 }
-.logo p{
+
+.logo p {
     font-size: 10px;
+}
+
+/* VELOCIDAD INSTANTANEA */
+.GraficaSimVI {
+    display: flex;
+    margin: 2%;
+}
+
+#plotVI {
+    border: 1px solid #020887;
+    width: 100%;
+    height: 450px;
+    margin: 1.5%;
+    border-radius: 10px;
+}
+
+#SimulacionVI {
+    margin: 1.5%;
+    height: 450px;
+    width: 60%;
+    border: 1px solid #020887;
+    border-radius: 10px;
+}
+
+.EntradasVI {
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+}
+
+#eq,
+#testudio {
+    width: 70%;
+}
+
+#eq {
+    display: flex;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.Actions {
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    gap: 10%
+}
+
+#DrawVector {
+    padding: 12% 50%;
+}
+
+#ResultadoVI {
+    padding: 10% 50%;
+}
+
+.botonesVI {
+    /* border: 1px solid black; */
+    display: inline-flex;
+    gap: 60%;
+    justify-content: space-between;
 }

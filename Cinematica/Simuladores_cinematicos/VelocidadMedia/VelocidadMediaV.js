@@ -345,7 +345,7 @@ function Simular() {
 
             strings();
             sleep(.1);
-            ρσ_interpolate_kwargs.call(this, display, [ρσ_desugar_kwargs({background: vector(250, 250, 250)})]);
+            ρσ_interpolate_kwargs.call(this, canvas, [ρσ_desugar_kwargs({width: 520, height: 420, background: vector(250, 250, 250)})]);
             "3";
             p_ix = parseFloat(document.getElementById("pllx").value);
             "4";

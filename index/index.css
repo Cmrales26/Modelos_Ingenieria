@@ -11,7 +11,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    background-color: #Fafafa;
+    background-color: rgb(250, 250, 250);
 }
 body::-webkit-scrollbar {
     background-color: rgba(0, 0, 0, 0.3);
@@ -22,6 +22,7 @@ body::-webkit-scrollbar-thumb {
     margin-top: 4%;
 }
 header {
+    margin-bottom: 2%;
     background-color: #020887;
     width: 100%;
     font-family:'Segoe UI';
@@ -175,5 +176,7 @@ footer {
 }
 .glowscript-canvas-wrapper{
     background-color: none;
-    padding-top: 2%;
+    padding: 2%;
+    border: 1px solid #020887;
+    border-radius: 10px;
 }

@@ -67,6 +67,7 @@ function simulacion (){
             var strings = ρσ_modules.pythonize.strings;
         
             strings();
+            ρσ_interpolate_kwargs.call(this, display, [ρσ_desugar_kwargs({background: vector(250, 250, 250)})]);
             "2";
             p_i = vector(0, 0, 0);
             "3";
@@ -82,7 +83,7 @@ function simulacion (){
             "9";
             pelota2 = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({pos: p_i, color: color.blue, radius: radi,make_trail: true})]);
             "10";
-            wall = ρσ_interpolate_kwargs.call(this, box, [ρσ_desugar_kwargs({pos: vector(final, 0, 0), color: color.red, axis: vector(1, 0, 0), size: vector(1, radi["/"](5), 20)})]);
+            // wall = ρσ_interpolate_kwargs.call(this, box, [ρσ_desugar_kwargs({pos: vector(final, 0, 0), color: color.red, axis: vector(1, 0, 0), size: vector(1, radi["/"](5), 20)})]);
             "11";
             flecha = ρσ_interpolate_kwargs.call(this, arrow, [ρσ_desugar_kwargs({pos: p_i, size: vector(final/2, 10, 0), axis: vector(1, 0, 0), color: color.red})]);
             "13";

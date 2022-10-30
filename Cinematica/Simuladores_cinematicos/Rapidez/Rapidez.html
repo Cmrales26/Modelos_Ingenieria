@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../index/index.css">
     <link rel="stylesheet" href="../simu.css">
+    <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+    <script type="text/javascript" src="https://www.glowscript.org/package/glow.3.2.min.js"></script>
+    <script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.2.min.js"></script>
     <title>Rapidez</title>
 </head>
 
@@ -14,7 +18,7 @@
     <header id="header">
         <div class="container_header">
             <div class="logo">
-                <h2><a href="#">RAPIDEZ MEDIA</a></h2>
+                <h2><a href="../../../index/index.html">RAPIDEZ MEDIA</a></h2>
             </div>
             <nav id="nav">
                 <ul class="nav-menu">
@@ -28,9 +32,7 @@
 
     <center>
         <div class="Simulacion">
-            <canvas id="Simulacion">
-                <img src="https://www.fisicaenlinea.com/04cinematica/images/rapidezyvelocidad02.jpg" alt="">
-            </canvas>
+            <div id="Simulacion" class="glowscript"></div>
             <div class="Respuesta">
                 <h1 id="Respuesta-valor"></h1>
             </div>
@@ -38,7 +40,7 @@
     </center>
 
     <div class="Formulario">
-        <input type="number" placeholder="DISTANCIA (KM)" id="Distancia" min="0">
+        <input type="number" placeholder="DISTANCIA (m)" id="Distancia" min="0">
         <input type="number" placeholder="TIEMPO INICIAL (S)" id="T_i" min="0">
         <input type="number" placeholder="TIEMPO FINAL (S)" id="T_f" min="0">
         <div class="botocito">

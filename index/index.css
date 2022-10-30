@@ -35,6 +35,7 @@ header {
 }
 .logo a{
     color: white;
+    text-decoration: none;
 }
 .container_header {
     max-width: 1200px;
@@ -64,12 +65,14 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fafafa;
+    text-decoration: none;
+    color: #fafafa !important;
     font-size: 16px;
     transition: .2s;
 }
 nav ul li a:hover{
     font-weight: bold;
+    text-decoration: none;
 }
 
 .simuladores{
@@ -169,4 +172,8 @@ footer {
     border: none;
     height: 1px;
     background-color: #7a7a7a;
+}
+.glowscript-canvas-wrapper{
+    background-color: none;
+    padding-top: 2%;
 }

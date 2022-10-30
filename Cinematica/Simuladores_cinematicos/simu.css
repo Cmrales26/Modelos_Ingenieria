@@ -5,8 +5,8 @@
 #Simulacion {
     margin-top: 2%;
     border: 1px solid blue;
-    width: 1200px;
-    height: 350px;
+    width: 577px;
+    height: 360px;
 }
 
 .Respuesta {
@@ -93,6 +93,7 @@ input[type=button]:hover {
 #plot {
     border-radius: inherit;
     border: 1px solid blue;
+    margin-left: 2%;
 }
 
 .Salidas {
@@ -236,6 +237,7 @@ h6 {
     width: 60%;
     border: 1px solid #020887;
     border-radius: 10px;
+    display: flex;
 }
 
 .EntradasVI {

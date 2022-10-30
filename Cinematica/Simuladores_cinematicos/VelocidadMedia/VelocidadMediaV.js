@@ -21,10 +21,10 @@ function AddVector() {
     var mg1;
     var mg2;
 
-    if(isNaN(vix2)) {
-        mg1 = TmagnitudV(vix, vfx, viy, vfy); 
-    }else{
-        mg1 = TmagnitudV(vix, vfx, viy, vfy); 
+    if (isNaN(vix2)) {
+        mg1 = TmagnitudV(vix, vfx, viy, vfy);
+    } else {
+        mg1 = TmagnitudV(vix, vfx, viy, vfy);
         mg2 = TmagnitudV(vix2, vfx2, viy2, vfy2);
     }
 
@@ -190,8 +190,7 @@ function AddVector() {
     }
 }
 
-function Solver() {
-    AddVector()
+function respuesta() {
     var vix = parseFloat(document.getElementById("ppx").value);
     var viy = parseFloat(document.getElementById("ppy").value);
     var vfx = parseFloat(document.getElementById("pllx").value);
@@ -205,14 +204,14 @@ function Solver() {
 
     var ti = parseFloat(document.getElementById("ti").value)
     var tf = parseFloat(document.getElementById("tf").value)
-    var respuesta;
     var mg1;
     var mg2;
+    var respuesta;
 
-    if(isNaN(vix2)) {
-        mg1 = TmagnitudV(vix, vfx, viy, vfy); 
-    }else{
-        mg1 = TmagnitudV(vix, vfx, viy, vfy); 
+    if (isNaN(vix2)) {
+        mg1 = TmagnitudV(vix, vfx, viy, vfy);
+    } else {
+        mg1 = TmagnitudV(vix, vfx, viy, vfy);
         mg2 = TmagnitudV(vix2, vfx2, viy2, vfy2);
     }
     var T = tf - ti;
@@ -230,6 +229,13 @@ function Solver() {
         respuesta = D / T
         respu.innerHTML = "Vm = ΔD/ΔT = " + D.toFixed(2) + "m /" + T.toFixed(2) + "s = " + respuesta.toFixed(2) + "m/s"
     }
+    return respuesta;
+}
+
+function Solver() {
+    respuesta()
+    AddVector()
+    Simular()
 }
 
 function TmagnitudV(vix, vfx, viy, vfy) {
@@ -250,28 +256,233 @@ function TmagnitudV(vix, vfx, viy, vfy) {
         var rx1 = vix - vfx;
         var ry1 = vfy - viy;
         magnitud = Math.sqrt((Math.pow(rx1, 2) + Math.pow(ry1, 2)))
-    }else{
-        if(vix == vfx){
+    } else {
+        if (vix == vfx) {
             var rx1 = 0;
             if (viy > vfy) {
-                var ry1 = viy - vfy 
-            }else{
+                var ry1 = viy - vfy
+            } else {
                 var ry1 = vfy - viy
             }
             magnitud = Math.sqrt((Math.pow(rx1, 2) + Math.pow(ry1, 2)))
-        }else if(viy == vfy){
+        } else if (viy == vfy) {
             ry1 = 0;
             if (vix > vfx) {
                 var rx1 = vix - vfx;
-            }else{
+            } else {
                 var rx1 = vfx - vix
             }
             magnitud = Math.sqrt((Math.pow(rx1, 2) + Math.pow(ry1, 2)))
-        }      
+        }
     }
     return magnitud
 }
 function Salidas(vix, vfx, viy, vfy, vix2, vfx2, viy2, vfy2, LongitudV1, LongitudV2, ba, ti, tf) {
     var outs = document.getElementById("Salidas")
     outs.innerHTML = "<h1> VECTORES </h1> <br> Vector A = (" + vix + " , " + viy + ") - (" + vfx + " , " + vfy + ")<br> Vector B = (" + vix2 + "," + viy2 + ") - (" + vfx2 + " , " + vfy2 + ")<br> Vector A - B = (" + vfx + " , " + vfy + ") - (" + vfx2 + " , " + vfy2 + ") <br><br> <h1> Longitudes </h1><br> Longitud A = " + LongitudV1 + "m <br> Longitud B = " + LongitudV2 + "m <br> Longitud B-A = " + ba + "m<br><br> <h1>Tiempo</h1><br> Tiempo 1 = " + ti + "s<br> Tiempo 2 = " + tf + "s <br>";
+}
+
+function Simular() {
+    !(function () {
+        ;
+        var ρσ_modules = {};
+        ρσ_modules.pythonize = {};
+
+        (function () {
+            function strings() {
+                var string_funcs, exclude, name;
+                string_funcs = set("capitalize strip lstrip rstrip islower isupper isspace lower upper swapcase center count endswith startswith find rfind index rindex format join ljust rjust partition rpartition replace split rsplit splitlines zfill".split(" "));
+                if (!arguments.length) {
+                    exclude = (function () {
+                        var s = ρσ_set();
+                        s.jsset.add("split");
+                        s.jsset.add("replace");
+                        return s;
+                    })();
+                } else if (arguments[0]) {
+                    exclude = Array.prototype.slice.call(arguments);
+                } else {
+                    exclude = null;
+                }
+                if (exclude) {
+                    string_funcs = string_funcs.difference(set(exclude));
+                }
+                var ρσ_Iter0 = string_funcs;
+                ρσ_Iter0 = ((typeof ρσ_Iter0[Symbol.iterator] === "function") ? (ρσ_Iter0 instanceof Map ? ρσ_Iter0.keys() : ρσ_Iter0) : Object.keys(ρσ_Iter0));
+                for (var ρσ_Index0 of ρσ_Iter0) {
+                    name = ρσ_Index0;
+                    (ρσ_expr_temp = String.prototype)[(typeof name === "number" && name < 0) ? ρσ_expr_temp.length + name : name] = (ρσ_expr_temp = ρσ_str.prototype)[(typeof name === "number" && name < 0) ? ρσ_expr_temp.length + name : name];
+                }
+            };
+            if (!strings.__module__) Object.defineProperties(strings, {
+                __module__: { value: "pythonize" }
+            });
+
+            ρσ_modules.pythonize.strings = strings;
+        })();
+        async function __main__() {
+            "use strict";
+            var display = canvas;
+            var scene = canvas();
+
+            function input(arg) {
+                arg = arg || {}
+                if (arg.prompt !== undefined && arg.prompt != '') return prompt(arg.prompt)
+                else if (typeof arg === 'string') return prompt(arg)
+                else return prompt()
+            }
+
+            var version, print, arange, __name__, type, ρσ_ls, p_ix, p_iy, speed, p_fx, p_fy, movil, r;
+            version = ρσ_list_decorate(["3.2", "glowscript"]);
+            Array.prototype['+'] = function (r) { return this.concat(r) }
+            Array.prototype['*'] = function (r) { return __array_times_number(this, r) }
+            window.__GSlang = "vpython";
+            print = GSprint;
+            arange = range;
+            __name__ = "__main__";
+            type = pytype;
+            var strings = ρσ_modules.pythonize.strings;
+
+            strings();
+            sleep(.1);
+            "3";
+            p_ix = parseFloat(document.getElementById("pllx").value);
+            "4";
+            p_iy = parseFloat(document.getElementById("plly").value);
+            "5";
+            speed = respuesta();
+            "6";
+            p_fx = parseFloat(document.getElementById("pllx2").value);
+            "7";
+            p_fy = parseFloat(document.getElementById("plly2").value);
+            "9";
+            movil = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({ pos: vector(p_ix, p_iy, 0), radius: 5, color: color.red, make_trail: true })]);
+            "11";
+            r = vector(p_ix, p_iy, 0);
+            "13";
+            if (r.x[">"](p_fx) || r.y[">"](p_fy)) {
+                "14";
+                while (r.x[">"](p_fx) || r.y[">"](p_fy)) {
+                    "15";
+                    (await rate(speed));
+                    "16";
+                    movil.pos = r;
+                    "17";
+                    r.x = r.x["-"](1["*"](1));
+                    "18";
+                    r.y = r.y["-"](1["*"](1));
+                    "19";
+                    print(r);
+                    "20";
+                }
+            } else if (r.x["<"](p_fx) && r.y["<"](p_fy)) {
+                "21";
+                while (r.x["<"](p_fx) || r.y["<"](p_fy)) {
+                    "22";
+                    (await rate(speed));
+                    "23";
+                    movil.pos = r;
+                    "24";
+                    r.x = r.x["+"](1);
+                    "25";
+                    r.y = r.y["+"](1);
+                    "26";
+                    print(r);
+                    "28";
+                }
+            } else if (r.x[">"](p_fx) && r.y["<"](p_fy)) {
+                "29";
+                while (r.x[">"](p_fx) && r.y["<"](p_fy)) {
+                    "30";
+                    (await rate(speed));
+                    "31";
+                    movil.pos = r;
+                    "32";
+                    r.x = r.x["-"](1["*"](1));
+                    "33";
+                    r.y = r.y["+"](1);
+                    "34";
+                    print(r);
+                    "36";
+                }
+            } else if (r.x["<"](p_fx) && r.y[">"](p_fy)) {
+                "37";
+                while (r.x["<"](p_fx) && r.y[">"](p_fy)) {
+                    "38";
+                    (await rate(speed));
+                    "39";
+                    movil.pos = r;
+                    "40";
+                    r.x = r.x["+"](1);
+                    "41";
+                    r.y = r.y["-"](1["*"](1));
+                    "42";
+                    print(r);
+                    "43";
+                }
+            } else if (r.x = p_fx) {
+                "44";
+                if (r.y["<"](p_fy)) {
+                    "45";
+                    while (r.y["<"](p_fy)) {
+                        "46";
+                        (await rate(speed));
+                        "47";
+                        movil.pos = r;
+                        "48";
+                        r.y = r.y["+"](1);
+                        "49";
+                        print(r);
+                        "50";
+                    }
+                } else if (r.y[">"](p_fy)) {
+                    "51";
+                    while (r.y[">"](p_fy)) {
+                        "52";
+                        (await rate(speed));
+                        "53";
+                        movil.pos = r;
+                        "54";
+                        r.y = r.y["-"](1["*"](1));
+                        "55";
+                        print(r);
+                        "56";
+                    }
+                }
+            } else if (r.y = p_y) {
+                "57";
+                if (r.x["<"](p_fx)) {
+                    "58";
+                    while (r.x["<"](p_fx)) {
+                        "59";
+                        (await rate(speed));
+                        "60";
+                        movil.pos = r;
+                        "61";
+                        r.x = r.x["+"](1);
+                        "62";
+                        print(r);
+                        "63";
+                    }
+                } else if (r.x[">"](p_fx)) {
+                    "64";
+                    while (r.x[">"](p_fx)) {
+                        "65";
+                        (await rate(speed));
+                        "66";
+                        movil.pos = r;
+                        "67";
+                        r.x = r.x["-"](1["*"](1));
+                        "68";
+                        print(r);
+                    }
+                }
+            }
+        };
+        if (!__main__.__module__) Object.defineProperties(__main__, {
+            __module__: { value: null }
+        });
+
+        ; $(function () { window.__context = { glowscript_container: $("#SimulacionV").removeAttr("id") }; __main__() })
+    })()
 }

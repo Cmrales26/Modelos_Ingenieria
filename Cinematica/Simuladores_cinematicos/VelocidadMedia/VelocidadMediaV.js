@@ -74,7 +74,7 @@ function AddVector() {
         };
 
         var layout = {
-            plot_bgcolor: "#fafafa",
+            plot_bgcolor: "white",
             paper_bgcolor: "transparent",
             showlegend: false,
             width: 400,
@@ -140,7 +140,7 @@ function AddVector() {
         };
 
         var layout = {
-            plot_bgcolor: "#fafafa",
+            plot_bgcolor: "white",
             paper_bgcolor: "transparent",
             showlegend: false,
             width: 400,
@@ -288,6 +288,15 @@ function Simular() {
         var ρσ_modules = {};
         ρσ_modules.pythonize = {};
 
+        let simu = document.getElementById('SimulacionV');
+        if (simu == null) {
+            $('.SimulacionV').attr('id', 'SimulacionV');
+            const myNode = document.getElementById("SimulacionV");
+            while (myNode.firstChild) {
+                myNode.removeChild(myNode.lastChild);
+            }
+        }
+
         (function () {
             function strings() {
                 var string_funcs, exclude, name;
@@ -345,7 +354,7 @@ function Simular() {
 
             strings();
             sleep(.1);
-            ρσ_interpolate_kwargs.call(this, canvas, [ρσ_desugar_kwargs({width: 520, height: 420, background: vector(250, 250, 250)})]);
+            ρσ_interpolate_kwargs.call(this, canvas, [ρσ_desugar_kwargs({ width: 520, height: 420, background: vector(250, 250, 250) })]);
             "3";
             p_ix = parseFloat(document.getElementById("pllx").value);
             "4";
@@ -357,7 +366,7 @@ function Simular() {
             "7";
             p_fy = parseFloat(document.getElementById("plly2").value);
             "9";
-            movil = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({ pos: vector(p_ix, p_iy, 0), radius: 5, color: color.red, make_trail: true })]);
+            movil = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({ pos: vector(p_ix, p_iy, 0), radius: 5, color: color.blue, make_trail: true })]);
             "11";
             r = vector(p_ix, p_iy, 0);
             "13";
@@ -421,60 +430,66 @@ function Simular() {
                     print(r);
                     "43";
                 }
-            } else if (r.x = p_fx) {
-                "44";
+            } else if ((r.x === p_fx || typeof r.x === "object" && ρσ_equals(r.x, p_fx))) {
+                "45";
+                print("HOLA x");
+                "46";
+                print("inicial x:"["+"](p_ix), "inicial y: "["+"](p_iy), p_fx, p_fy);
+                "47";
                 if (r.y["<"](p_fy)) {
-                    "45";
+                    "48";
                     while (r.y["<"](p_fy)) {
-                        "46";
-                        (await rate(speed));
-                        "47";
-                        movil.pos = r;
-                        "48";
-                        r.y = r.y["+"](1);
                         "49";
-                        print(r);
+                        (await rate(speed));
                         "50";
+                        movil.pos = r;
+                        "51";
+                        r.y = r.y["+"](1);
+                        "52";
+                        print(r);
+                        "53";
                     }
                 } else if (r.y[">"](p_fy)) {
-                    "51";
+                    "54";
                     while (r.y[">"](p_fy)) {
-                        "52";
-                        (await rate(speed));
-                        "53";
-                        movil.pos = r;
-                        "54";
-                        r.y = r.y["-"](1["*"](1));
                         "55";
-                        print(r);
+                        (await rate(speed));
                         "56";
+                        movil.pos = r;
+                        "57";
+                        r.y = r.y["-"](1["*"](1));
+                        "58";
+                        print(r);
+                        "60";
                     }
                 }
-            } else if (r.y = p_y) {
-                "57";
+            } else if ((r.y === p_fy || typeof r.y === "object" && ρσ_equals(r.y, p_fy))) {
+                "61";
+                print("HOLA Y");
+                "62";
                 if (r.x["<"](p_fx)) {
-                    "58";
+                    "63";
                     while (r.x["<"](p_fx)) {
-                        "59";
+                        "64";
                         (await rate(speed));
-                        "60";
+                        "65";
                         movil.pos = r;
-                        "61";
+                        "66";
                         r.x = r.x["+"](1);
-                        "62";
+                        "67";
                         print(r);
-                        "63";
+                        "68";
                     }
                 } else if (r.x[">"](p_fx)) {
-                    "64";
+                    "69";
                     while (r.x[">"](p_fx)) {
-                        "65";
+                        "70";
                         (await rate(speed));
-                        "66";
+                        "71";
                         movil.pos = r;
-                        "67";
+                        "72";
                         r.x = r.x["-"](1["*"](1));
-                        "68";
+                        "73";
                         print(r);
                     }
                 }

@@ -16,6 +16,15 @@ function simulacion (){
         var ρσ_modules = {};
         ρσ_modules.pythonize = {};
         
+        let simu = document.getElementById('Simulacion');
+        if (simu == null) {
+            $('.Simulacion').attr('id', 'Simulacion');
+            const myNode = document.getElementById("Simulacion");
+            while (myNode.firstChild) {
+                myNode.removeChild(myNode.lastChild);
+            }
+        }
+        
         (function(){
             function strings() {
                 var string_funcs, exclude, name;

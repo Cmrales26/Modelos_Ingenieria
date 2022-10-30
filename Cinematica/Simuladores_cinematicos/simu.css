@@ -2,11 +2,15 @@
     font-family: sans-serif;
 }
 
-#Simulacion {
+#Simulacion{
+    border-radius: 10px;
     margin-top: 2%;
     border: 1px solid blue;
-    width: 577px;
-    height: 360px;
+    width: 697px;
+    height: 466px;
+}
+.Simulacion{
+    margin-top: 2%;
 }
 
 .Respuesta {

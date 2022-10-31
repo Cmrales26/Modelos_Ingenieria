@@ -175,7 +175,7 @@ function AddVector() {
                 // showgrid: false
             },
             margin: {
-                l: 25,
+                l: 40,
                 r: 25,
                 b: 100,
                 t: 20,
@@ -370,9 +370,9 @@ function Simular() {
             "11";
             r = vector(p_ix, p_iy, 0);
             "13";
-            if (r.x[">"](p_fx) || r.y[">"](p_fy)) {
+            if (r.x[">"](p_fx) && r.y[">"](p_fy)) {
                 "14";
-                while (r.x[">"](p_fx) || r.y[">"](p_fy)) {
+                while (r.x[">"](p_fx) && r.y[">"](p_fy)) {
                     "15";
                     (await rate(speed));
                     "16";
@@ -387,7 +387,7 @@ function Simular() {
                 }
             } else if (r.x["<"](p_fx) && r.y["<"](p_fy)) {
                 "21";
-                while (r.x["<"](p_fx) || r.y["<"](p_fy)) {
+                while (r.x["<"](p_fx) && r.y["<"](p_fy)) {
                     "22";
                     (await rate(speed));
                     "23";
@@ -401,6 +401,7 @@ function Simular() {
                     "28";
                 }
             } else if (r.x[">"](p_fx) && r.y["<"](p_fy)) {
+                console.log("HOLA x > fx")
                 "29";
                 while (r.x[">"](p_fx) && r.y["<"](p_fy)) {
                     "30";
@@ -416,6 +417,7 @@ function Simular() {
                     "36";
                 }
             } else if (r.x["<"](p_fx) && r.y[">"](p_fy)) {
+                console.log("HOLA x < fx")
                 "37";
                 while (r.x["<"](p_fx) && r.y[">"](p_fy)) {
                     "38";

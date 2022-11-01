@@ -41,13 +41,13 @@ function draw() {
     }
 }
 function velocidad_instantanea() {
+    let i = 0;
     const expression = document.getElementById('eq').value
-    const tiempo = parseFloat(document.getElementById('testudio').value)
-    const tiempofinal = parseFloat(document.getElementById('tfinal').value)
+    const tiempo = Math.ceil(parseFloat(document.getElementById('testudio').value));
+    const tiempofinal = Math.ceil(parseFloat(document.getElementById('tfinal').value))
     let respuesta = document.getElementById('Respuesta-valor');
     let velocidades = [];
     if (TieneLetras(expression) == true) {
-        let i = 0;
         let Resultado;
         while (i <= tiempofinal) {
             Resultado = math.derivative(expression, 't').evaluate({ t: i })

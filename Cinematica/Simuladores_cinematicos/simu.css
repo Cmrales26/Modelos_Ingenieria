@@ -229,8 +229,8 @@ h6 {
 
 #plotVI {
     border: 1px solid #020887;
-    width: 100%;
-    height: 450px;
+    width: 550px;
+    height: 451px;
     margin: 1.5%;
     border-radius: 10px;
 }
@@ -238,7 +238,7 @@ h6 {
 #SimulacionVI {
     margin: 1.5%;
     height: 450px;
-    width: 60%;
+    width: 100%;
     border: 1px solid #020887;
     border-radius: 10px;
     display: flex;
@@ -246,13 +246,14 @@ h6 {
 
 .EntradasVI {
     width: 100%;
-    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
 }
 
 #eq,
-#testudio {
+#testudio,
+#tfinal {
+    margin-top: 2%;
     width: 70%;
 }
 
@@ -283,3 +284,24 @@ h6 {
     gap: 60%;
     justify-content: space-between;
 }
+.SimulacionVI{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #020887;
+    border-radius: 10px;
+    align-items: center;
+    margin: auto;
+}
+.SimulacionVI .glowscript-canvas-wrapper{
+    padding: 2%;
+    border: none !important;
+    border-radius: 10px;
+}
+.SimulacionVI #graph0{
+    padding-bottom: 31%;
+}
+.SimulacionVI .modebar{
+    display: none;
+}
+

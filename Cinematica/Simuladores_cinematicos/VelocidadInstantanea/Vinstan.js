@@ -33,7 +33,7 @@ function draw() {
         }
 
         const data = [trace1, p_0]
-        Plotly.newPlot('plotVI', data, layout, { staticPlot: true })
+        Plotly.newPlot('plotVI', data, layout)
     }
     catch (err) {
         console.error(err)

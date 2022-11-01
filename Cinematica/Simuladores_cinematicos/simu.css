@@ -301,7 +301,7 @@ h6 {
 .SimulacionVI #graph0{
     padding-bottom: 31%;
 }
-.SimulacionVI .modebar{
+.SimulacionVI .modebar, #plotVI .modebar{
     display: none;
 }
 

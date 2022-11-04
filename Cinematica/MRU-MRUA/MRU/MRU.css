@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    text-align: justify;
+}
+
+.Teoria {
+    max-width: 65rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 2.5%;
+    margin-top: 2%;
+    
+}
+
+.glowscript-canvas-wrapper {
+    border: none !important;
+    padding: 2%;
+}
+
+.simulacion1 {
+    height: 350px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #020887;
+    text-transform: uppercase;
+}
+
+h3 {
+    color: #020887;
+}
+
+.condiciones {
+    margin-top: 2%;
+}
+
+.entradas-sim-1 {
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+    margin-left: 6%;
+    padding-bottom: 4%;
+}
+#dist-movil{
+    color: #020887;
+    text-align: center;
+    margin-bottom: 4%;
+    margin-top: 2%;
+}
+
+input[type=text] {
+    border: 1px solid rgb(2, 8, 135);
+    border-radius: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: .4%;
+}
+
+.grficav-vs-t .modebar {
+    display: none;
+}
+
+.grficav-vs-t {
+    margin-top: -6%;
+}
+
+.simulacion-pt {
+    padding-top: 4%;
+}
+
+.entradaspt {
+    align-items: center;
+    text-align: center;
+    margin-left: 4%;
+    margin-top: -2%;
+    padding-bottom: 4%;
+}
+
+.in-p-v {
+    margin-bottom: 1.5%;
+}
+
+.aviso-footer p {
+    text-align: center;
+}
+
+#posicion-inicial-ejemplo {
+    text-align: center;
+}
+
+table.GeneratedTable {
+    width: 100%;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-width: 2px;
+    border-color: #020887;
+    border-style: solid;
+    color: #020887;
+}
+
+table.GeneratedTable td,
+table.GeneratedTable th {
+    border-width: 2px;
+    border-color: #020887;
+    border-style: solid;
+    padding: 3px;
+}
+
+table.GeneratedTable thead {
+    background-color: #ffffff;
+}
+#resultadopendiete{
+    color: #020887;
+}
+.siguiente{
+    margin-top: 4%;
+    text-align: right;
+    margin-bottom: 4%;
+    cursor: pointer;
+}
+.siguiente a{
+    font-weight: bold;
+    cursor: pointer;
+    color: gray;
+    transform: 2;
+}
+.siguiente a:hover{
+    font-size: 16.8px;
+    transition: 0.2s ease;
+    color: #020887;
+}

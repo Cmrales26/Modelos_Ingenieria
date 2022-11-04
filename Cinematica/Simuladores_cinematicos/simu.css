@@ -73,6 +73,18 @@ input[type=button]:hover {
     text-align: center;
 }
 
+#VeVectorial{
+    font-weight: 900;
+    font-size: 20px;
+    color: #020887;
+    text-transform: uppercase;
+    margin-bottom: -60%;
+}
+#VeVectorial:hover{
+    font-size: 24px;
+    transition: 0.2s ease;
+}
+
 /* VELOCIDAD MEDIA VECTORES */
 
 .GraficaSimV {
@@ -303,5 +315,29 @@ h6 {
 }
 .SimulacionVI .modebar, #plotVI .modebar{
     display: none;
+}
+.sig-ant{
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.siguiente , .anterior{
+    margin-top: 4%;
+    text-align: right;
+    margin-bottom: 4%;
+    cursor: pointer;
+}
+.siguiente a, .anterior a{
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: gray;
+    transform: 2;
+}
+.siguiente a:hover, .anterior a:hover{
+    font-size: 16.8px;
+    transition: 0.2s ease;
+    color: #020887;
 }
 

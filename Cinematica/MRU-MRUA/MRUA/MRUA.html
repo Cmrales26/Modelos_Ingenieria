@@ -5,59 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimiento Rectolineo Uniforme acelerado</title>
     <link rel="stylesheet" href="../../../index/index.css">
-    <link rel="stylesheet" href="../simu.css">
-    <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
-    <script type="text/javascript" src="https://www.glowscript.org/package/glow.3.2.min.js"></script>
-    <script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.2.min.js"></script>
+    <link rel="stylesheet" href="./MRUA.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Rapidez</title>
 </head>
 
 <body>
     <header id="header">
         <div class="container_header">
             <div class="logo">
-                <h2><a href="../../../index/index.html">RAPIDEZ MEDIA</a></h2>
+                <h2><a href="../../../index/index.html">Movimiento Rectilineo Uniforme Acelerado</a></h2>
             </div>
             <nav id="nav">
                 <ul class="nav-menu">
                     <li><a href="../../../index/index.html">INICIO</a></li>
-                    <li><a href="../../../Todos/todos-simuladores.html">SIMULADORES</a></li>
+                    <li><a href="../../../Todos/todos-simuladores.html">SIMULADORES </a></li>
                     <li><a href="#Footer" class="select">CONTACTO</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+    <section id="informacion">
+        <div class="demas"></div>
 
-    <center>
-        <div class="Simulacion" id="Simulacion"></div>
-        <div class="Respuesta">
-            <h1 id="Respuesta-valor"></h1>
+        <div class="sig-ant">
+            <div class="anterior">
+                <a href="../MRU/MRU.html"><i class="fa-solid fa-circle-left"></i> Movimiento Rectilineo Uniforme</a>
+                
+            </div>
+            <div class="siguiente">
+                <a href="../../Simuladores_cinematicos/Rapidez/Rapidez.html"> Rapidez Media  <i class="fa-solid fa-circle-right"></i></a>
+            </div>
         </div>
-    </center>
 
-    <div class="Formulario">
-        <input type="number" placeholder="DISTANCIA (m)" id="Distancia" min="0">
-        <input type="number" placeholder="TIEMPO INICIAL (S)" id="T_i" min="0">
-        <input type="number" placeholder="TIEMPO FINAL (S)" id="T_f" min="0">
-        <div class="botocito">
-            <input type="button" value="Resultado" id="Resultado">
-        </div>
-    </div>
-
-    <div class="sig-ant">
-        <div class="anterior">
-            <a href="../../MRU-MRUA/MRUA/MRUA.html"><i class="fa-solid fa-circle-left"></i> Movimiento Rectilineo Uniforme Acelerado</a>
-
-        </div>
-        <div class="siguiente">
-            <a href="../../Simuladores_cinematicos/VelocidadMedia/velocidadM.html"> Velocidad Media <i
-                    class="fa-solid fa-circle-right"></i></a>
-        </div>
-    </div>
-
+    </section>
     <Footer id="Footer">
         <div class="container_footer">
             <div class="box_footer">
@@ -77,8 +59,6 @@
             <p>Este sitio ha sido creado para fines académicos.</p>
         </div>
     </Footer>
-
-    <script src="Rapidez.js"></script>
 </body>
 
 </html>

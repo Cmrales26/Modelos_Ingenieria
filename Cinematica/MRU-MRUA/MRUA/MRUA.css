@@ -1,0 +1,22 @@
+.sig-ant{
+    display: flex;
+    justify-content: space-between;
+}
+.siguiente , .anterior{
+    margin-top: 4%;
+    text-align: right;
+    margin-bottom: 4%;
+    cursor: pointer;
+}
+.siguiente a, .anterior a{
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: gray;
+    transform: 2;
+}
+.siguiente a:hover, .anterior a:hover{
+    font-size: 16.8px;
+    transition: 0.2s ease;
+    color: #020887;
+}

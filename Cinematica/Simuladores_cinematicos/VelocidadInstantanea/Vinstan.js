@@ -134,7 +134,7 @@ function recorrido() {
             r = p_i;
             radi = final["/"](40);
             g = ρσ_interpolate_kwargs.call(this, graph, [ρσ_desugar_kwargs({ width: 800, height: 205, title: "Velocidad Instantanea", xtitle: "<i>Distancia (m)<\/i>", ytitle: "<i>Velocidad (m/s) </i>", scroll: true, xmin: 0, xmax: final, fast: false })]);
-            plot1 = ρσ_interpolate_kwargs.call(this, gcurve, [ρσ_desugar_kwargs({ graph: g, color: color.blue, label: "Velocidad", dot: true, dot_color: color.red })]);
+            plot1 = ρσ_interpolate_kwargs.call(this, gcurve, [ρσ_desugar_kwargs({ graph: g, color: color.blue, label: "Velocidad", dot: true, dot_color: color.blue })]);
             pelota2 = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({ pos: p_i, color: color.blue, radius: radi, make_trail: true, canvas: canva1 })]);
             // pelota = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({pos: vector(final, 0, 0), color: color.red, radius: 0.1, canvas: canva1})]);
             while (r.x["<="](final)) {

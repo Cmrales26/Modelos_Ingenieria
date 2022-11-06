@@ -8,7 +8,6 @@ window.onload = (event) => {
   grafp_vs_t();
   grafp_vs_t();
 };
-
 Velocidad.addEventListener("change", (event) => {
   let simu = document.getElementById("simulacion1");
   if (simu == null) {

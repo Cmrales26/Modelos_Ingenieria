@@ -4,12 +4,14 @@ let aceleracionp_vs_t = document.getElementById("aceleracionp-vs-t");
 let respuesta = document.getElementById("vig");
 let tiempo_estudio = document.getElementById("vi-pt-dat");
 
-grficap_vs_t();
-grafica_v_vs_t();
-grafica_v_vs_t_n();
-grafica_a_vs_t();
-// simulacionCaidaL()
-// TVSDCaidaL()
+window.onload = (event) =>{
+  grficap_vs_t();
+  grafica_v_vs_t();
+  grafica_v_vs_t_n();
+  grafica_a_vs_t();
+};
+
+
 
 function updategrficap_vs_t(params) {
   let simu = document.getElementById("grficap-vs-t");

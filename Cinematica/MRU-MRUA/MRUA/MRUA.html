@@ -8,7 +8,20 @@
     <title>Movimiento Rectolineo Uniforme acelerado</title>
     <link rel="stylesheet" href="../../../index/index.css">
     <link rel="stylesheet" href="./MRUA.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+    <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+    <script type="text/javascript" src="https://www.glowscript.org/package/glow.3.2.min.js"></script>
+    <script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.3.1/math.js"
+        integrity="sha512-Q1qOFs0DNtp9bviP8uSyPm0d1ES7zw8BXZ7AF2XCWIVKHObK6U7mkMZ+SGOf1vF71zI/60lO+FjBTrzaYGRqnw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -27,19 +40,206 @@
         </div>
     </header>
     <section id="informacion">
-        <div class="demas"></div>
+        <div class="Definicion">
+            <h1>Movimiento Rectilineo Uniforme Acelerado</h1>
+            <p style="padding-bottom:2%;">A diferencia del movimiento rectilínea uniforme, en que la aceleración del
+                móvil es 0, en el movimiento rectilíneo uniforme acelerado la aceleración del móvil posee una
+                aceleración constante por lo que, aunque el cambio de velocidad por segundo sea siendo el mismo el
+                cambio de posición con respecto al tiempo es cada vez mayor, ya que se logra alcanzar una mayor
+                distancia en cada intervalo de tiempo. <br><br> El uso del término rectilíneo en la definición de UARM
+                se refiere al movimiento en línea recta. Cuando el movimiento se produce en más de un eje (por ejemplo,
+                en Movimiento del proyectil), dividir el movimiento en componentes basados en los diferentes ejes
+                simplifica su análisis.</p>
+
+            <h2>FORMULAS principales</h2>
+            <p style="font-size: 20px;">
+                $$v_{f} = v_{0}+a\cdot {\Delta t}$$
+                $$x = x_{0} + v_{0}t+\frac{1}{2}at^2$$
+                $$a = \frac{\Delta v}{\Delta t} $$
+            </p>
+
+            <h2>Propiedades</h2>
+            <p>
+            <ul st>
+                <li>La trayectoria es una línea recta y por lo tanto la aceleración normal o centrípetaes cero</li>
+                <li>La velocidad instantánea cambia su magnitud (velocidad) uniformemente: aumenta o disminuye en la
+                    misma cantidad en cada unidad de tiempo. Esto implica el siguiente punto</li>
+                <li>La aceleración tangenciales constante. Por lo tanto, la aceleraciónmediaes la misma que
+                    laaceleración instantáneapara cualquier período estudiado `a=a_{m}`</li>
+            </ul>
+            </p>
+        </div>
+
+        <div class="conceptos-grafico">
+            <h1>Relacion Posicion Tiempo</h1>
+            <p>Como se menciono a medidia que pasa el tiempo la posicion del auto va aimentando de cada vez mas y mas,
+                pues, alcanza una mayor distancia en cada invervalo de tiempo, esta se puede ver representada mediante
+                la siguiente grafica: </p>
+            <h3 style="padding-top: 2% ; color: #020887; text-align:center;">Asumiendo que `t_{0}` es `= 0` y `x_{0}` es
+                `= 0` </h3>
+            <center>
+                <div class="grficap-vs-t" id="grficap-vs-t" style=" height: 300px; width: 700px;"></div>
+            </center>
+            <div class="inputsp-vs-t">
+                <input type="text" id="velocidadp-vs-t" placeholder="Velocidad">
+                <input type="text" id="tiempop-vs-t" placeholder="Tiempo">
+                <input type="text" id="aceleracionp-vs-t" placeholder="Aceleracion">
+            </div>
+            <div class="interpregrapvst">
+                <h2>Analisis de la grafia posicion tiempo</h2>
+                <p>Como se puede observar la Relacion presenste entre la posicion y tiempo da como resultado una curva
+                    lo que significa que el cambio de posicion es cada vez mayor para cada valor en el tiempo esto
+                    sucede gracias a que al aumentar el tiempo el movil avanza mas distancia. Esta relacion esta
+                    definida por la ecuacion `x = x_{0} + v_{0}t+\frac{1}{2}at^2` Por lo que la posicion final es: <br>
+                <h2 id="PosicionFinal"></h2>
+
+                <br> Incluso si la relación gráfica no es una línea, calcular una pendiente aún nos permitiría calcular
+                la velocidad del movil. Tomando dos puntos del gráfico, sería posible determinar la velocidad media,
+                mientras que dibujando la tangente de la curva en un punto dado, obtendríamos la velocidad instantánea.
+
+                <span><br>
+                    <p style="text-align:center; margin-top: 2%;">`v_{m} = \frac{x_{f}-x_{i}}{t_{f}-t_{i}}` &
+                        `v_{i}=\lim_{\Delta t\rightarrow 0}\frac{\Delta x}{\Delta t}`</p>
+                </span> <br>
+
+                Por lo que:
+                <div class="vi-vm">
+                    <table class="GeneratedTable" style="margin-top: 4%;">
+                        <thead>
+                            <tr>
+                                <th>VELOCIDAD MEDIA</th>
+                                <th>VELOCIDAD INSTANTANIA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="vmg"></td>
+                                <td id="vig"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="vi-pt">
+                        <h4>Punto de analisis para `v_{i}`</h4>
+                        <input type="number" id="vi-pt-dat" placeholder="Tiempo (s)">
+                    </div>
+                </div>
+                </p>
+            </div>
+            <h1>Relacion velocidad tiempo</h1>
+            <p style="padding-bottom: 4%;">La relaciónentre velocidad y tiempo en el ARMRAse describe mediante una
+                relación lineal
+                dondevelocidadaumenta a una tasa constante durante la duración total del movimiento. <br><br>
+                Para observar esta relación, es posible representar gráficamente valores de la velocidad de un objeto en
+                función del tiempo.
+
+                Considerando el movimiento de un movil que comienza a moverse después de hacer una parada
+                obligatoria. Notamos el siguiente resultado </p>
+            <div class="grficav-vs-t">
+                <center>
+                    <div class="grficap-vs-t-out" id="grficap-vs-t-out" style=" height: 300px; width: 700px"></div>
+                </center>
+                <div class="inputs-v-vs-t">
+                    <input type="text" id="ac-v-vs-t" placeholder="Aceleración">
+                    <input type="text" id="ti-v-vs-t" placeholder="Tiempo">
+                </div>
+                <div class="analisis-v-vs-t">
+                    <h1>analisis de la grafica velocidad tiempo</h1>
+                    <p>La relación resultante es una función lineal, lo que significa que la velocidad aumentará
+                        constantemente. <br><br>
+                        También podemos considerar la situación opuesta, es decir, un móvil que frena solo para
+                        detenerse en una parada obligatoria. <span style="color: #020887;">Tomando para esta ocacion la
+                            velocidad final de la simulacion pasada usando la ecuacion `v_{f} = v_{0}+a\cdot
+                            \Deltat`,</span>
+                    <h2 id="VelocidadFinal" style="text-align: center; margin-top: 2%;"></h2><br>
+                    <p style="padding-bottom:4%;">veamos que sucede con la grafica cuando el movil disminuye su
+                        aceleración:</p>
+                    </p>
+                    <center>
+                        <div class="grficap-vs-t-out-neg" id="grficap-vs-t-out-neg"
+                            style=" height: 300px; width: 700px"></div>
+                    </center>
+                    <p style="margin-top: -6%;">La relación resultante también es una función lineal: sin embargo, esto
+                        es negativo, lo que
+                        significa que la velocidad disminuirá constantemente. <br><br>
+
+                        Si se calculara la pendiente de estos gráficos, el valor obtenido sería igual al delaceleración
+                        usando la formula `a = \frac{\Delta v}{\Delta t} =` <span id="Aceleracion_v_vs_t"></span>`
+                        m`/`s^2`.Como la gráfica obtenida es una recta, deducimos que la aceleración es constante.
+                    </p>
+                </div>
+            </div>
+            <div class="avst">
+                <h1>Relacion aceleracion vs tiempo</h1>
+                <p>La relaciónentre aceleración y tiempo en MRUA se describe mediante una relación nula durante la cual
+                    la aceleración es constante para la duración total del movimiento. <br><br>Para observar esta
+                    relación, es posible representar gráficamente los valores de aceleración de un objeto en función del
+                    tiempo. Consideramos el movimiento de un móvil que acelera después de hacer una parada obligatoria.
+                    La aceleración del automóvil se determina en diferentes momentos durante su movimiento se vera de la
+                    siguiente manera</p>
+                <h3 style="text-align: center; color: #020887;">Asumiendo que `v_{0} = 0 ` y `t_{0}=0`</h3>
+                <center>
+                    <div class="grafica-a-vs-t" id="grafica-a-vs-t" style=" height: 300px; width: 700px"></div>
+                    <div class="inputsa_vs_t" style="margin-top: -6%; margin-left: 8%;">
+                        <input type="text" id="velocidadavst" placeholder="Velocidad Final">
+                        <input type="text" id="tiempoavst" placeholder="Tiempo final">
+                    </div>
+                </center>
+                <h1>analisis de la grafica Aceleracion tiempo</h1>
+                <p>La relación resultante es una función nula, lo que significa que la aceleración no cambia durante un intervalo de tiempo dado. Por lo tanto, la aceleración es constante durante el viaje del automóvil. <br><br>Si la aceleración estuviera por debajo del eje x, la aceleración sería negativa. Esto significa que
+                el coche cambiaría de marcha en la dirección opuesta a la del Sistema de referencia.</p>
+            </div>
+
+            <div class="ejersicio-caida-libre">
+                <h1>EJERCICIO CAIDA LIBRE</h1>
+                <p>En la física newtoniana, la caída libre es cualquier movimiento de un cuerpo en el que la gravedad es la única fuerza que actúa sobre él. En el contexto de la relatividad general, donde la gravitación se reduce a una curvatura del espacio-tiempo, un cuerpo en caída libre no tiene ninguna fuerza que actúe sobre él.</p>
+                <center>
+                    <div class="simulacionCaidaLibre" id="simulacionCaidaLibre" style=" height: 300px; width: 700px"></div>
+                    <div class="Entradas_caidaLibre" style="margin-top: 6%;">
+                        <input type="text" id="Altura" placeholder="Altura">
+                        <input type="text" id="v_x" placeholder="Velocidad Inicial x">
+                        <input type="text" id="v_y" placeholder="Velocidad en y">
+                    </div>
+                </center>
+            </div>
+            <div class="analisis-grafico">
+                <h1 style="margin-bottom:4%;">analisis grafico</h1>
+                <center>
+                    <div style="display:flex" class="distanciavstiempocaidaL" id="distanciavstiempocaidaL" style=" height: 300px; width: 50%px"></div>
+                    <input type="button" value="Ver graficas" id="Ver_graficas">
+                </center>
+            </div>
+        </div>
 
         <div class="sig-ant">
             <div class="anterior">
                 <a href="../MRU/MRU.html"><i class="fa-solid fa-circle-left"></i> Movimiento Rectilineo Uniforme</a>
-                
+
             </div>
             <div class="siguiente">
-                <a href="../../Simuladores_cinematicos/Rapidez/Rapidez.html"> Rapidez Media  <i class="fa-solid fa-circle-right"></i></a>
+                <a href="../../Simuladores_cinematicos/Rapidez/Rapidez.html"> Rapidez Media <i
+                        class="fa-solid fa-circle-right"></i></a>
             </div>
         </div>
 
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="MRUA.js"></script>
+
     <Footer id="Footer">
         <div class="container_footer">
             <div class="box_footer">

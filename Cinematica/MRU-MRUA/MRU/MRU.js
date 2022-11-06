@@ -1,11 +1,13 @@
-simulador1();
-grafp_vs_t();
-grafp_vs_t();
-
 let Velocidad = document.getElementById("Velocidad");
 let tiempo = document.getElementById("Tiempo");
 let v_vs_t = document.getElementById("grficav-vs-t");
 let dist_movil = document.getElementById("dist-movil");
+
+window.onload = (event) => {
+  simulador1();
+  grafp_vs_t();
+  grafp_vs_t();
+};
 
 Velocidad.addEventListener("change", (event) => {
   let simu = document.getElementById("simulacion1");

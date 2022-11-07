@@ -3,11 +3,10 @@ let tiempo = document.getElementById("Tiempo");
 let v_vs_t = document.getElementById("grficav-vs-t");
 let dist_movil = document.getElementById("dist-movil");
 
-window.onload = (event) => {
-  simulador1();
-  grafp_vs_t();
-  grafp_vs_t();
-};
+  // simulador1();
+  // grafp_vs_t();
+  // grafp_vs_t();
+
 Velocidad.addEventListener("change", (event) => {
   let simu = document.getElementById("simulacion1");
   if (simu == null) {
@@ -194,7 +193,6 @@ function simulador1(params) {
     });
   })();
 }
-grafv_vs_t();
 
 function grafv_vs_t(params) {
   if (Velocidad.value == NaN) {
@@ -210,8 +208,16 @@ function grafv_vs_t(params) {
   };
 
   var layout = {
+    width: 720,
+    height: 310,
     plot_bgcolor: "white",
     paper_bgcolor: "transparent",
+    showlegend: false,
+    margin: {
+      l: 50,
+      r: 50,
+      t: 50,
+    },
   };
   var data = [PC];
 
@@ -224,7 +230,6 @@ let velo = document.getElementById("Velo");
 let tii = document.getElementById("Tii");
 let tif = document.getElementById("Tif");
 let respen = document.getElementById("resultadopendiete");
-grafp_vs_t();
 
 poi.addEventListener("change", (event) => {
   let simu = document.getElementById("simulacion-pt");

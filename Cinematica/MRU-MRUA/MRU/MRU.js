@@ -16,7 +16,7 @@ function simulador1(params) {
   (function () {
     var ρσ_modules = {};
     ρσ_modules.pythonize = {};
-    
+
     let simu = document.getElementById("simulacion1");
     if (simu == null) {
       $(".simulacion1").attr("id", "simulacion1");
@@ -109,6 +109,9 @@ function simulador1(params) {
       var strings = ρσ_modules.pythonize.strings;
 
       strings();
+      ρσ_interpolate_kwargs.call(this, display, [
+        ρσ_desugar_kwargs({ background: vector(250, 250, 250) }),
+      ]);
       p_i = vector(0, 0, 0);
       distancia = parseFloat(Velocidad.value);
       time = parseFloat(tiempo.value);

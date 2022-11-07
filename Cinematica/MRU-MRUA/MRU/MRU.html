@@ -1,248 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../../index/index.css" />
-    <link rel="stylesheet" href="../MRU/MRU.css" />
-    <script
-      type="text/javascript"
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
-    ></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script
-      type="text/javascript"
-      src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://www.glowscript.org/package/glow.3.2.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://www.glowscript.org/package/RSrun.3.2.min.js"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Movimiento Rectilineo Uniforme</title>
-  </head>
 
-  <body>
-    <header id="header">
-      <div class="container_header">
-        <div class="logo">
-          <h2>
-            <a href="../../../index.html">Movimiento Rectilineo Uniforme</a>
-          </h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../index/index.css" />
+  <link rel="stylesheet" href="../MRU/MRU.css" />
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+  <script type="text/javascript" src="https://www.glowscript.org/package/glow.3.2.min.js"></script>
+  <script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.2.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Movimiento Rectilineo Uniforme</title>
+</head>
+
+<body>
+  <header id="header">
+    <div class="container_header">
+      <div class="logo">
+        <h2>
+          <a href="../../../index.html">Movimiento Rectilineo Uniforme</a>
+        </h2>
+      </div>
+      <nav id="nav">
+        <ul class="nav-menu">
+          <li><a href="../../../index.html">INICIO</a></li>
+          <li>
+            <a href="../../../Todos/todos-simuladores.html">SIMULADORES </a>
+          </li>
+          <li><a href="#Footer" class="select">CONTACTO</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="Teoria">
+    <div class="concepto">
+      <h1>Movimiento Rectilineo Uniforme (MRU)</h1>
+      <p>
+        El MRU se define el movimiento en el cual un objeto se desplaza en
+        línea recta, en una sola dirección, recorriendo distancias iguales en
+        el mismo intervalo de tiempo, manteniendo en todo su movimiento una
+        velocidad constante y sin aceleración.
+      </p>
+    </div>
+    <div class="condiciones">
+      <h1>Condiciones</h1>
+      <p>
+        Para que un cuerpo esté en MRU, es necesario que se cumpla la
+        siguiente condiciones:
+      </p>
+      <p style="font-size: 20px">
+        $$v = \frac{x-x_{0}}{t-t_{0}}$$ $$ d = d_{0}+v\cdot (t-t_{0}) $$ $$ t
+        = \frac{d}{v}$$
+      </p>
+      <p style="display: flex; align-items: center">
+        Dondeㅤ$$x$$ㅤ es la posicion en el espacioㅤ$$y$$
+      </p>
+    </div>
+    <div class="primer-simulador">
+      <div class="simulacion1" id="simulacion1">
+        <h1>Ingrese los datos para la Simulacion</h1>
+      </div>
+      <div class="entradas-sim-1">
+        <input type="text" id="Velocidad" class="Velocidad" placeholder="Tiempo" />
+        <input type="text" id="Tiempo" class="Tiempo" placeholder="Velocidad" />
+        <input type="button" value="prueba" id="prueba">
+      </div>
+    </div>
+    <div class="Analisis-graf-dis-vs-v">
+      <h1 style="display: flex; align-items: center">
+        Estudio de la grafica velocidad vs Tiempo
+      </h1>
+      <p>
+        Dadas las condiciones del MRU se entiende que la grafica v vs d, en
+        donde v es la velocidad y d la distancia, va a ser una línea recta en
+        la cual el móvil, recorrerá x valor de distancia en un tiempo y a una
+        velocidad constante ya que no existe aceleración por lo que la
+        representación gráfica de la función Distancia vs tiempo estará
+        definida como una linea recta paralela al eje del tiempo
+      </p>
+      <center>
+        <div class="grficav-vs-t" id="grficav-vs-t"
+          style="height: 300px; width: 80%; border: 3px solid #020887; border-radius: 5px; margin:4% 0%;"></div>
+      </center>
+      <p>
+        A partir de estos valores podemos calcular la distancia total en la
+        que se translado el movil desde mediante la aplicacion de la siguiente
+        formula: $$d = v\cdot t$$ Por lo que, para el caso de la simulacion
+        anterior podemos concluir que el movil tuvo una distancia total de:
+      </p>
+      <h2 id="dist-movil"></h2>
+    </div>
+    <div class="posicion-tiempo">
+      <div class="concepto-pt">
+        <h1>Posición vs Tiempo</h1>
+        <p style="margin-bottom: 4%;">
+          Como se menciono anteriormente para conocer la posicion del movil en
+          un tiempo especifico se hace uso de la siguiente formula: $$x =
+          x_{0}+v\cdot (t-t_{0})$$ de modo que, al ralizar la grafica
+          obtendremos una funcion lineal es decir de primer grado por lo que
+          su gráfico es una recta s vera representado de la siguiente manera:
+        </p>
+      </div>
+      <div class="simulacion">
+        <h1 id="pv-value"></h1>
+        <div class="simulacion-pt" id="simulacion-pt"
+          style="height: 300px; width: 700px; border: 3px solid #020887; border-radius: 5px;">
+          <h1>Ingrese los datos para la Simulacion</h1>
         </div>
-        <nav id="nav">
-          <ul class="nav-menu">
-            <li><a href="../../../index.html">INICIO</a></li>
-            <li>
-              <a href="../../../Todos/todos-simuladores.html">SIMULADORES </a>
-            </li>
-            <li><a href="#Footer" class="select">CONTACTO</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <section class="Teoria">
-      <div class="concepto">
-        <h1>Movimiento Rectilineo Uniforme (MRU)</h1>
-        <p>
-          El MRU se define el movimiento en el cual un objeto se desplaza en
-          línea recta, en una sola dirección, recorriendo distancias iguales en
-          el mismo intervalo de tiempo, manteniendo en todo su movimiento una
-          velocidad constante y sin aceleración.
-        </p>
-      </div>
-      <div class="condiciones">
-        <h1>Condiciones</h1>
-        <p>
-          Para que un cuerpo esté en MRU, es necesario que se cumpla la
-          siguiente condiciones:
-        </p>
-        <p style="font-size: 20px">
-          $$v = \frac{x-x_{0}}{t-t_{0}}$$ $$ d = d_{0}+v\cdot (t-t_{0}) $$ $$ t
-          = \frac{d}{v}$$
-        </p>
-        <p style="display: flex; align-items: center">
-          Dondeㅤ$$x$$ㅤ es la posicion en el espacioㅤ$$y$$
-        </p>
-      </div>
-      <div class="primer-simulador">
-        <div class="simulacion1" id="simulacion1"><h1>Ingrese los datos para la Simulacion</h1></div>
-        <div class="entradas-sim-1">
-          <input
-            type="text"
-            id="Velocidad"
-            class="Velocidad"
-            placeholder="Tiempo"
-          />
-          <input
-            type="text"
-            id="Tiempo"
-            class="Tiempo"
-            placeholder="Velocidad"
-          />
-          <input type="button" value="prueba" id="prueba">
-        </div>
-      </div>
-      <div class="Analisis-graf-dis-vs-v">
-        <h1 style="display: flex; align-items: center">
-          Estudio de la grafica velocidad vs Tiempo
-        </h1>
-        <p>
-          Dadas las condiciones del MRU se entiende que la grafica v vs d, en
-          donde v es la velocidad y d la distancia, va a ser una línea recta en
-          la cual el móvil, recorrerá x valor de distancia en un tiempo y a una
-          velocidad constante ya que no existe aceleración por lo que la
-          representación gráfica de la función Distancia vs tiempo estará
-          definida como una linea recta paralela al eje del tiempo
-        </p>
-        <center>
-          <div
-            class="grficav-vs-t"
-            id="grficav-vs-t"
-            style="height: 300px; width: 80%; border: 3px solid #020887; border-radius: 5px; margin:4% 0%;"
-          ></div>
-        </center>
-        <p>
-          A partir de estos valores podemos calcular la distancia total en la
-          que se translado el movil desde mediante la aplicacion de la siguiente
-          formula: $$d = v\cdot t$$ Por lo que, para el caso de la simulacion
-          anterior podemos concluir que el movil tuvo una distancia total de:
-        </p>
-        <h2 id="dist-movil"></h2>
-      </div>
-      <div class="posicion-tiempo">
-        <div class="concepto-pt">
-          <h1>Posición vs Tiempo</h1>
-          <p style="margin-bottom: 4%;">
-            Como se menciono anteriormente para conocer la posicion del movil en
-            un tiempo especifico se hace uso de la siguiente formula: $$x =
-            x_{0}+v\cdot (t-t_{0})$$ de modo que, al ralizar la grafica
-            obtendremos una funcion lineal es decir de primer grado por lo que
-            su gráfico es una recta s vera representado de la siguiente manera:
-          </p>
-        </div>
-        <div class="simulacion">
-            <h1 id="pv-value"></h1>
-            <div
-              class="simulacion-pt"
-              id="simulacion-pt"
-              style="height: 300px; width: 700px; border: 3px solid #020887; border-radius: 5px;"
-            ><h1>Ingrese los datos para la Simulacion</h1></div>
-          <div class="entradaspt">
-            <div class="in-p-v">
-              <input type="text" placeholder="Posición inicial" id="Poi" />
-              <input type="text" placeholder="Velocidad" id="Velo" />
-            </div>
-            <div class="in-ts">
-              <input type="text" placeholder="timepo inicial" id="Tii" />
-              <input type="text" placeholder="tiempo final" id="Tif" />
-            </div>
+        <div class="entradaspt">
+          <div class="in-p-v">
+            <input type="text" placeholder="Posición inicial" id="Poi" />
+            <input type="text" placeholder="Velocidad" id="Velo" />
+          </div>
+          <div class="in-ts">
+            <input type="text" placeholder="timepo inicial" id="Tii" />
+            <input type="text" placeholder="tiempo final" id="Tif" />
           </div>
         </div>
-        <div class="estudiopt">
-          <h1>ESTUDIO DE LA GRAFICA VELOCIDAD VS DISTANCIA</h1>
-          <p st>
-            Con estos datos podemos conocer el valor de la pendiente de la recta
-            mediante el uso de la siguente formula:
-            <span>$$v = \frac{x-x_{0}}{t-t_{0}}$$</span> de este modo podemos
-            conocer cual es el comportamiento de la velocidad, asumiendo, que
-            solo tenemos como referencia los valores de la distancia y el
-            tiempo, de la siguente manera:
-          </p>
-        </div>
-        <table class="GeneratedTable" style="margin-top: 4%">
-          <thead>
-            <tr>
-              <th>POSICION INICIAL</th>
-              <th>POSICION FINAL</th>
-              <th>TIEMPO INICIAL</th>
-              <th>TIEMPO FINAL</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td id="Posiini"></td>
-              <td id="Posifini"></td>
-              <td id="tienini"></td>
-              <td id="tienfi"></td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="Respuestapt" style="margin-top: 3%">
-          <h3>
-            Usando la formula expresada anteriormente obtenemos que la pendiente
-            de la recta es:
-          </h3>
-          <h2 id="resultadopendiete" style="text-align: center"></h2>
-        </div>
-        <div class="conclutf" style="margin-top: 4%">
+      </div>
+      <div class="estudiopt">
+        <h1>ESTUDIO DE LA GRAFICA VELOCIDAD VS DISTANCIA</h1>
+        <p st>
+          Con estos datos podemos conocer el valor de la pendiente de la recta
+          mediante el uso de la siguente formula:
+          <span>$$v = \frac{x-x_{0}}{t-t_{0}}$$</span> de este modo podemos
+          conocer cual es el comportamiento de la velocidad, asumiendo, que
+          solo tenemos como referencia los valores de la distancia y el
+          tiempo, de la siguente manera:
+        </p>
+      </div>
+      <table class="GeneratedTable" style="margin-top: 4%">
+        <thead>
+          <tr>
+            <th>POSICION INICIAL</th>
+            <th>POSICION FINAL</th>
+            <th>TIEMPO INICIAL</th>
+            <th>TIEMPO FINAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="Posiini"></td>
+            <td id="Posifini"></td>
+            <td id="tienini"></td>
+            <td id="tienfi"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="Respuestapt" style="margin-top: 3%">
+        <h3>
+          Usando la formula expresada anteriormente obtenemos que la pendiente
+          de la recta es:
+        </h3>
+        <h2 id="resultadopendiete" style="text-align: center"></h2>
+      </div>
+      <div class="conclutf" style="margin-top: 4%">
+        <p>
+          Como se puede observar la pendentie de la recta es equivalente a la
+          velocidad por lo que el módulo de su velocidad es precedido de la
+          señal positiva por lo que el coeficiente angular de la recta,
+          representado por la inclinación α, está comprendido en el intervalo
+          0 < α < 90° , ahora, por otro lado, cuando la partícula se desplaza en el sentido contrario, la inclinación
+            está comprendida en el intervalo 90°< α< 180 °. En este caso, el módulo de velocidad es precedido de la
+            señal negativa. </p>
+      </div>
+    </div>
+    <div class="siguiente">
+      <a href="../MRUA/MRUA.html">Movimiento Rectilineo Uniforme Acelerado
+        <i class="fa-solid fa-circle-right"></i></a>
+    </div>
+  </section>
+
+  <footer id="Footer">
+    <div class="container_footer">
+      <div class="box_footer">
+        <div class="contacto">
+          <h4>CREADO Y DISEÑADO POR</h4>
           <p>
-            Como se puede observar la pendentie de la recta es equivalente a la
-            velocidad por lo que el módulo de su velocidad es precedido de la
-            señal positiva por lo que el coeficiente angular de la recta,
-            representado por la inclinación α, está comprendido en el intervalo
-            0 < α < 90° , ahora, por otro lado, cuando la partícula se desplaza
-            en el sentido contrario, la inclinación está comprendida en el
-            intervalo 90°< α< 180 °. En este caso, el módulo de velocidad es
-            precedido de la señal negativa.
+            <a href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=157198&course=11074" target="_blank">SHARITH
+              BLANCO -
+            </a>
+            <a href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=149267&course=11074" target="_blank">NELSON
+              MORALES -
+            </a>
+            <a href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=147797&course=11074" target="_blank">DIANA
+              VIDAL</a>
           </p>
         </div>
       </div>
-      <div class="siguiente">
-        <a href="../MRUA/MRUA.html"
-          >Movimiento Rectilineo Uniforme Acelerado
-          <i class="fa-solid fa-circle-right"></i
-        ></a>
-      </div>
-    </section>
+    </div>
+    <div class="aviso-footer">
+      <hr />
+      <p>Este sitio ha sido creado para fines académicos.</p>
+    </div>
+  </footer>
+  <script src="MRU.js" defer></script>
+</body>
 
-    <footer id="Footer">
-      <div class="container_footer">
-        <div class="box_footer">
-          <div class="contacto">
-            <h4>CREADO Y DISEÑADO POR</h4>
-            <p>
-              <a
-                href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=157198&course=11074"
-                target="_blank"
-                >SHARITH BLANCO -
-              </a>
-              <a
-                href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=149267&course=11074"
-                target="_blank"
-                >NELSON MORALES -
-              </a>
-              <a
-                href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=147797&course=11074"
-                target="_blank"
-                >DIANA VIDAL</a
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="aviso-footer">
-        <hr />
-        <p>Este sitio ha sido creado para fines académicos.</p>
-      </div>
-    </footer>
-    <script src="MRU.js" defer></script>
-  </body>
 </html>

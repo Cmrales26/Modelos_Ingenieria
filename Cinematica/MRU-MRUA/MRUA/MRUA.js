@@ -1023,10 +1023,10 @@ function Graficas(params) {
       altura = parseFloat(altura_y_s.value);
       posicion_inicial_x = 0;
       position_graph = ρσ_interpolate_kwargs.call(this, graph, [
-        ρσ_desugar_kwargs({ xtitle: "time", ytitle: "position", width: 475 }),
+        ρσ_desugar_kwargs({ xtitle: "tiempo", ytitle: "posicion", width: 475 }),
       ]);
       velocity_graph = ρσ_interpolate_kwargs.call(this, graph, [
-        ρσ_desugar_kwargs({ xtitle: "time", ytitle: "velocity" }),
+        ρσ_desugar_kwargs({ xtitle: "tiempo", ytitle: "velocidad" }),
       ]);
       Safi = await marker(0.5, altura, color.red);
       Safi.vx = parseFloat(Velocidad_i_x.value);
@@ -1035,7 +1035,7 @@ function Graficas(params) {
       Safi.ay = (1)["-u"]()["*"](9.8);
       Safi.xcurve = ρσ_interpolate_kwargs.call(this, gcurve, [
         ρσ_desugar_kwargs({
-          label: "Safi's x",
+          label: "aceleracion x",
           color: color.red,
           graph: position_graph,
           dot: true,
@@ -1044,7 +1044,7 @@ function Graficas(params) {
       ]);
       Safi.ycurve = ρσ_interpolate_kwargs.call(this, gcurve, [
         ρσ_desugar_kwargs({
-          label: "Safi's y",
+          label: "aceleracion y",
           color: color.blue,
           graph: position_graph,
           dot: true,
@@ -1053,7 +1053,7 @@ function Graficas(params) {
       ]);
       Safi.vxcurve = ρσ_interpolate_kwargs.call(this, gcurve, [
         ρσ_desugar_kwargs({
-          label: "Safi's vx",
+          label: "velocidad x",
           color: color.red,
           graph: velocity_graph,
           dot: true,
@@ -1062,7 +1062,7 @@ function Graficas(params) {
       ]);
       Safi.vycurve = ρσ_interpolate_kwargs.call(this, gcurve, [
         ρσ_desugar_kwargs({
-          label: "Safi's vy",
+          label: "velocidad y",
           color: color.blue,
           graph: velocity_graph,
           dot: true,

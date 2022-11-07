@@ -57,10 +57,29 @@ ul{
     list-style: disc;
     padding: .5%;
 }
+.contendorGrafica1, .contenedorv_vs_t,.contenedorv_vs_t,.contedora_vs_t, .cotenedorcaidalibre{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding-top: 2%;
+    border-radius: 5px;
+    border: 3px solid #020887;
+    height: 300px;
+    margin-bottom: 4%;
+}
+.cotenedorcaidalibre{
+    margin-top: 4%;
+    height: 350px;
+}
+.grficap-vs-t h1, .contenedorv_vs_t h1,.contedora_vs_t h1,.contenedorv_vs_t h2, .simulacionCaidaLibre h1{
+    color: rgba(2, 8, 135,.1);
+}
 .inputsp-vs-t, .inputs-v-vs-t{
     text-align: center;
     /* border: 1px solid  #020887; */
-    margin-top: -6%;
+    /* margin-top: -6%; */
     margin-left: 4%;
     margin-bottom: 4%;
 }

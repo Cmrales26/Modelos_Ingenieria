@@ -20,7 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.3.1/math.js"
         integrity="sha512-Q1qOFs0DNtp9bviP8uSyPm0d1ES7zw8BXZ7AF2XCWIVKHObK6U7mkMZ+SGOf1vF71zI/60lO+FjBTrzaYGRqnw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script type="text/javascript" id="MathJax-script" defer
+    <script type="text/javascript" id="MathJax-script" defer
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 
@@ -75,10 +75,16 @@
             <p>Como se menciono a medidia que pasa el tiempo la posicion del auto va aimentando de cada vez mas y mas,
                 pues, alcanza una mayor distancia en cada invervalo de tiempo, esta se puede ver representada mediante
                 la siguiente grafica: </p>
-            <h3 style="padding-top: 2% ; color: #020887; text-align:center;">Asumiendo que `t_{0}` es `= 0` y `x_{0}` es
+            <h3 style="padding-top: 2% ; color: #020887; text-align:center; padding-bottom: 4%;">Asumiendo que `t_{0}`
+                es `= 0` y `x_{0}` es
                 `= 0` </h3>
             <center>
-                <div class="grficap-vs-t" id="grficap-vs-t" style=" height: 300px; width: 700px;"></div>
+
+                <div class="contendorGrafica1">
+                    <div class="grficap-vs-t" id="grficap-vs-t">
+                        <h1>Ingrese los datos para la Simulacion</h1>
+                    </div>
+                </div>
             </center>
             <div class="inputsp-vs-t">
                 <input type="text" id="velocidadp-vs-t" placeholder="Velocidad">
@@ -136,86 +142,98 @@
                 obligatoria. Notamos el siguiente resultado </p>
             <div class="grficav-vs-t">
                 <center>
-                    <div class="grficap-vs-t-out" id="grficap-vs-t-out" style=" height: 300px; width: 700px"></div>
+
+                    <div class="contenedorv_vs_t">
+                        <div class="grficap-vs-t-out" id="grficap-vs-t-out">
+                            <h1>Ingrese los datos para la Simulacion</h1>
+                        </div>
+                    </div>
                 </center>
                 <div class="inputs-v-vs-t">
-                    <input type="text" id="ac-v-vs-t" placeholder="Aceleración">
-                    <input type="text" id="ti-v-vs-t" placeholder="Tiempo">
-                </div>
-                <div class="analisis-v-vs-t">
-                    <h1>analisis de la grafica velocidad tiempo</h1>
-                    <p>La relación resultante es una función lineal, lo que significa que la velocidad aumentará
-                        constantemente. <br><br>
-                        También podemos considerar la situación opuesta, es decir, un móvil que frena solo para
-                        detenerse en una parada obligatoria. <span style="color: #020887;">Tomando para esta ocacion la
-                            velocidad final de la simulacion pasada usando la ecuacion `v_{f} = v_{0}+a\cdot
-                            \Deltat`,</span>
-                    <h2 id="VelocidadFinal" style="text-align: center; margin-top: 2%;"></h2><br>
-                    <p style="padding-bottom:4%;">veamos que sucede con la grafica cuando el movil disminuye su
-                        aceleración:</p>
-                    </p>
-                    <center>
-                        <div class="grficap-vs-t-out-neg" id="grficap-vs-t-out-neg"
-                            style=" height: 300px; width: 700px"></div>
-                    </center>
-                    <p style="margin-top: -6%;">La relación resultante también es una función lineal: sin embargo, esto
-                        es negativo, lo que
-                        significa que la velocidad disminuirá constantemente. <br><br>
+                <input type="text" id="ac-v-vs-t" placeholder="Aceleración">
+                <input type="text" id="ti-v-vs-t" placeholder="Tiempo">
+            </div>
+            <div class="analisis-v-vs-t">
+                <h1>analisis de la grafica velocidad tiempo</h1>
+                <p>La relación resultante es una función lineal, lo que significa que la velocidad aumentará
+                    constantemente. <br><br>
+                    También podemos considerar la situación opuesta, es decir, un móvil que frena solo para
+                    detenerse en una parada obligatoria. <span style="color: #020887;">Tomando para esta ocacion la
+                        velocidad final de la simulacion pasada usando la ecuacion `v_{f} = v_{0}+a\cdot
+                        \Deltat`,</span>
+                <h2 id="VelocidadFinal" style="text-align: center; margin-top: 2%;"></h2><br>
+                <p style="padding-bottom:4%;">veamos que sucede con la grafica cuando el movil disminuye su
+                    aceleración:</p>
+                </p>
 
-                        Si se calculara la pendiente de estos gráficos, el valor obtenido sería igual al delaceleración
-                        usando la formula `a = \frac{\Delta v}{\Delta t} =` <span id="Aceleracion_v_vs_t"></span>`
-                        m`/`s^2`.Como la gráfica obtenida es una recta, deducimos que la aceleración es constante.
-                    </p>
-                </div>
-            </div>
-            <div class="avst">
-                <h1>Relacion aceleracion vs tiempo</h1>
-                <p>La relaciónentre aceleración y tiempo en MRUA se describe mediante una relación nula durante la cual
-                    la aceleración es constante para la duración total del movimiento. <br><br>Para observar esta
-                    relación, es posible representar gráficamente los valores de aceleración de un objeto en función del
-                    tiempo. Consideramos el movimiento de un móvil que acelera después de hacer una parada obligatoria.
-                    La aceleración del automóvil se determina en diferentes momentos durante su movimiento se vera de la
-                    siguiente manera</p>
-                <h3 style="text-align: center; color: #020887;">Asumiendo que `v_{0} = 0 ` y `t_{0}=0`</h3>
                 <center>
-                    <div class="grafica-a-vs-t" id="grafica-a-vs-t" style=" height: 300px; width: 700px"></div>
-                    <div class="inputsa_vs_t" style="margin-top: -6%; margin-left: 8%;">
-                        <input type="text" id="velocidadavst" placeholder="Velocidad Final">
-                        <input type="text" id="tiempoavst" placeholder="Tiempo final">
+                    <div class="contenedorv_vs_t">
+                        <div class="grficap-vs-t-out-neg" id="grficap-vs-t-out-neg"> <h2>esperando datos</h2>
+                    </div>
                     </div>
                 </center>
-                <h1>analisis de la grafica Aceleracion tiempo</h1>
-                <p>La relación resultante es una función nula, lo que significa que la aceleración no cambia durante un
-                    intervalo de tiempo dado. Por lo tanto, la aceleración es constante durante el viaje del automóvil.
-                    <br><br>Si la aceleración estuviera por debajo del eje x, la aceleración sería negativa. Esto
-                    significa que
-                    el coche cambiaría de marcha en la dirección opuesta a la del Sistema de referencia.</p>
-            </div>
+                <p>La relación resultante también es una función lineal: sin embargo, esto
+                    es negativo, lo que
+                    significa que la velocidad disminuirá constantemente. <br><br>
 
-            <div class="ejersicio-caida-libre">
-                <h1>EJERCICIO CAIDA LIBRE</h1>
-                <p>En la física newtoniana, la caída libre es cualquier movimiento de un cuerpo en el que la gravedad es
-                    la única fuerza que actúa sobre él. En el contexto de la relatividad general, donde la gravitación
-                    se reduce a una curvatura del espacio-tiempo, un cuerpo en caída libre no tiene ninguna fuerza que
-                    actúe sobre él.</p>
-                <center>
-                    <div class="simulacionCaidaLibre" id="simulacionCaidaLibre" style=" height: 300px; width: 700px">
-                    </div>
-                    <div class="Entradas_caidaLibre" style="margin-top: 6%;">
-                        <input type="text" id="Altura" placeholder="Altura">
-                        <input type="text" id="v_x" placeholder="Velocidad Inicial x">
-                        <input type="text" id="v_y" placeholder="Velocidad en y">
-                    </div>
-                </center>
+                    Si se calculara la pendiente de estos gráficos, el valor obtenido sería igual al delaceleración
+                    usando la formula `a = \frac{\Delta v}{\Delta t} =` <span id="Aceleracion_v_vs_t"></span>`
+                    m`/`s^2`.Como la gráfica obtenida es una recta, deducimos que la aceleración es constante.
+                </p>
             </div>
-            <div class="analisis-grafico">
-                <h1 style="margin-bottom:4%;">analisis grafico</h1>
-                <center>
-                    <div style="display:flex" class="distanciavstiempocaidaL" id="distanciavstiempocaidaL"
-                        style=" height: 300px; width: 50%px"></div>
-                    <input type="button" value="Ver graficas" id="Ver_graficas">
-                </center>
-            </div>
+        </div>
+        <div class="avst">
+            <h1>Relacion aceleracion vs tiempo</h1>
+            <p>La relaciónentre aceleración y tiempo en MRUA se describe mediante una relación nula durante la cual
+                la aceleración es constante para la duración total del movimiento. <br><br>Para observar esta
+                relación, es posible representar gráficamente los valores de aceleración de un objeto en función del
+                tiempo. Consideramos el movimiento de un móvil que acelera después de hacer una parada obligatoria.
+                La aceleración del automóvil se determina en diferentes momentos durante su movimiento se vera de la
+                siguiente manera</p>
+            <h3 style="text-align: center; color: #020887; margin-bottom: 2%;">Asumiendo que `v_{0} = 0 ` y `t_{0}=0`</h3>
+            <center>
+                <div class="contedora_vs_t" stu>
+                    <div class="grafica-a-vs-t" id="grafica-a-vs-t"> <h1>Ingrese los datos para la Simulacion</h1></div>
+                </div>
+                <div class="inputsa_vs_t">
+                    <input type="text" id="velocidadavst" placeholder="Velocidad Final">
+                    <input type="text" id="tiempoavst" placeholder="Tiempo final">
+                </div>
+            </center>
+            <h1>analisis de la grafica Aceleracion tiempo</h1>
+            <p>La relación resultante es una función nula, lo que significa que la aceleración no cambia durante un
+                intervalo de tiempo dado. Por lo tanto, la aceleración es constante durante el viaje del automóvil.
+                <br><br>Si la aceleración estuviera por debajo del eje x, la aceleración sería negativa. Esto
+                significa que
+                el coche cambiaría de marcha en la dirección opuesta a la del Sistema de referencia.
+            </p>
+        </div>
+
+        <div class="ejersicio-caida-libre">
+            <h1>EJERCICIO CAIDA LIBRE</h1>
+            <p>En la física newtoniana, la caída libre es cualquier movimiento de un cuerpo en el que la gravedad es
+                la única fuerza que actúa sobre él. En el contexto de la relatividad general, donde la gravitación
+                se reduce a una curvatura del espacio-tiempo, un cuerpo en caída libre no tiene ninguna fuerza que
+                actúe sobre él.</p>
+            <center>
+                <div class="cotenedorcaidalibre">
+                    <div class="simulacionCaidaLibre" id="simulacionCaidaLibre"> <h1>Ingrese los datos para la Simulacion</h1></div>
+                </div>
+                <div class="Entradas_caidaLibre">
+                    <input type="text" id="Altura" placeholder="Altura">
+                    <input type="text" id="v_x" placeholder="Velocidad Inicial x">
+                    <input type="text" id="v_y" placeholder="Velocidad en y">
+                </div>
+            </center>
+        </div>
+        <div class="analisis-grafico">
+            <h1 style="margin-bottom:4%;">analisis grafico</h1>
+            <center>
+                <div style="display:flex" class="distanciavstiempocaidaL" id="distanciavstiempocaidaL"
+                    style=" height: 300px; width: 50%px"></div>
+                <input type="button" value="Ver graficas" id="Ver_graficas">
+            </center>
+        </div>
         </div>
 
         <div class="sig-ant">
@@ -231,7 +249,7 @@
 
     </section>
 
-    <script src="MRUA.js" ></script>
+    <script src="MRUA.js"></script>
 
     <Footer id="Footer">
         <div class="container_footer">

@@ -4,15 +4,6 @@ let aceleracionp_vs_t = document.getElementById("aceleracionp-vs-t");
 let respuesta = document.getElementById("vig");
 let tiempo_estudio = document.getElementById("vi-pt-dat");
 
-window.onload = (event) =>{
-  grficap_vs_t();
-  grafica_v_vs_t();
-  grafica_v_vs_t_n();
-  grafica_a_vs_t();
-};
-
-
-
 function updategrficap_vs_t(params) {
   let simu = document.getElementById("grficap-vs-t");
   if (simu == null) {
@@ -23,6 +14,7 @@ function updategrficap_vs_t(params) {
     }
   }
 }
+
 
 velocidadpp_vs_t.addEventListener("change", (event) => {
   updategrficap_vs_t();

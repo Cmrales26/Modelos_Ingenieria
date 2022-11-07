@@ -193,7 +193,8 @@ function grafv_vs_t(params) {
   Plotly.newPlot(v_vs_t, data, layout);
 }
 
-Velocidad.addEventListener("change", (event) => {
+const boton = document.getElementById("prueba")
+boton.addEventListener("click", (event) => {
   let simu = document.getElementById("simulacion1");
   if (simu == null) {
     $(".simulacion1").attr("id", "simulacion1");
@@ -205,21 +206,36 @@ Velocidad.addEventListener("change", (event) => {
   simulador1();
   grafv_vs_t();
   dist_movil.innerHTML = "" + distanciamovil() + "m";
-});
+  
+})
 
-tiempo.addEventListener("change", (event) => {
-  let simu = document.getElementById("simulacion1");
-  if (simu == null) {
-    $(".simulacion1").attr("id", "simulacion1");
-    const myNode = document.getElementById("simulacion1");
-    while (myNode.firstChild) {
-      myNode.removeChild(myNode.lastChild);
-    }
-  }
-  simulador1();
-  grafv_vs_t();
-  dist_movil.innerHTML = "" + distanciamovil() + "m";
-});
+// Velocidad.addEventListener("change", (event) => {
+//   let simu = document.getElementById("simulacion1");
+//   if (simu == null) {
+//     $(".simulacion1").attr("id", "simulacion1");
+//     const myNode = document.getElementById("simulacion1");
+//     while (myNode.firstChild) {
+//       myNode.removeChild(myNode.lastChild);
+//     }
+//   }
+//   simulador1();
+//   grafv_vs_t();
+//   dist_movil.innerHTML = "" + distanciamovil() + "m";
+// });
+
+// tiempo.addEventListener("change", (event) => {
+//   let simu = document.getElementById("simulacion1");
+//   if (simu == null) {
+//     $(".simulacion1").attr("id", "simulacion1");
+//     const myNode = document.getElementById("simulacion1");
+//     while (myNode.firstChild) {
+//       myNode.removeChild(myNode.lastChild);
+//     }
+//   }
+//   simulador1();
+//   grafv_vs_t();
+//   dist_movil.innerHTML = "" + distanciamovil() + "m";
+// });
 
 // let poi = document.getElementById("Poi");
 // let velo = document.getElementById("Velo");

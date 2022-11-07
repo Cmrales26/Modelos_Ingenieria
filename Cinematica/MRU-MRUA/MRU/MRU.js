@@ -269,8 +269,8 @@ function grafv_vs_t(params) {
 
 const boton = document.getElementById("prueba")
 boton.addEventListener("click", (event) => {
-  simulador1();
   grafv_vs_t();
+  simulador1();
   dist_movil.innerHTML = "" + distanciamovil() + "m";
   alert("HOLA")
 })

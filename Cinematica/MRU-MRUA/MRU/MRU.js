@@ -90,7 +90,6 @@ function simulador1(params) {
         p_i,
         distancia,
         time,
-        canva1,
         bolita,
         g,
         plot1;
@@ -110,19 +109,13 @@ function simulador1(params) {
 
       strings();
       ρσ_interpolate_kwargs.call(this, display, [
-        ρσ_desugar_kwargs({ background: vector(250, 250, 250) }),
+        ρσ_desugar_kwargs({ background: vector(250, 250, 250), width: 480,
+          height: 150, }),
       ]);
       p_i = vector(0, 0, 0);
       distancia = parseFloat(Velocidad.value);
       time = parseFloat(tiempo.value);
 
-      canva1 = ρσ_interpolate_kwargs.call(this, canvas, [
-        ρσ_desugar_kwargs({
-          width: 480,
-          height: 150,
-          background: vector(250, 250, 250),
-        }),
-      ]);
       bolita = ρσ_interpolate_kwargs.call(this, sphere, [
         ρσ_desugar_kwargs({
           pos: p_i,

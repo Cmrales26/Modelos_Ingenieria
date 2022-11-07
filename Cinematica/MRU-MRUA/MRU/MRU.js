@@ -16,6 +16,15 @@ function simulador1(params) {
   (function () {
     var ρσ_modules = {};
     ρσ_modules.pythonize = {};
+    
+    let simu = document.getElementById("simulacion1");
+    if (simu == null) {
+      $(".simulacion1").attr("id", "simulacion1");
+      const myNode = document.getElementById("simulacion1");
+      while (myNode.firstChild) {
+        myNode.removeChild(myNode.lastChild);
+      }
+    }
 
     (function () {
       function strings() {
@@ -57,7 +66,7 @@ function simulador1(params) {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-          ];
+            ];
         }
       }
       if (!strings.__module__)
@@ -195,14 +204,6 @@ function grafv_vs_t(params) {
 
 const boton = document.getElementById("prueba")
 boton.addEventListener("click", (event) => {
-  let simu = document.getElementById("simulacion1");
-  if (simu == null) {
-    $(".simulacion1").attr("id", "simulacion1");
-    const myNode = document.getElementById("simulacion1");
-    while (myNode.firstChild) {
-      myNode.removeChild(myNode.lastChild);
-    }
-  }
   simulador1();
   grafv_vs_t();
   dist_movil.innerHTML = "" + distanciamovil() + "m";

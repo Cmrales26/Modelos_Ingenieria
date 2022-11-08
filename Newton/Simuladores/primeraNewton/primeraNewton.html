@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../index/index.css">
+    <link rel="stylesheet" href="primeraNewton.css">
+    <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+    <script type="text/javascript" src="https://www.glowscript.org/package/glow.3.2.min.js"></script>
+    <script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.2.min.js"></script>
+    <title>Primera ley de Newton</title>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container_header">
+            <div class="logo">
+                <!-- <i class="fa-solid fa-gauge-high"></i> -->
+                <h2><a href="../../../index.html">PRIMERA LEY DE NEWTON</a></h2>
+            </div>
+            <nav id="nav">
+                <ul class="nav-menu">
+                    <li><a href="../../../index.html">INICIO</a></li>
+                    <li><a href="../../../Todos/todos-simuladores.html">SIMULADORES </a></li>
+                    <li><a href="#Footer" class="select">CONTACTO</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="teoria">
+        <h1>Ley de Inercia</h1>
+        <P>Cierto objeto permanecerá en reposo o con un movimiento estable rectilíneo, al menos sea el caso de que sobre
+            él, actúe alguna fuerza externa. De tal manera que los objetos persistirán en su estado de movimiento cuando
+            no actúen fuerzas externas sobre el mismo objeto que logre cambiar su movimiento.</P>
+        <center>
+            <div class="contenedor-primra-ley-inercia">
+                <div class="simulacion-p-l-i" id="simulacion-p-l-i"></div>
+            </div>
+            <p style="margin-bottom: 2%;">Como se puede ver en la simulacion el cuerpo no esta recibiendo ninguna fuerza
+                externa por lo que este permanercera en reposo, hasta que una fuerza externa interactue con el.</p>
+            <input type="text" placeholder="Ingrese la fuerza < 50" id="fuerza-p-l-i">
+        </center>
+        <p style="margin-top:2%;">
+            Cualquier tipo de cambio en el  movimiento, crea una aceleración y de esta manera, se aplica la <span> <a href="#">Segunda ley de Newton.</a></span> 
+        </p> 
+        <div class="inerciaMRU">
+            <h1>Inercia sobre un objeto con MRU</h1>
+            <p>Cuando un movil esta en estado <span> <a href="../../../Cinematica/MRU-MRUA/MRU/MRU.html">MRU</a></span> se dice que tiene una velocidad constante ya que este no se ve afectado por ninguna fuerza externa que lo cambie, por lo que al recibir un interaccion con el exterior el cuerpo se acelera por lo que la velocidad del movil aumenta y a su vez lo hará la posicion</p>
+            <center>
+                <div class="contenedor-simulador-dos">
+                    <div class="simulacion-p-l-mru" id="simulacion-p-l-mru" style="display:flex"><h1>Ingrese los datos para la Simulacion</h1></div>
+                </div>
+                <div class="inpus-sim-2" >
+                    <input type="text" placeholder="Velocidad" id="Velocidad-s-2">
+                    <input type="text" placeholder="Tiempo total" id="tTotal">
+                    <input type="text" placeholder="Fuerza" id="fuerza-s-2">
+                    <input type="text" placeholder="Tiempo de estudio" id="tEstudio">
+                </div>
+            </center>
+            
+        </div>
+    </section>
+    <Footer id="Footer">
+        <div class="container_footer">
+            <div class="box_footer">
+                <div class="contacto">
+                    <H4>CREADO Y DISEÑADO POR</H4>
+                    <P><a href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=157198&course=11074"
+                            target="_blank">SHARITH BLANCO - </a> <a
+                            href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=149267&course=11074"
+                            target="_blank">NELSON MORALES - </a> <a
+                            href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=147797&course=11074"
+                            target="_blank">DIANA VIDAL</a></P>
+                </div>
+            </div>
+        </div>
+        <div class="aviso-footer">
+            <hr>
+            <p>Este sitio ha sido creado para fines académicos.</p>
+        </div>
+    </Footer>
+    <script src="primeraNewton.js"></script>
+</body>
+
+</html>

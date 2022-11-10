@@ -1,188 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../../index/index.css" />
-    <link rel="stylesheet" href="../simu.css" />
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <!-- <link type="text/css" href="https://www.glowscript.org/css/redmond/2.1/jquery-ui.custom.css" rel="stylesheet" /> -->
-    <!-- <link type="text/css" href="https://www.glowscript.org/css/ide.css" rel="stylesheet" /> -->
-    <script
-      type="text/javascript"
-      src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://www.glowscript.org/package/glow.3.2.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://www.glowscript.org/package/RSrun.3.2.min.js"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script
-      type="text/javascript"
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.3.1/math.js"
-      integrity="sha512-Q1qOFs0DNtp9bviP8uSyPm0d1ES7zw8BXZ7AF2XCWIVKHObK6U7mkMZ+SGOf1vF71zI/60lO+FjBTrzaYGRqnw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <title>Velocidad Media Vectorial</title>
-  </head>
 
-  <body>
-    <header id="header">
-      <div class="container_header">
-        <div class="logo">
-          <h2>
-            <a href="../../../index.html">VELOCIDAD MEDIA VECTORES </a>
-          </h2>
-        </div>
-        <nav id="nav">
-          <ul class="nav-menu">
-            <li><a href="../../../index.html">INICIO</a></li>
-            <li>
-              <a href="../../../Todos/todos-simuladores.html">SIMULADORES</a>
-            </li>
-            <li><a href="#Footer" class="select">CONTACTO</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../index/index.css" />
+  <link rel="stylesheet" href="vmedia.css">
+  <link rel="stylesheet" href="../simu.css" />
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+  <script type="text/javascript" src="https://www.glowscript.org/package/glow.3.2.min.js"></script>
+  <script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.2.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.3.1/math.js"
+    integrity="sha512-Q1qOFs0DNtp9bviP8uSyPm0d1ES7zw8BXZ7AF2XCWIVKHObK6U7mkMZ+SGOf1vF71zI/60lO+FjBTrzaYGRqnw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Velocidad Media Vectorial</title>
+</head>
 
-    <section class="Graficas">
-      <div class="GraficaSimV">
-        <div id="SimulacionV" class="SimulacionV"></div>
-        <div id="plot" style="width: 400px; height: 450px"></div>
-        <div class="Salidas" id="Salidas"></div>
+<body>
+  <header id="header">
+    <div class="container_header">
+      <div class="logo">
+        <h2>
+          <a href="../../../index.html">VELOCIDAD MEDIA VECTORES </a>
+        </h2>
       </div>
-      <div class="Respuesta">
-        <h2 id="Respuesta-valor"></h2>
-      </div>
-    </section>
-
-    <div class="FormularioV">
-      <div class="EntradasV">
-        <div class="vector1">
-          <h2>Primer Vector</h2>
-          <hr />
-          <div class="p_partida">
-            <h6>PUNTO DE PARTIDA</h6>
-            <input type="number" name="" id="ppx" placeholder="x" />
-            <input type="number" name="" id="ppy" placeholder="y" />
-          </div>
-          <div class="p_llegada">
-            <h6>PUNTO DE LLEGADA</h6>
-            <input type="number" name="" id="pllx" placeholder="x" />
-            <input type="number" name="" id="plly" placeholder="y" />
-          </div>
-        </div>
-        <div class="vector2">
-          <h2>Segundo Vector</h2>
-          <hr />
-          <div class="p_partida">
-            <h6>PUNTO DE PARTIDA</h6>
-            <input type="number" name="" id="ppx2" placeholder="x" />
-            <input type="number" name="" id="ppy2" placeholder="y" />
-          </div>
-          <div class="p_llegada">
-            <h6>PUNTO DE LLEGADA</h6>
-            <input type="number" name="" id="pllx2" placeholder="x" />
-            <input type="number" name="" id="plly2" placeholder="y" />
-          </div>
-        </div>
-        <div class="entradasT">
-          <h2>Tiempo</h2>
-          <hr />
-          <div class="T_ini">
-            <h6>TIEMPO INICIAL</h6>
-            <input
-              type="number"
-              name=""
-              id="ti"
-              placeholder="tiempo Inicial (S)"
-            />
-          </div>
-          <div class="T_fini">
-            <h6>TIEMPO FINAL</h6>
-            <input
-              type="number"
-              name=""
-              id="tf"
-              placeholder="tiempo Final (S)"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="botones">
-        <div class="agergarv1">
-          <input type="button" value="Dibujar vector" id="aggv1" />
-        </div>
-        <div class="botocitoV">
-          <input type="button" value="Resultado" id="ResultadoV" />
-        </div>
-      </div>
+      <nav id="nav">
+        <ul class="nav-menu">
+          <li><a href="../../../index.html">INICIO</a></li>
+          <li>
+            <a href="../../../Todos/todos-simuladores.html">SIMULADORES</a>
+          </li>
+          <li><a href="#Footer" class="select">CONTACTO</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="sig-ant">
-      <div class="anterior">
-        <a href="../Rapidez/Rapidez.html"
-          ><i class="fa-solid fa-circle-left"></i> Rapidez Media</a
-        >
-      </div>
-      <div class="siguiente">
-        <a href="../VelocidadInstantanea/Vinstan.html">
-          Velocidad Instantanea <i class="fa-solid fa-circle-right"></i
-        ></a>
-      </div>
-    </div>
+  </header>
 
-    <footer id="Footer">
-      <div class="container_footer">
-        <div class="box_footer">
-          <div class="contacto">
-            <h4>CREADO Y DISEÑADO POR</h4>
-            <p>
-              <a
-                href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=157198&course=11074"
-                target="_blank"
-                >SHARITH BLANCO -
-              </a>
-              <a
-                href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=149267&course=11074"
-                target="_blank"
-                >NELSON MORALES -
-              </a>
-              <a
-                href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=147797&course=11074"
-                target="_blank"
-                >DIANA VIDAL</a
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="aviso-footer">
+  <section class="Graficas">
+    <div class="GraficaSimV">
+      <div id="SimulacionV" class="SimulacionV"></div>
+      <div id="plot" style="width: 400px; height: 450px"></div>
+      <div class="Salidas" id="Salidas"></div>
+    </div>
+    <div class="Respuesta">
+      <h2 id="Respuesta-valor"></h2>
+    </div>
+  </section>
+
+  <div class="FormularioV">
+    <div class="EntradasV">
+      <div class="vector1">
+        <h2>Primer Vector</h2>
         <hr />
-        <p>Este sitio ha sido creado para fines académicos.</p>
+        <div class="p_partida">
+          <h6>PUNTO DE PARTIDA</h6>
+          <input type="number" name="" id="ppx" placeholder="x" />
+          <input type="number" name="" id="ppy" placeholder="y" />
+        </div>
+        <div class="p_llegada">
+          <h6>PUNTO DE LLEGADA</h6>
+          <input type="number" name="" id="pllx" placeholder="x" />
+          <input type="number" name="" id="plly" placeholder="y" />
+        </div>
       </div>
-    </footer>
-    <script src="VelocidadMediaV.js"></script>
-  </body>
+      <div class="vector2">
+        <h2>Segundo Vector</h2>
+        <hr />
+        <div class="p_partida">
+          <h6>PUNTO DE PARTIDA</h6>
+          <input type="number" name="" id="ppx2" placeholder="x" />
+          <input type="number" name="" id="ppy2" placeholder="y" />
+        </div>
+        <div class="p_llegada">
+          <h6>PUNTO DE LLEGADA</h6>
+          <input type="number" name="" id="pllx2" placeholder="x" />
+          <input type="number" name="" id="plly2" placeholder="y" />
+        </div>
+      </div>
+      <div class="entradasT">
+        <h2>Tiempo</h2>
+        <hr />
+        <div class="T_ini">
+          <h6>TIEMPO INICIAL</h6>
+          <input type="number" name="" id="ti" placeholder="tiempo Inicial (s)" />
+        </div>
+        <div class="T_fini">
+          <h6>TIEMPO FINAL</h6>
+          <input type="number" name="" id="tf" placeholder="tiempo Final (s)" />
+        </div>
+      </div>
+    </div>
+    <div class="botones">
+      <div class="agergarv1">
+        <input type="button" value="Dibujar vector" id="aggv1" />
+      </div>
+      <div class="botocitoV">
+        <input type="button" value="Resultado" id="ResultadoV" />
+      </div>
+    </div>
+  </div>
+  <div class="sig-ant">
+    <div class="anterior">
+      <a href="../Rapidez/Rapidez.html"><i class="fa-solid fa-circle-left"></i> Rapidez Media</a>
+    </div>
+    <div class="siguiente">
+      <a href="../VelocidadInstantanea/Vinstan.html">
+        Velocidad Instantanea <i class="fa-solid fa-circle-right"></i></a>
+    </div>
+  </div>
+
+  <footer id="Footer">
+    <div class="container_footer">
+      <div class="box_footer">
+        <div class="contacto">
+          <h4>CREADO Y DISEÑADO POR</h4>
+          <p>
+            <a href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=157198&course=11074" target="_blank">SHARITH
+              BLANCO -
+            </a>
+            <a href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=149267&course=11074" target="_blank">NELSON
+              MORALES -
+            </a>
+            <a href="https://aulavirtual.cuc.edu.co/moodle/user/view.php?id=147797&course=11074" target="_blank">DIANA
+              VIDAL</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="aviso-footer">
+      <hr />
+      <p>Este sitio ha sido creado para fines académicos.</p>
+    </div>
+  </footer>
+  <script src="VelocidadMediaV.js"></script>
+</body>
+
 </html>

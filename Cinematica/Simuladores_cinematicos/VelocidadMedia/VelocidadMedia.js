@@ -1,21 +1,18 @@
-const boton = document.getElementById("Resultado");
-boton.addEventListener("click", Calcular);
-var resultado;
+let Distancia_i = document.getElementById("Distancia_i")
+let Distancia_f = document.getElementById("Distancia_f")
+let T_i = document.getElementById("T_i")
+let T_f = document.getElementById("T_f")
 
 function Calcular() {
-  var Distancia_i = parseFloat(document.getElementById("Distancia_i").value);
-  var Distancia_f = parseFloat(document.getElementById("Distancia_f").value);
-  var T_i = parseFloat(document.getElementById("T_i").value);
-  var T_f = parseFloat(document.getElementById("T_f").value);
-  resultado = (Distancia_f - Distancia_i) / (T_f - T_i);
-  document.getElementById("Respuesta-valor").innerHTML =
-    resultado.toFixed(2) + "m/s";
+  let resultado = (parseFloat(Distancia_f.value) - parseFloat(Distancia_i.value) / ( parseFloat(T_f.value) - parseFloat(T_i.value)));
+  document.getElementById("Respuesta-valor").innerHTML = resultado.toFixed(2) + "m/s";
   simulacion();
 }
 function simulacion() {
-  !(function () {
+  (function () {
     var ρσ_modules = {};
     ρσ_modules.pythonize = {};
+
 
     let simu = document.getElementById("Simulacion");
     if (simu == null) {
@@ -25,7 +22,6 @@ function simulacion() {
         myNode.removeChild(myNode.lastChild);
       }
     }
-
     (function () {
       function strings() {
         var string_funcs, exclude, name;
@@ -81,20 +77,31 @@ function simulacion() {
       var display = canvas;
       var scene = canvas();
 
+      function input(arg) {
+        arg = arg || {};
+        if (arg.prompt !== undefined && arg.prompt != "")
+          return prompt(arg.prompt);
+        else if (typeof arg === "string") return prompt(arg);
+        else return prompt();
+      }
+
       var version,
         print,
         arange,
         __name__,
         type,
         ρσ_ls,
-        p_i,
-        final,
-        speed,
-        r,
-        radi,
-        pelota2,
-        wall,
-        flecha;
+        canva1,
+        distancia_i,
+        distancia_f,
+        tiempo_i,
+        tiempo_f,
+        deltad,
+        deltat,
+        velocidad,
+        velocidad_v,
+        objeto,
+        velocidad_c;
       version = ρσ_list_decorate(["3.2", "glowscript"]);
       Array.prototype["+"] = function (r) {
         return this.concat(r);
@@ -110,59 +117,62 @@ function simulacion() {
       var strings = ρσ_modules.pythonize.strings;
 
       strings();
-      ("2");
-      ρσ_interpolate_kwargs.call(this, display, [
-        ρσ_desugar_kwargs({ background: vector(250, 250, 250) }),
-      ]);
-      p_i = vector(
-        parseFloat(document.getElementById("Distancia_i").value),
-        0,
-        0
-      );
-      ("3");
-      final = parseFloat(document.getElementById("Distancia_f").value);
-      ("4");
-      speed = resultado;
-      ("5");
-      r = p_i;
-      ("6");
-      radi = final["/"](10);
-      ("7");
-      print(radi);
-      ("9");
-      pelota2 = ρσ_interpolate_kwargs.call(this, sphere, [
+      canva1 = ρσ_interpolate_kwargs.call(this, canvas, [
         ρσ_desugar_kwargs({
-          pos: p_i,
+          width: 600,
+          height: 225,
+          background: vector(250, 250, 250),
+        }),
+      ]);
+      distancia_i = parseFloat(Distancia_i.value)
+      distancia_f = parseFloat(Distancia_f.value)
+      tiempo_i = parseFloat(T_i.value)
+      tiempo_f = parseFloat(T_f.value)
+      deltad = distancia_f["-"]((1)["*"](distancia_i));
+      deltat = tiempo_f["-"]((1)["*"](tiempo_i));
+      velocidad = deltad["/"](deltat);
+      velocidad_v = vector(distancia_i, 0, 0);
+      print("detat = "["+"](deltat));
+      print(velocidad);
+      objeto = ρσ_interpolate_kwargs.call(this, sphere, [
+        ρσ_desugar_kwargs({
+          pos: vector(0, 0, 0),
           color: color.blue,
-          radius: radi,
+          radius: velocidad["/"](3),
           make_trail: true,
         }),
       ]);
-      ("10");
-      // wall = ρσ_interpolate_kwargs.call(this, box, [ρσ_desugar_kwargs({pos: vector(final, 0, 0), color: color.red, axis: vector(1, 0, 0), size: vector(1, radi["/"](5), 20)})]);
-      ("11");
-      flecha = ρσ_interpolate_kwargs.call(this, arrow, [
-        ρσ_desugar_kwargs({
-          pos: p_i,
-          size: vector(final / 2, 10, 0),
-          axis: vector(1, 0, 0),
-          color: color.red,
-        }),
-      ]);
-      ("13");
-      print("RECORRIDO");
-      ("14");
-      while (r.x["<="](final)) {
-        ("15");
-        await rate(speed);
-        ("16");
-        pelota2.pos = r;
-        ("17");
-        flecha.pos = r;
-        ("18");
-        print(r.x["+"]("m"));
-        ("19");
-        r.x = r.x["+"](1);
+      canva1.camera.follow(objeto);
+      if (velocidad[">="](0)) {
+        velocidad_c = ρσ_interpolate_kwargs.call(this, arrow, [
+          ρσ_desugar_kwargs({
+            pos: vector(0, 0, 0),
+            axis: vector(velocidad["*"](2), 0, 0),
+            color: color.blue,
+            shaftwidth: velocidad["/"](5),
+          }),
+        ]);
+        while (velocidad_v.x["<"](distancia_f)) {
+          await rate(velocidad);
+          objeto.pos = velocidad_v;
+          velocidad_c.pos = velocidad_v;
+          velocidad_v.x = velocidad_v.x["+"](1);
+        }
+      } else if (velocidad["<="]((1)["-u"]()["*"](0))) {
+        velocidad_c = ρσ_interpolate_kwargs.call(this, arrow, [
+          ρσ_desugar_kwargs({
+            pos: vector(0, 0, 0),
+            axis: vector(velocidad["*"](2), 0, 0),
+            color: color.blue,
+            shaftwidth: velocidad["*"]((1)["-u"]())["*"](1)["/"](5),
+          }),
+        ]);
+        while (velocidad_v.x["<"](distancia_f)) {
+          await rate(velocidad["*"]((1)["-u"]())["*"](1));
+          objeto.pos = velocidad_v;
+          velocidad_c.pos = velocidad_v;
+          velocidad_v.x = velocidad_v.x["-"](1);
+        }
       }
     }
     if (!__main__.__module__)
@@ -178,3 +188,6 @@ function simulacion() {
     });
   })();
 }
+
+const boton = document.getElementById("Resultado");
+boton.addEventListener("click", Calcular);

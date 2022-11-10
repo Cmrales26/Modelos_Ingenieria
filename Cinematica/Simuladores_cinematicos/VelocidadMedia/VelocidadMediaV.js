@@ -476,7 +476,7 @@ function Simular() {
       movil = ρσ_interpolate_kwargs.call(this, sphere, [
         ρσ_desugar_kwargs({
           pos: vector(p_ix, p_iy, 0),
-          radius: 5,
+          radius: 2,
           color: color.blue,
           make_trail: true,
         }),

@@ -87,7 +87,7 @@ input[type=text] {
     border: 2px solid rgb(2, 8, 135);
     border-radius: 5px;
     text-align: center;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     padding: .4%;
 }
 table.GeneratedTable {
@@ -166,4 +166,7 @@ input[type=button]:hover {
 }   
 .distanciavstiempocaidaL{
     width: 100%;
+}
+.Entradas_caidaLibre input[type=text]{
+    width:20%;
 }

@@ -4,7 +4,9 @@ let T_i = document.getElementById("T_i")
 let T_f = document.getElementById("T_f")
 
 function Calcular() {
-  let resultado = (parseFloat(Distancia_f.value) - parseFloat(Distancia_i.value) / ( parseFloat(T_f.value) - parseFloat(T_i.value)));
+  console.log(T_f.value)
+  console.log(T_i.value)
+  let resultado = ((parseFloat(Distancia_f.value) - parseFloat(Distancia_i.value)) / (parseFloat(T_f.value) - parseFloat(T_i.value)));
   document.getElementById("Respuesta-valor").innerHTML = resultado.toFixed(2) + "m/s";
   simulacion();
 }

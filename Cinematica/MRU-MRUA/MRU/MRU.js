@@ -3,7 +3,6 @@ let tiempo = document.getElementById("Tiempo");
 let v_vs_t = document.getElementById("grficav-vs-t");
 let dist_movil = document.getElementById("dist-movil");
 
-
 function distanciamovil(params) {
   let velocidad = Velocidad.value;
   let time = tiempo.value;
@@ -66,7 +65,7 @@ function simulador1(params) {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-            ];
+          ];
         }
       }
       if (!strings.__module__)
@@ -172,7 +171,6 @@ function simulador1(params) {
   })();
 }
 
-
 function grafv_vs_t(params) {
   if (Velocidad.value == NaN) {
     alert("NADA");
@@ -223,56 +221,24 @@ let tif = document.getElementById("Tif");
 let respen = document.getElementById("resultadopendiete");
 
 poi.addEventListener("change", (event) => {
-  let simu = document.getElementById("simulacion-pt");
-  if (simu == null) {
-    $(".simulacion-pt").attr("id", "simulacion-pt");
-    const myNode = document.getElementById("simulacion-pt");
-    while (myNode.firstChild) {
-      myNode.removeChild(myNode.lastChild);
-    }
-  }
   grafp_vs_t();
   pendiente();
   respen.innerHTML = pendiente() + " m/s";
 });
 
 velo.addEventListener("change", (event) => {
-  let simu = document.getElementById("simulacion-pt");
-  if (simu == null) {
-    $(".simulacion-pt").attr("id", "simulacion-pt");
-    const myNode = document.getElementById("simulacion-pt");
-    while (myNode.firstChild) {
-      myNode.removeChild(myNode.lastChild);
-    }
-  }
   grafp_vs_t();
   pendiente();
   respen.innerHTML = pendiente() + " m/s";
 });
 
 tii.addEventListener("change", (event) => {
-  let simu = document.getElementById("simulacion-pt");
-  if (simu == null) {
-    $(".simulacion-pt").attr("id", "simulacion-pt");
-    const myNode = document.getElementById("simulacion-pt");
-    while (myNode.firstChild) {
-      myNode.removeChild(myNode.lastChild);
-    }
-  }
   grafp_vs_t();
   pendiente();
   respen.innerHTML = pendiente() + " m/s";
 });
 
 tif.addEventListener("change", (event) => {
-  let simu = document.getElementById("simulacion-pt");
-  if (simu == null) {
-    $(".simulacion-pt").attr("id", "simulacion-pt");
-    const myNode = document.getElementById("simulacion-pt");
-    while (myNode.firstChild) {
-      myNode.removeChild(myNode.lastChild);
-    }
-  }
   grafp_vs_t();
   pendiente();
   respen.innerHTML = pendiente() + " m/s";
@@ -283,6 +249,15 @@ function grafp_vs_t() {
   (function () {
     var ρσ_modules = {};
     ρσ_modules.pythonize = {};
+
+    let simu = document.getElementById("simulacion-pt");
+    if (simu == null) {
+      $(".simulacion-pt").attr("id", "simulacion-pt");
+      const myNode = document.getElementById("simulacion-pt");
+      while (myNode.firstChild) {
+        myNode.removeChild(myNode.lastChild);
+      }
+    }
 
     (function () {
       function strings() {
@@ -477,3 +452,28 @@ function pendiente() {
   let pendiente = num / den;
   return pendiente;
 }
+
+const botonrinicio1 = document.getElementById("Reiniciar-sim1");
+
+botonrinicio1.addEventListener("click", (event) => {
+  if (Velocidad.value != "" && tiempo.value != "") {
+    simulador1();
+  } else {
+    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+  }
+});
+
+const botonrinicio2 = document.getElementById("Reiniciar-sim2");
+
+botonrinicio2.addEventListener("click", (event) => {
+  if (
+    poi.value != "" &&
+    velo.value != "" &&
+    tii.value != "" &&
+    tif.value != ""
+  ) {
+    grafp_vs_t();
+  } else {
+    alert("INGRESE LOS VALORES PARA LA SIMULACIÓN");
+  }
+});

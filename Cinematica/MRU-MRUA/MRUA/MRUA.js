@@ -15,6 +15,20 @@ function updategrficap_vs_t(params) {
   }
 }
 
+const boton1 = document.getElementById("Reiniciar-Simulacion1");
+boton1.addEventListener("click", (event) => {
+  if (
+    velocidadpp_vs_t.value != "" &&
+    tiempop_vs_t.value != "" &&
+    aceleracionp_vs_t != ""
+  ) {
+    updategrficap_vs_t();
+    grficap_vs_t();
+    grficap_vs_t_speeds();
+  } else {
+    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+  }
+});
 
 velocidadpp_vs_t.addEventListener("change", (event) => {
   updategrficap_vs_t();
@@ -224,6 +238,14 @@ function updategrfica_v_vs_t_neg(params) {
     }
   }
 }
+const boton2 = document.getElementById("Reiniciar-Simulacion2");
+boton2.addEventListener("click", (event) => {
+  if (ac_v_vs_t.value != "" && ti_v_vs_t.value != "") {
+    updategrfica_v_vs_t();updategrfica_v_vs_t_neg();grafica_v_vs_t();grafica_v_vs_t_n();
+  } else {
+    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+  }
+});
 ac_v_vs_t.addEventListener("change", (event) => {
   updategrfica_v_vs_t();
   updategrfica_v_vs_t_neg();
@@ -534,6 +556,16 @@ function updategrfica_a_vs_t() {
   }
 }
 
+const boton3 = document.getElementById("Reiniciar-Simulacion3")
+boton3.addEventListener("click", (event)=>{
+  if (velocidadFinala_vs_t.value != "" && tiempoFinala_vs_t.value != "") {
+    updategrfica_a_vs_t();
+    grafica_a_vs_t();
+  } else {
+    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+  }
+  
+})
 velocidadFinala_vs_t.addEventListener("change", (event) => {
   updategrfica_a_vs_t();
   grafica_a_vs_t();
@@ -678,25 +710,16 @@ let altura_y_s = document.getElementById("Altura");
 let Velocidad_i_x = document.getElementById("v_x");
 let velocidad_i_y = document.getElementById("v_y");
 
-function updatesimulacionCaida() {
-  let simu = document.getElementById("simulacionCaidaLibre");
-  if (simu == null) {
-    $(".simulacionCaidaLibre").attr("id", "simulacionCaidaLibre");
-    const myNode = document.getElementById("simulacionCaidaLibre");
-    while (myNode.firstChild) {
-      myNode.removeChild(myNode.lastChild);
-    }
-  }
-}
-// altura_y_s.addEventListener('change', (event) => {
-//     simulacionCaidaL()
-// })
-// Velocidad_i_x.addEventListener('change', (event) => {
-//     simulacionCaidaL()
-// })
-// velocidad_i_y.addEventListener('change', (event) => {
-//     simulacionCaidaL()
-// })
+// function updatesimulacionCaida() {
+//   let simu = document.getElementById("simulacionCaidaLibre");
+//   if (simu == null) {
+//     $(".simulacionCaidaLibre").attr("id", "simulacionCaidaLibre");
+//     const myNode = document.getElementById("simulacionCaidaLibre");
+//     while (myNode.firstChild) {
+//       myNode.removeChild(myNode.lastChild);
+//     }
+//   }
+// }
 
 function simulacionCaidaL() {
   (function () {
@@ -1172,3 +1195,12 @@ velocidad_i_y.addEventListener("change", (event) => {
 });
 const boton = document.getElementById("Ver_graficas");
 boton.addEventListener("click", Graficas);
+
+const boton4 = document.getElementById("Reiniciar-Simulacion4")
+boton4.addEventListener("click", (event)=>{
+  if (altura_y_s.value != "" && Velocidad_i_x.value != "" && velocidad_i_y.value != "") {
+    simulacionCaidaL();
+  } else {
+    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+  }
+})

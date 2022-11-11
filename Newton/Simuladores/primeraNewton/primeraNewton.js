@@ -203,6 +203,15 @@ fuerza_externa1.addEventListener("change", (event) => {
   primera_simulacion();
 });
 
+const boton1 = document.getElementById("Reiniciar-Simulacion1")
+boton1.addEventListener('click', (event)=>{
+  if (fuerza_externa1.value != "") {
+      primera_simulacion()
+  } else {
+    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+  }
+})
+
 // SEGUNDA SIMULACION
 let velocidad_2 = document.getElementById("Velocidad-s-2");
 let Ttotal = document.getElementById("tTotal");
@@ -407,4 +416,13 @@ fuerzas_2.addEventListener('change', (event) =>{
 })
 velocidad_2.addEventListener('change', (event) =>{
     segunda_simulacion()
+})
+
+const boton2 = document.getElementById("Reiniciar-Simulacion2")
+boton2.addEventListener('click', (event)=>{
+  if (velocidad_2.value != "" && Ttotal.value != ""&& fuerzas_2 != "" && tEstudio.value != "") {
+    segunda_simulacion()
+  } else {
+    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+  }
 })

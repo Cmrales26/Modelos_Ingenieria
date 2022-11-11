@@ -5,6 +5,7 @@ let a2 = document.getElementById("angulo-2");
 let f3 = document.getElementById("fuerza-3");
 let a3 = document.getElementById("angulo-3");
 
+
 function dibujar_fuerzas(params) {
   (function () {
     var ρσ_modules = {};
@@ -168,7 +169,7 @@ function dibujar_fuerzas(params) {
             pos: start,
             axis: vector(xcomp, ycomp, 0),
             color: color,
-            shaftwidth: 0.1,
+            shaftwidth: 1,
           }),
         ]);
         vec.xcomp = xcomp;
@@ -199,6 +200,19 @@ function dibujar_fuerzas(params) {
     });
   })();
 }
+
+const boton1 = document.getElementById("Reiniciar-Simulacion1")
+
+boton1.addEventListener('click', (event)=>{
+  if (f1.value !=""&& a1.value !=""&& f2.value !=""&& a2.value !=""&& f3.value !=""&& a3.value !="") {
+    dibujar_fuerzas()
+  }else{
+    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+  }
+})
+
+
+
 
 f1.addEventListener('change', (event) =>{
   dibujar_fuerzas()

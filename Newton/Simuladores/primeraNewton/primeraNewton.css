@@ -75,3 +75,16 @@ span{
     transition: 0.2s ease;
     color: #020887;
 }
+input[type=button] {
+    margin-left: 20px;
+    border: none;
+    padding: .7% 5%;
+    border-radius: 10px;
+    background-color: #020887;
+    color: white;
+    cursor: pointer;
+    transition: .2s;
+}
+input[type=button]:hover {
+    scale: 1.1;
+}

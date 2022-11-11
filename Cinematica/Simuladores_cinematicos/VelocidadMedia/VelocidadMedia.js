@@ -136,7 +136,7 @@ function simulacion() {
       print(velocidad);
       objeto = ρσ_interpolate_kwargs.call(this, sphere, [
         ρσ_desugar_kwargs({
-          pos: vector(0, 0, 0),
+          pos: vector(distancia_i, 0, 0),
           color: color.blue,
           radius: velocidad["/"](3),
           make_trail: true,
@@ -146,7 +146,7 @@ function simulacion() {
       if (velocidad[">="](0)) {
         velocidad_c = ρσ_interpolate_kwargs.call(this, arrow, [
           ρσ_desugar_kwargs({
-            pos: vector(0, 0, 0),
+            pos: vector(distancia_i, 0, 0),
             axis: vector(velocidad["*"](2), 0, 0),
             color: color.blue,
             shaftwidth: velocidad["/"](5),
@@ -161,7 +161,7 @@ function simulacion() {
       } else if (velocidad["<="]((1)["-u"]()["*"](0))) {
         velocidad_c = ρσ_interpolate_kwargs.call(this, arrow, [
           ρσ_desugar_kwargs({
-            pos: vector(0, 0, 0),
+            pos: vector(distancia_i, 0, 0),
             axis: vector(velocidad["*"](2), 0, 0),
             color: color.blue,
             shaftwidth: velocidad["*"]((1)["-u"]())["*"](1)["/"](5),

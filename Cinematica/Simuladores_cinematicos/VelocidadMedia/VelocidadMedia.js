@@ -42,7 +42,7 @@ function simulacion() {
         } else if (arguments[0]) {
           exclude = Array.prototype.slice.call(arguments);
         } else {
-          exclude = null;
+          exclude = null; 
         }
         if (exclude) {
           string_funcs = string_funcs.difference(set(exclude));

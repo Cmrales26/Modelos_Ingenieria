@@ -203,14 +203,6 @@ function grafv_vs_t(params) {
   Plotly.newPlot(v_vs_t, data, layout);
 }
 
-// const boton = document.getElementById("prueba")
-// boton.addEventListener("click", (event) => {
-//   grafv_vs_t();
-//   simulador1();
-//   dist_movil.innerHTML = "" + distanciamovil() + "m";
-//   alert("HOLA")
-// })
-
 Velocidad.addEventListener("change", (event) => {
   let simu = document.getElementById("simulacion1");
   simulador1();

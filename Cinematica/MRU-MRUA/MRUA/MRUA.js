@@ -20,13 +20,18 @@ boton1.addEventListener("click", (event) => {
   if (
     velocidadpp_vs_t.value != "" &&
     tiempop_vs_t.value != "" &&
-    aceleracionp_vs_t != ""
+    aceleracionp_vs_t.value != ""
   ) {
     updategrficap_vs_t();
     grficap_vs_t();
     grficap_vs_t_speeds();
   } else {
-    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+    swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE LOS DATOS PARA LA SIMULACIÓN',
+      confirmButtonColor: "#020887"
+    })
   }
 });
 
@@ -243,7 +248,12 @@ boton2.addEventListener("click", (event) => {
   if (ac_v_vs_t.value != "" && ti_v_vs_t.value != "") {
     updategrfica_v_vs_t();updategrfica_v_vs_t_neg();grafica_v_vs_t();grafica_v_vs_t_n();
   } else {
-    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+    swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE LOS DATOS PARA LA SIMULACIÓN',
+      confirmButtonColor: "#020887"
+    })
   }
 });
 ac_v_vs_t.addEventListener("change", (event) => {
@@ -562,7 +572,12 @@ boton3.addEventListener("click", (event)=>{
     updategrfica_a_vs_t();
     grafica_a_vs_t();
   } else {
-    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+    swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE LOS DATOS PARA LA SIMULACIÓN',
+      confirmButtonColor: "#020887"
+    })
   }
   
 })
@@ -1194,13 +1209,30 @@ velocidad_i_y.addEventListener("change", (event) => {
   simulacionCaidaL();
 });
 const boton = document.getElementById("Ver_graficas");
-boton.addEventListener("click", Graficas);
+boton.addEventListener("click", (event) =>{
+  if (altura_y_s.value != "" && velocidad_i_y.value != "" && Velocidad_i_x.value != "") {
+    Graficas()
+  }else{
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'NO SE HAN ENCONTRADO VALORES PARA GRAFICAR',
+      confirmButtonColor: "#020887"
+    })
+  }
+});
 
 const boton4 = document.getElementById("Reiniciar-Simulacion4")
+
 boton4.addEventListener("click", (event)=>{
   if (altura_y_s.value != "" && Velocidad_i_x.value != "" && velocidad_i_y.value != "") {
     simulacionCaidaL();
   } else {
-    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+    swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE LOS DATOS PARA LA SIMULACIÓN',
+      confirmButtonColor: "#020887"
+    })
   }
 })

@@ -1,0 +1,141 @@
+body{
+    text-align: justify !important;
+}
+.teoria{
+    max-width: 65rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-bottom: 4%;
+}
+h1,h2,h3{
+    padding-top: 4%;
+    color: #020887;
+    text-transform: uppercase;
+}
+span{
+    color: #020887;
+    font-weight: 500;
+}
+.contenedor-sim-peso, .contenedor-dos-newton{
+    width: 80%;
+    border-radius: 5px;
+    border: 3px solid #020887;
+    height: 357px;
+    margin: auto;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#simulacion-peso h1 ,#contenedor-dos-newton h1{
+    color: rgba(2, 8, 135,.1) !important;
+    margin-top: 0%;
+}
+.simulacion-peso h1{
+    display: none;
+}
+.graficas-simulacion{
+    width: 120%;
+    margin-left: -15%;
+}
+input[type=text] {
+    border: 1px solid rgb(2, 8, 135);
+    border-radius: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: .4%;
+}
+input[type=button] {
+    margin-left: 20px;
+    border: none;
+    padding: .7% 5%;
+    border-radius: 10px;
+    background-color: #020887;
+    color: white;
+    cursor: pointer;
+    transition: .2s;
+}
+input[type=button]:hover {
+    scale: 1.1;
+}
+.glowscript-canvas-wrapper{
+    border: none !important;
+    padding-top: 12%;
+}
+
+/* !DISEÑO PROPIO */
+table.GeneratedTable {
+    width: 70%;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-width: 2px;
+    border-color: #020887;
+    border-style: solid;
+    color: #020887;
+    margin-right: 2%;
+}
+
+table.GeneratedTable td,
+table.GeneratedTable th {
+    border-width: 2px;
+    border-color: #020887;
+    border-style: solid;
+    padding: 3px;
+    text-align: center;
+}
+.vi-vm{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table.GeneratedTable thead {
+    background-color: #ffffff;
+}
+.Importante{
+    color: #020887;
+    font-weight: 600;
+}
+.analisis-Grafico ul {
+    margin-left: 4%;
+}
+
+.analisis-Grafico li {
+    list-style: decimal;
+    margin-bottom: 2%;
+}
+
+.analisis-Grafico li h4 {
+    text-transform: uppercase;
+    color: #020887;
+}
+.sig-ant{
+    display: flex;
+    justify-content: space-between;
+}
+.siguiente , 
+.anterior{
+    margin-top: 4%;
+    text-align: right;
+    margin-bottom: 4%;
+    cursor: pointer;
+}
+.siguiente a, 
+.anterior a{
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: gray;
+    transform: 2;
+}
+.siguiente a:hover, 
+.anterior a:hover{
+    font-size: 16.8px;
+    transition: 0.2s ease;
+    color: #020887;
+}

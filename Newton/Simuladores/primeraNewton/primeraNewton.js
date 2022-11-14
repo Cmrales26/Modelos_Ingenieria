@@ -200,15 +200,39 @@ function primera_simulacion() {
 primera_simulacion();
 
 fuerza_externa1.addEventListener("change", (event) => {
-  primera_simulacion();
+  if (parseFloat(fuerza_externa1.value) > 50 || parseFloat(fuerza_externa1.value) < -50 ) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE VALORES ENTRE -50 Y 50',
+      confirmButtonColor: "#020887"
+    })
+  } else {
+    primera_simulacion();  
+  }
+  
 });
 
 const boton1 = document.getElementById("Reiniciar-Simulacion1")
 boton1.addEventListener('click', (event)=>{
   if (fuerza_externa1.value != "") {
-      primera_simulacion()
+    if (parseFloat(fuerza_externa1.value) > 50 || parseFloat(fuerza_externa1.value) < -50 ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'INGRESE VALORES ENTRE -50 Y 50',
+        confirmButtonColor: "#020887"
+      })
+    } else {
+      primera_simulacion();  
+    }
   } else {
-    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE LOS DATOS PARA LA SIMULACIÓN',
+      confirmButtonColor: "#020887"
+    })
   }
 })
 
@@ -423,6 +447,11 @@ boton2.addEventListener('click', (event)=>{
   if (velocidad_2.value != "" && Ttotal.value != ""&& fuerzas_2 != "" && tEstudio.value != "") {
     segunda_simulacion()
   } else {
-    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE LOS DATOS PARA LA SIMULACIÓN',
+      confirmButtonColor: "#020887"
+    })
   }
 })

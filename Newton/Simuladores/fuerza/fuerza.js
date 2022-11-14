@@ -204,10 +204,15 @@ function dibujar_fuerzas(params) {
 const boton1 = document.getElementById("Reiniciar-Simulacion1")
 
 boton1.addEventListener('click', (event)=>{
-  if (f1.value !=""&& a1.value !=""&& f2.value !=""&& a2.value !=""&& f3.value !=""&& a3.value !="") {
+  if (f1.value !="" && a1.value !=""&& f2.value !=""&& a2.value !=""&& f3.value !=""&& a3.value !="") {
     dibujar_fuerzas()
   }else{
-    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE LOS DATOS PARA LA SIMULACIÓN',
+      confirmButtonColor: "#020887"
+    })
   }
 })
 

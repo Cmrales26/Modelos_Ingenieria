@@ -172,8 +172,13 @@ function simulador1(params) {
 }
 
 function grafv_vs_t(params) {
-  if (Velocidad.value == NaN) {
-    alert("NADA");
+  if (Velocidad.value == "") {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'NO SE ENCONTRO VALOR DE LA VELOCIDAD',
+      confirmButtonColor: "#020887"
+    })
   }
   var PC = {
     x: [0, parseFloat(Velocidad.value)],
@@ -459,7 +464,12 @@ botonrinicio1.addEventListener("click", (event) => {
   if (Velocidad.value != "" && tiempo.value != "") {
     simulador1();
   } else {
-    alert("INGRESE LOS DATOS PARA LA SIMULACIÓN");
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE LOS DATOS PARA LA SIMULACIÓN',
+      confirmButtonColor: "#020887"
+    })
   }
 });
 
@@ -474,6 +484,11 @@ botonrinicio2.addEventListener("click", (event) => {
   ) {
     grafp_vs_t();
   } else {
-    alert("INGRESE LOS VALORES PARA LA SIMULACIÓN");
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE LOS DATOS PARA LA SIMULACIÓN',
+      confirmButtonColor: "#020887"
+    })
   }
 });

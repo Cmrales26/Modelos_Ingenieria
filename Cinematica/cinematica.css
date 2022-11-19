@@ -58,6 +58,10 @@ img{
     width: 225px;
     height: 100px;
 }
+#Logoimg{
+    width: 50px !important; 
+    height: 50px !important;
+}
 .imagen{
     border-radius: 10px;
     padding: 10%;

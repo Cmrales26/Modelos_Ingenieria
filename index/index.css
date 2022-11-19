@@ -35,6 +35,10 @@ header {
     align-items: center;
     color: #Fafafa;
 }
+#Logoimg{
+    width: 50px !important; 
+    height: 50px !important;
+}
 .logo a{
     color: white;
     text-decoration: none;

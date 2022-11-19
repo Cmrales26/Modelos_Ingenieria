@@ -34,9 +34,14 @@ function draw() {
 
     const data = [trace1, p_0];
     Plotly.newPlot("plotVI", data, layout);
+    return true
   } catch (err) {
-    console.error(err);
-    alert(err);
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: err,
+      confirmButtonColor: "#020887"
+    })
   }
 }
 function velocidad_instantanea() {
@@ -254,6 +259,40 @@ function ejecturar() {
 }
 
 const boton = document.getElementById("aggv1");
-boton.addEventListener("click", draw);
+
+boton.addEventListener("click", (event)=>{
+  const expression = document.getElementById("eq").value;
+  const t_estudio = document.getElementById("testudio").value
+  const t_final = document.getElementById("tfinal").value
+  if (expression != "" && t_estudio != "" && t_final != "") {
+    draw()
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE UNA FUNCIÓN Y TIEMPOS PARA REALIZAR LA GRAFICA',
+      confirmButtonColor: "#020887"
+    })
+  }
+  }
+);
+
 const boton1 = document.getElementById("ResultadoV");
-boton1.addEventListener("click", ejecturar);
+boton1.addEventListener("click", (event)=>{
+  const expression = document.getElementById("eq").value;
+  const t_estudio = document.getElementById("testudio").value
+  const t_final = document.getElementById("tfinal").value
+  if (expression != "" && t_estudio != "" && t_final != "") {
+    if (draw() == true) {
+      ejecturar()
+    }
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE UNA FUNCIÓN Y TIEMPOS PARA REALIZAR LA GRAFICA',
+      confirmButtonColor: "#020887"
+    })
+  }
+  }
+);

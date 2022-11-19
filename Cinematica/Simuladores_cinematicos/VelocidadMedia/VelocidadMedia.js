@@ -192,4 +192,16 @@ function simulacion() {
 }
 
 const boton = document.getElementById("Resultado");
-boton.addEventListener("click", Calcular);
+
+boton.addEventListener("click", (event)=>{
+  if (Distancia_i.value != "" && T_f.value != "" && T_i.value != "" && Distancia_f.value != "" ) {
+    Calcular()
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE LOS DATOS PARA LA SIMULACIÓN',
+      confirmButtonColor: "#020887"
+    })
+  }
+});

@@ -6,7 +6,6 @@ let dist_movil = document.getElementById("dist-movil");
 function distanciamovil(params) {
   let velocidad = Velocidad.value;
   let time = tiempo.value;
-
   let distancia = velocidad * time;
   return distancia;
 }
@@ -24,7 +23,6 @@ function simulador1(params) {
         myNode.removeChild(myNode.lastChild);
       }
     }
-
     (function () {
       function strings() {
         var string_funcs, exclude, name;
@@ -250,7 +248,6 @@ tif.addEventListener("change", (event) => {
 });
 
 function grafp_vs_t() {
-  // START JAVASCRIPT
   (function () {
     var ρσ_modules = {};
     ρσ_modules.pythonize = {};
@@ -349,23 +346,14 @@ function grafp_vs_t() {
       var strings = ρσ_modules.pythonize.strings;
 
       strings();
-      ("2");
       p_i = parseFloat(poi.value);
-      ("3");
       velocidad = parseFloat(velo.value);
-      ("4");
       tiempoin = parseFloat(tii.value);
-      ("5");
       tiempofin = parseFloat(tif.value);
-      ("6");
       ratspeed = 10;
-      ("8");
       vport = velocidad["*"](tiempofin["-"]((1)["*"](tiempoin)));
-      ("9");
       res = p_i["+"](vport);
-      ("11");
       if (res["<"](0)) {
-        ("12");
         g = ρσ_interpolate_kwargs.call(this, graph, [
           ρσ_desugar_kwargs({
             width: 600,
@@ -377,7 +365,7 @@ function grafp_vs_t() {
             fast: true,
           }),
         ]);
-        ("13");
+
         plot1 = ρσ_interpolate_kwargs.call(this, gcurve, [
           ρσ_desugar_kwargs({
             graph: g,
@@ -386,9 +374,7 @@ function grafp_vs_t() {
             dot_color: color.blue,
           }),
         ]);
-        ("14");
       } else {
-        ("15");
         g = ρσ_interpolate_kwargs.call(this, graph, [
           ρσ_desugar_kwargs({
             width: 600,
@@ -400,7 +386,6 @@ function grafp_vs_t() {
             fast: true,
           }),
         ]);
-        ("16");
         plot1 = ρσ_interpolate_kwargs.call(this, gcurve, [
           ρσ_desugar_kwargs({
             graph: g,
@@ -410,17 +395,11 @@ function grafp_vs_t() {
           }),
         ]);
       }
-      ("18");
       plot1.plot(tiempoin, p_i);
-      ("20");
       while (tiempoin["<="](tiempofin)) {
-        ("21");
         await rate(10);
-        ("22");
         plot1.plot(tiempoin, p_i);
-        ("23");
         p_i = p_i["+"](velocidad);
-        ("24");
         tiempoin = tiempoin["+"](1);
       }
     }

@@ -218,10 +218,11 @@ function recorrido() {
         }),
       ]);
       while (p_i.x["<="](final)) {
-        await rate(ρσ_getitem(speed, p_i.x));
+        // await rate(ρσ_getitem(speed, r.x));
+        await rate(10);
         pelota2.pos = r;
-        plot1.plot(p_i.x, ρσ_getitem(speed, p_i.x));
-        p_i.x = p_i.x["+"](1);
+        plot1.plot(r.x, ρσ_getitem(speed, r.x));
+        r.x = r.x["+"](1);
       }
     }
     if (!__main__.__module__)

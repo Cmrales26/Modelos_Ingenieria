@@ -740,14 +740,14 @@ function simulacionCaidaL() {
   (function () {
     var ρσ_modules = {};
     ρσ_modules.pythonize = {};
-    let simu = document.getElementById("simulacionCaidaLibre");
-    if (simu == null) {
-      $(".simulacionCaidaLibre").attr("id", "simulacionCaidaLibre");
-      const myNode = document.getElementById("simulacionCaidaLibre");
-      while (myNode.firstChild) {
-        myNode.removeChild(myNode.lastChild);
-      }
-    }
+    // let simu = document.getElementById("simulacionCaidaLibre");
+    // if (simu == null) {
+    //   $(".simulacionCaidaLibre").attr("id", "simulacionCaidaLibre");
+    //   const myNode = document.getElementById("simulacionCaidaLibre");
+    //   while (myNode.firstChild) {
+    //     myNode.removeChild(myNode.lastChild);
+    //   }
+    // }
 
     (function () {
       function strings() {

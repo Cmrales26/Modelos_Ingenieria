@@ -204,11 +204,8 @@ function recorrido() {
       ]);
       plot1 = ρσ_interpolate_kwargs.call(this, gcurve, [
         ρσ_desugar_kwargs({
-          graph: g,
           color: color.blue,
           label: "Velocidad",
-          dot: true,
-          dot_color: color.blue,
         }),
       ]);
       pelota2 = ρσ_interpolate_kwargs.call(this, sphere, [
@@ -220,18 +217,11 @@ function recorrido() {
           canvas: canva1,
         }),
       ]);
-      // pelota = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({pos: vector(final, 0, 0), color: color.red, radius: 0.1, canvas: canva1})]);
-      while (r.x["<="](final)) {
-        await rate(ρσ_getitem(speed, r.x));
+      while (p_i.x["<="](final)) {
+        await rate(ρσ_getitem(speed, p_i.x));
         pelota2.pos = r;
-        print(
-          "movil en posicion "
-            ["+"](r.x)
-            ["+"](" tiene una velocidad de ")
-            ["+"](ρσ_getitem(speed, r.x))
-        );
-        plot1.plot(r.x, ρσ_getitem(speed, r.x));
-        r.x = r.x["+"](1);
+        plot1.plot(p_i.x, ρσ_getitem(speed, p_i.x));
+        p_i.x = p_i.x["+"](1);
       }
     }
     if (!__main__.__module__)

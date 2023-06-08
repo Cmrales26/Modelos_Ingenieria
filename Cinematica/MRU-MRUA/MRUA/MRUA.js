@@ -208,11 +208,12 @@ function grficap_vs_t_speeds() {
 
   out_pf.innerHTML = Posicion_f + " m";
 
-  let velocidad_m = (Posicion_f - v_i) / deltat;
+  let velocidad_m = (Posicion_f) / deltat;
   out_vm.innerHTML = velocidad_m + " m/s";
 
   const expression =
-    v_i.toString() + "*t+(1/2)" + aceleracion.toString() + "*t^2";
+    v_i.toString() + "*t+(1/2)*" + aceleracion.toString() + "*t^2";
+    console.log(expression)
   Resultado = math
     .derivative(expression, "t")
     .evaluate({ t: tiempo_estudio.value });
@@ -740,14 +741,15 @@ function simulacionCaidaL() {
   (function () {
     var ρσ_modules = {};
     ρσ_modules.pythonize = {};
-    // let simu = document.getElementById("simulacionCaidaLibre");
-    // if (simu == null) {
-    //   $(".simulacionCaidaLibre").attr("id", "simulacionCaidaLibre");
-    //   const myNode = document.getElementById("simulacionCaidaLibre");
-    //   while (myNode.firstChild) {
-    //     myNode.removeChild(myNode.lastChild);
-    //   }
-    // }
+
+    let simu = document.getElementById("simulacionCaidaLibre");
+    if (simu == null) {
+      $(".simulacionCaidaLibre").attr("id", "simulacionCaidaLibre");
+      const myNode = document.getElementById("simulacionCaidaLibre");
+      while (myNode.firstChild) {
+        myNode.removeChild(myNode.lastChild);
+      }
+    }
 
     (function () {
       function strings() {

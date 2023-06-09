@@ -201,6 +201,168 @@ function Simulacion1() {
     });
   })();
 }
+
+// * Graficas Simulacion resorte
+
+function GraficaFuerza() {
+  (function () {
+    var ρσ_modules = {};
+    ρσ_modules.pythonize = {};
+
+    let simu = document.getElementById("simulacion-peso-grafica");
+    if (simu == null) {
+      $(".simulacion-peso-grafica").attr("id", "simulacion-peso-grafica");
+      const myNode = document.getElementById("simulacion-peso-grafica");
+      while (myNode.firstChild) {
+        myNode.removeChild(myNode.lastChild);
+      }
+    }
+
+    (function () {
+      function strings() {
+        var string_funcs, exclude, name;
+        string_funcs = set(
+          "capitalize strip lstrip rstrip islower isupper isspace lower upper swapcase center count endswith startswith find rfind index rindex format join ljust rjust partition rpartition replace split rsplit splitlines zfill".split(
+            " "
+          )
+        );
+        if (!arguments.length) {
+          exclude = (function () {
+            var s = ρσ_set();
+            s.jsset.add("split");
+            s.jsset.add("replace");
+            return s;
+          })();
+        } else if (arguments[0]) {
+          exclude = Array.prototype.slice.call(arguments);
+        } else {
+          exclude = null;
+        }
+        if (exclude) {
+          string_funcs = string_funcs.difference(set(exclude));
+        }
+        var ρσ_Iter0 = string_funcs;
+        ρσ_Iter0 =
+          typeof ρσ_Iter0[Symbol.iterator] === "function"
+            ? ρσ_Iter0 instanceof Map
+              ? ρσ_Iter0.keys()
+              : ρσ_Iter0
+            : Object.keys(ρσ_Iter0);
+        for (var ρσ_Index0 of ρσ_Iter0) {
+          name = ρσ_Index0;
+          (ρσ_expr_temp = String.prototype)[
+            typeof name === "number" && name < 0
+              ? ρσ_expr_temp.length + name
+              : name
+          ] = (ρσ_expr_temp = ρσ_str.prototype)[
+            typeof name === "number" && name < 0
+              ? ρσ_expr_temp.length + name
+              : name
+          ];
+        }
+      }
+      if (!strings.__module__)
+        Object.defineProperties(strings, {
+          __module__: { value: "pythonize" },
+        });
+
+      ρσ_modules.pythonize.strings = strings;
+    })();
+    async function __main__() {
+      "use strict";
+      var display = canvas;
+      var scene = canvas();
+
+      var version,
+        print,
+        arange,
+        __name__,
+        type,
+        ρσ_ls,
+        spring_stiffness,
+        spring_length,
+        block_mass,
+        grav,
+        graph_force,
+        force_curve,
+        block_pos,
+        block_velocity,
+        block_force,
+        t,
+        delta_t,
+        stretch;
+      version = ρσ_list_decorate(["3.2", "glowscript"]);
+      Array.prototype["+"] = function (r) {
+        return this.concat(r);
+      };
+      Array.prototype["*"] = function (r) {
+        return __array_times_number(this, r);
+      };
+      window.__GSlang = "vpython";
+      print = GSprint;
+      arange = range;
+      __name__ = "__main__";
+      type = pytype;
+      var strings = ρσ_modules.pythonize.strings;
+
+      strings();
+      spring_stiffness = 1;
+      spring_length = 1;
+      block_mass = parseFloat(masa_sim_peso.value);
+      grav = 9.8;
+      graph_force = ρσ_interpolate_kwargs.call(this, graph, [
+        ρσ_desugar_kwargs({
+          width: 600,
+          height: 300,
+          xtitle: "Tiempo",
+          ytitle: "Fuerza",
+          background: vector(250, 250, 250),
+        }),
+      ]);
+      force_curve = ρσ_interpolate_kwargs.call(this, gcurve, [
+        ρσ_desugar_kwargs({ color: color.blue }),
+      ]);
+      block_pos = 0;
+      block_velocity = 0;
+      block_force = 0;
+      t = 0;
+      delta_t = 0.01;
+      while (t["<"](100)) {
+        await rate(200);
+
+        stretch = spring_length["-"]((1)["*"](abs(block_pos)));
+
+        block_force = (1)
+          ["-u"]()
+          ["*"](spring_stiffness)
+          ["*"](stretch)
+          ["-"]((1)["*"](block_mass)["*"](grav));
+
+        block_velocity = block_velocity["+"](
+          block_force["*"](delta_t)["/"](block_mass)
+        );
+
+        block_pos = block_pos["+"](block_velocity["*"](delta_t));
+
+        t = t["+"](delta_t);
+
+        force_curve.plot(t, block_force);
+      }
+    }
+    if (!__main__.__module__)
+      Object.defineProperties(__main__, {
+        __module__: { value: null },
+      });
+
+    $(function () {
+      window.__context = {
+        glowscript_container: $("#simulacion-peso-grafica").removeAttr("id"),
+      };
+      __main__();
+    });
+  })();
+}
+
 function resultado_sim1(params) {
   let resultado = masa_sim_peso.value * 9.8;
   document.getElementById("Resultado-peso").innerHTML =
@@ -209,13 +371,14 @@ function resultado_sim1(params) {
 masa_sim_peso.addEventListener("change", (event) => {
   if (parseFloat(masa_sim_peso.value) > 10) {
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'INGRESE VALORES ENTRE 0 Y 10',
-      confirmButtonColor: "#020887"
-    })
+      icon: "error",
+      title: "Oops...",
+      text: "INGRESE VALORES ENTRE 0 Y 10",
+      confirmButtonColor: "#020887",
+    });
   } else {
     Simulacion1();
+    GraficaFuerza();
     resultado_sim1();
   }
 });
@@ -223,22 +386,23 @@ reiniciar_sim_1.addEventListener("click", (event) => {
   if (masa_sim_peso.value != "") {
     if (parseFloat(masa_sim_peso.value) > 10) {
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'INGRESE VALORES ENTRE 0 Y 10',
-        confirmButtonColor: "#020887"
-      })
+        icon: "error",
+        title: "Oops...",
+        text: "INGRESE VALORES ENTRE 0 Y 10",
+        confirmButtonColor: "#020887",
+      });
     } else {
       Simulacion1();
+      GraficaFuerza();
       resultado_sim1();
     }
   } else {
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'INGRESE VALORES ENTRE 0 Y 10',
-      confirmButtonColor: "#020887"
-    })
+      icon: "error",
+      title: "Oops...",
+      text: "INGRESE VALORES ENTRE 0 Y 10",
+      confirmButtonColor: "#020887",
+    });
   }
 });
 
@@ -328,15 +492,21 @@ function Simulacion2(params) {
         __name__,
         type,
         ρσ_ls,
-        canva1,
         xmax,
         ymax,
         fuerza,
         friccion,
         masa,
+        canva1,
         crate,
         time,
         time_step,
+        arrow_force,
+        arrow_friction,
+        grid,
+        grid_size,
+        grid_color,
+        i,
         dx,
         dy;
       version = ρσ_list_decorate(["3.2", "glowscript"]);
@@ -354,6 +524,11 @@ function Simulacion2(params) {
       var strings = ρσ_modules.pythonize.strings;
 
       strings();
+      xmax = 10;
+      ymax = xmax["/"](2);
+      fuerza = parseFloat(fuerza_sim2.value);
+      friccion = parseFloat(friccion_sim2.value);
+      masa = parseFloat(masa_sim2.value);
       canva1 = ρσ_interpolate_kwargs.call(this, canvas, [
         ρσ_desugar_kwargs({
           width: 600,
@@ -361,16 +536,14 @@ function Simulacion2(params) {
           background: vector(250, 250, 250),
         }),
       ]);
-      xmax = 10;
-      ymax = xmax / 2;
-      fuerza = parseFloat(fuerza_sim2.value);
-      friccion = parseFloat(friccion_sim2.value);
-      masa = parseFloat(masa_sim2.value);
+
       async function force(name) {
         var ρσ_ls, push, friction, total_force;
+
         push = await v(fuerza, 0);
-        // push = (await v(fuerza["+"](exp(1["-u"]()["*"](1)["*"](time))), 0));
+
         friction = await v((1)["-u"]()["*"](friccion), 0);
+
         total_force = push["+"](friction);
         return total_force;
       }
@@ -380,21 +553,98 @@ function Simulacion2(params) {
           __module__: { value: null },
         });
 
-      crate = await marker(-5, 0, masa, color.blue);
+      crate = await marker(0, 0, masa, color.blue);
       crate.vx = 0;
       crate.vy = 0;
       time = 0;
       time_step = 0.02;
+      arrow_force = ρσ_interpolate_kwargs.call(this, arrow, [
+        ρσ_desugar_kwargs({
+          pos: crate.pos,
+          axis: vector(fuerza, 0, 0),
+          color: color.red,
+          shaftwidth: 0.1,
+        }),
+      ]);
+      arrow_friction = ρσ_interpolate_kwargs.call(this, arrow, [
+        ρσ_desugar_kwargs({
+          pos: crate.pos,
+          axis: vector((1)["-u"]()["*"](friccion), 0, 0),
+          color: color.orange,
+          shaftwidth: 0.1,
+        }),
+      ]);
+      grid = ρσ_list_decorate([]);
+      grid_size = 1;
+      grid_color = color.black;
+
+      var ρσ_Iter1 = range((1)["-u"]()["*"](xmax), xmax["+"](1), grid_size);
+      ρσ_Iter1 =
+        typeof ρσ_Iter1[Symbol.iterator] === "function"
+          ? ρσ_Iter1 instanceof Map
+            ? ρσ_Iter1.keys()
+            : ρσ_Iter1
+          : Object.keys(ρσ_Iter1);
+      for (var ρσ_Index1 of ρσ_Iter1) {
+        i = ρσ_Index1;
+
+        grid.append(
+          ρσ_interpolate_kwargs.call(this, box, [
+            ρσ_desugar_kwargs({
+              pos: vector(i, 0, (1)["-u"]()["*"](0.5)),
+              size: vector(0.05, ymax["*"](2), 0.05),
+              color: grid_color,
+            }),
+          ])
+        );
+      }
+
+      var ρσ_Iter2 = range(
+        (1)["-u"]()["*"](int(ymax)),
+        int(ymax)["+"](1),
+        grid_size
+      );
+      ρσ_Iter2 =
+        typeof ρσ_Iter2[Symbol.iterator] === "function"
+          ? ρσ_Iter2 instanceof Map
+            ? ρσ_Iter2.keys()
+            : ρσ_Iter2
+          : Object.keys(ρσ_Iter2);
+      for (var ρσ_Index2 of ρσ_Iter2) {
+        i = ρσ_Index2;
+
+        grid.append(
+          ρσ_interpolate_kwargs.call(this, box, [
+            ρσ_desugar_kwargs({
+              pos: vector(0, i, (1)["-u"]()["*"](0.5)),
+              size: vector(xmax["*"](2), 0.05, 0.05),
+              color: grid_color,
+            }),
+          ])
+        );
+      }
+
       while (
         crate.pos.x["<="](xmax) &&
         crate.pos.x[">="]((1)["-u"]()["*"](xmax))
       ) {
+        await rate(100);
+
+        arrow_force.pos = crate.pos;
+
+        arrow_friction.pos = crate.pos;
+
         await accelerate(crate);
+
         dx = crate.vx["*"](time_step);
+
         dy = crate.vy["*"](time_step);
+
         await move(crate, dx, dy);
+
         time = time["+"](time_step);
       }
+
       async function v(x, y) {
         return vector(x, y, 0);
       }
@@ -406,7 +656,9 @@ function Simulacion2(params) {
 
       async function marker(x, y, mass, col) {
         var ρσ_ls, a;
+
         await sleep(0.1);
+
         a = ρσ_interpolate_kwargs.call(this, box, [
           ρσ_desugar_kwargs({
             pos: vector(x, y["+"](0.25), 0),
@@ -419,6 +671,7 @@ function Simulacion2(params) {
             mass: mass,
           }),
         ]);
+
         return a;
       }
       if (!marker.__argnames__)
@@ -426,9 +679,9 @@ function Simulacion2(params) {
           __argnames__: { value: ["x", "y", "mass", "col"] },
           __module__: { value: null },
         });
-
       async function accelerate(name) {
         var ρσ_ls, f, dvx, dvy;
+
         f = await force(name);
         dvx = f.x["/"](name.mass)["*"](time_step);
         dvy = f.y["/"](name.mass)["*"](time_step);
@@ -444,10 +697,13 @@ function Simulacion2(params) {
 
       async function move(name, dx, dy) {
         await sleep(0.005);
+
         name.pos = name.pos["+"](vector(dx, dy, 0));
+
         name.distance = name.distance["+"](
           sqrt(Math.pow(dx, 2)["+"](Math.pow(dy, 2)))
         );
+
         return;
       }
       if (!move.__argnames__)
@@ -467,9 +723,11 @@ function Simulacion2(params) {
 
       async function displacement(name) {
         var ρσ_ls, dx, dy;
+
         dx = name.pos.x["-"]((1)["*"](name.initial_pos.x));
+
         dy = name.pos.y["-"]((1)["*"](name.initial_pos.y));
-        return sqrt(Math.pow(dx, 2)["+"](Math.pow(dy, 2)));
+        return;
       }
       if (!displacement.__argnames__)
         Object.defineProperties(displacement, {
@@ -500,11 +758,11 @@ reiniciar_sim_2.addEventListener("click", (event) => {
     Simulacion2();
   } else {
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'INGRESE LOS DATOS PARA LA SIMULACIÓN',
-      confirmButtonColor: "#020887"
-    })
+      icon: "error",
+      title: "Oops...",
+      text: "INGRESE LOS DATOS PARA LA SIMULACIÓN",
+      confirmButtonColor: "#020887",
+    });
   }
 });
 fuerza_sim2.addEventListener("change", (event) => {
@@ -822,14 +1080,18 @@ function Graficas_sim2(params) {
 }
 
 ver_graficas_sim2.addEventListener("click", (event) => {
-  if (fuerza_sim2.value != "" && friccion_sim2.value!= "" && masa_sim2.value != "") {
-    Graficas_sim2(); 
-  }else{
+  if (
+    fuerza_sim2.value != "" &&
+    friccion_sim2.value != "" &&
+    masa_sim2.value != ""
+  ) {
+    Graficas_sim2();
+  } else {
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'NO SE ENCONTRARON DATOS EN LA SIMULACIÓN',
-      confirmButtonColor: "#020887"
-    })
+      icon: "error",
+      title: "Oops...",
+      text: "NO SE ENCONTRARON DATOS EN LA SIMULACIÓN",
+      confirmButtonColor: "#020887",
+    });
   }
 });

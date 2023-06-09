@@ -1,5 +1,19 @@
 // PRIMERA SIMULACION
 let fuerza_externa1 = document.getElementById("fuerza-p-l-i");
+let tiempo_externa1 = document.getElementById("tiempo-p-l-i");
+let masa_externa1 = document.getElementById("masa-p-l-i");
+
+
+const distanciarecorrida = () => {
+  if (fuerza_externa1.value != "" && tiempo_externa1.value != "" && masa_externa1.value != "") {
+    let aceleracion = parseFloat(fuerza_externa1.value) / parseFloat(masa_externa1.value);
+    let posicion_final = ((0.5 * aceleracion) * (Math.pow(parseFloat(tiempo_externa1.value), 2)));
+    const distanciaFinal = document.getElementById("distanciaRecorrida");
+    return distanciaFinal.innerHTML = posicion_final.toFixed(3);
+  } else {
+    return
+  }
+}
 
 function primera_simulacion() {
   (function () {
@@ -18,11 +32,7 @@ function primera_simulacion() {
     (function () {
       function strings() {
         var string_funcs, exclude, name;
-        string_funcs = set(
-          "capitalize strip lstrip rstrip islower isupper isspace lower upper swapcase center count endswith startswith find rfind index rindex format join ljust rjust partition rpartition replace split rsplit splitlines zfill".split(
-            " "
-          )
-        );
+        string_funcs = set("capitalize strip lstrip rstrip islower isupper isspace lower upper swapcase center count endswith startswith find rfind index rindex format join ljust rjust partition rpartition replace split rsplit splitlines zfill".split(" "));
         if (!arguments.length) {
           exclude = (function () {
             var s = ρσ_set();
@@ -39,29 +49,15 @@ function primera_simulacion() {
           string_funcs = string_funcs.difference(set(exclude));
         }
         var ρσ_Iter0 = string_funcs;
-        ρσ_Iter0 =
-          typeof ρσ_Iter0[Symbol.iterator] === "function"
-            ? ρσ_Iter0 instanceof Map
-              ? ρσ_Iter0.keys()
-              : ρσ_Iter0
-            : Object.keys(ρσ_Iter0);
+        ρσ_Iter0 = ((typeof ρσ_Iter0[Symbol.iterator] === "function") ? (ρσ_Iter0 instanceof Map ? ρσ_Iter0.keys() : ρσ_Iter0) : Object.keys(ρσ_Iter0));
         for (var ρσ_Index0 of ρσ_Iter0) {
           name = ρσ_Index0;
-          (ρσ_expr_temp = String.prototype)[
-            typeof name === "number" && name < 0
-              ? ρσ_expr_temp.length + name
-              : name
-          ] = (ρσ_expr_temp = ρσ_str.prototype)[
-            typeof name === "number" && name < 0
-              ? ρσ_expr_temp.length + name
-              : name
-          ];
+          (ρσ_expr_temp = String.prototype)[(typeof name === "number" && name < 0) ? ρσ_expr_temp.length + name : name] = (ρσ_expr_temp = ρσ_str.prototype)[(typeof name === "number" && name < 0) ? ρσ_expr_temp.length + name : name];
         }
-      }
-      if (!strings.__module__)
-        Object.defineProperties(strings, {
-          __module__: { value: "pythonize" },
-        });
+      };
+      if (!strings.__module__) Object.defineProperties(strings, {
+        __module__: { value: "pythonize" }
+      });
 
       ρσ_modules.pythonize.strings = strings;
     })();
@@ -70,37 +66,10 @@ function primera_simulacion() {
       var display = canvas;
       var scene = canvas();
 
-      function input(arg) {
-        arg = arg || {};
-        if (arg.prompt !== undefined && arg.prompt != "")
-          return prompt(arg.prompt);
-        else if (typeof arg === "string") return prompt(arg);
-        else return prompt();
-      }
-
-      var version,
-        print,
-        arange,
-        __name__,
-        type,
-        ρσ_ls,
-        canva1,
-        objeto,
-        gravedad,
-        reaccion,
-        fuerza,
-        fuerza_v,
-        time,
-        i,
-        fuerza_c,
-        piso;
+      var version, print, arange, __name__, type, ρσ_ls, scene, masa, fuerza, tiempo, dt, objeto, rastro, pp, vector_arriba, vector_abajo, vector_fuerza, label_posicion, aceleracion, velocidad_inicial, posicion_inicial, posicion_final, pf, Linea, tiempo_actual;
       version = ρσ_list_decorate(["3.2", "glowscript"]);
-      Array.prototype["+"] = function (r) {
-        return this.concat(r);
-      };
-      Array.prototype["*"] = function (r) {
-        return __array_times_number(this, r);
-      };
+      Array.prototype['+'] = function (r) { return this.concat(r) }
+      Array.prototype['*'] = function (r) { return __array_times_number(this, r) }
       window.__GSlang = "vpython";
       print = GSprint;
       arange = range;
@@ -109,85 +78,59 @@ function primera_simulacion() {
       var strings = ρσ_modules.pythonize.strings;
 
       strings();
-      canva1 = ρσ_interpolate_kwargs.call(this, canvas, [
-        ρσ_desugar_kwargs({
-          width: 600,
-          height: 225,
-          background: vector(250, 250, 250),
-        }),
-      ]);
-      objeto = ρσ_interpolate_kwargs.call(this, box, [
-        ρσ_desugar_kwargs({
-          pos: vector(0, 3, 0),
-          color: color.blue,
-          size: vector(5, 5, 0.01),
-          make_trail: true,
-        }),
-      ]);
-      gravedad = ρσ_interpolate_kwargs.call(this, arrow, [
-        ρσ_desugar_kwargs({
-          pos: vector(0, 3, 0),
-          axis: vector(0, (1)["-u"]()["*"](9.8), 0),
-          color: color.red,
-          shaftwidth: 1,
-        }),
-      ]);
-      reaccion = ρσ_interpolate_kwargs.call(this, arrow, [
-        ρσ_desugar_kwargs({
-          pos: vector(0, 3, 0),
-          axis: vector(0, 9.8, 0),
-          color: color.green,
-          shaftwidth: 1,
-        }),
-      ]);
-      await sleep(0.1);
-      fuerza = parseFloat(fuerza_externa1.value);
-      fuerza_v = vector(0, 3, 0);
-      time = 50;
-      canva1.camera.follow(objeto);
-      i = 0;
-      fuerza_c = ρσ_interpolate_kwargs.call(this, arrow, [
-        ρσ_desugar_kwargs({
-          pos: vector(0, 3, 0),
-          axis: vector(fuerza, 0, 0),
-          color: color.blue,
-          shaftwidth: 1,
-        }),
-      ]);
-      piso = ρσ_interpolate_kwargs.call(this, box, [
-        ρσ_desugar_kwargs({
-          pos: vector(0, 0, 0),
-          color: color.black,
-          size: vector(time["*"](2.5), 1, 0.1),
-        }),
-      ]);
-      if (fuerza[">="](1)) {
-        while (i["<"](time)) {
-          await rate(10);
-          objeto.pos = fuerza_v;
-          gravedad.pos = fuerza_v;
-          reaccion.pos = fuerza_v;
-          fuerza_c.pos = fuerza_v;
-          fuerza_v.x = fuerza_v.x["+"](1);
-          i = i["+"](1);
-        }
-      } else if (fuerza["<="](-1)) {
-        while (i["<"](time)) {
-          await rate(10);
-          objeto.pos = fuerza_v;
-          gravedad.pos = fuerza_v;
-          reaccion.pos = fuerza_v;
-          fuerza_c.pos = fuerza_v;
-          fuerza_v.x = fuerza_v.x["-"](1);
+      scene = ρσ_interpolate_kwargs.call(this, canvas, [ρσ_desugar_kwargs({ width: 600, height: 225, background: color.white })]);
+      masa = parseFloat(masa_externa1.value);
+      fuerza = vector(parseFloat(fuerza_externa1.value), 0, 0);
+      tiempo = parseFloat(tiempo_externa1.value);
+      dt = .1;
+      objeto = ρσ_interpolate_kwargs.call(this, box, [ρσ_desugar_kwargs({ pos: vector(0, 0, 0), size: vector(1, 1, .1), color: color.blue })]);
+      rastro = ρσ_interpolate_kwargs.call(this, curve, [ρσ_desugar_kwargs({ color: color.red })]);
+      rastro.dot = true;
+      rastro.radius = .05;
+      vector_arriba = ρσ_interpolate_kwargs.call(this, arrow, [ρσ_desugar_kwargs({ pos: objeto.pos, axis: vector(0, 2, 0), shaftwidth: .2, color: color.green })]);
+      vector_abajo = ρσ_interpolate_kwargs.call(this, arrow, [ρσ_desugar_kwargs({ pos: objeto.pos, axis: vector(0, 2["-u"]()["*"](1), 0), shaftwidth: .2, color: color.red })]);
+      vector_fuerza = ρσ_interpolate_kwargs.call(this, arrow, [ρσ_desugar_kwargs({ pos: objeto.pos, axis: fuerza, shaftwidth: .3, color: color.blue })]);
+      label_posicion = ρσ_interpolate_kwargs.call(this, label, [ρσ_desugar_kwargs({ pos: objeto.pos["+"](vector(0, .6, 0)), text: "Posición: ", box: false })]);
+      aceleracion = fuerza["/"](masa);
+      velocidad_inicial = vector(0, 0, 0);
+      posicion_inicial = vector(0, 0, 0);
+      posicion_final = posicion_inicial["+"](velocidad_inicial["*"](tiempo))["+"](.5["*"](aceleracion)["*"](Math.pow(tiempo, 2)));
+      pf = ρσ_interpolate_kwargs.call(this, sphere, [ρσ_desugar_kwargs({ pos: vector(posicion_final.x, 1["-u"]()["*"](.5), 0), size: vector(.5, .5, 1), color: color.green })]);
+      Linea = ρσ_interpolate_kwargs.call(this, box, [ρσ_desugar_kwargs({ pos: vector(0["*"](4), 1["-u"]()["*"](.5), 0), size: vector(posicion_final.x["*"](2), .1, .1), color: color.black })]);
+      scene.camera.pos = vector(0, 0, 10);
+      scene.camera.axis = 1["-u"]()["*"](vector(0, 0, 10));
+      tiempo_actual = 0;
+      while (tiempo_actual["<"](tiempo)) {
 
-          i = i["+"](1);
-        }
+        (await rate(10));
+
+        objeto.pos = posicion_inicial["+"](velocidad_inicial["*"](tiempo_actual))["+"](.5["*"](aceleracion)["*"](Math.pow(tiempo_actual, 2)));
+
+        objeto.velocity = velocidad_inicial["+"](aceleracion["*"](tiempo_actual));
+
+        vector_arriba.pos = objeto.pos;
+
+        vector_arriba.axis = vector(0, 2, 0);
+
+        vector_abajo.pos = objeto.pos;
+
+        vector_abajo.axis = vector(0, 1["-u"]()["*"](2), 0);
+        vector_fuerza.pos = objeto.pos;
+
+        ρσ_interpolate_kwargs.call(rastro, rastro.append, [ρσ_desugar_kwargs({ pos: objeto.pos })]);
+
+        label_posicion.pos = objeto.pos["+"](vector(0, .6, 0));
+
+        label_posicion.text = "Posición: {:.0f} metros".format(objeto.pos.x);
+
+        scene.camera.follow(objeto);
+
+        tiempo_actual = tiempo_actual["+"](dt);
       }
-    }
-    if (!__main__.__module__)
-      Object.defineProperties(__main__, {
-        __module__: { value: null },
-      });
+    };
+    if (!__main__.__module__) Object.defineProperties(__main__, {
+      __module__: { value: null }
+    });
 
     $(function () {
       window.__context = {
@@ -200,31 +143,63 @@ function primera_simulacion() {
 primera_simulacion();
 
 fuerza_externa1.addEventListener("change", (event) => {
-  if (parseFloat(fuerza_externa1.value) > 50 || parseFloat(fuerza_externa1.value) < -50 ) {
+  if (parseFloat(fuerza_externa1.value) > 50 || parseFloat(fuerza_externa1.value) < 0) {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'INGRESE VALORES ENTRE -50 Y 50',
+      text: 'INGRESE VALORES ENTRE 0 Y 50',
       confirmButtonColor: "#020887"
     })
+    return
   } else {
-    primera_simulacion();  
+    primera_simulacion();
+    distanciarecorrida();
   }
-  
+});
+
+tiempo_externa1.addEventListener("change", (event) => {
+  if (parseFloat(tiempo_externa1.value) > 60 || parseFloat(tiempo_externa1.value) < 0) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE VALORES ENTRE 0 Y 60',
+      confirmButtonColor: "#020887"
+    })
+    return
+  } else {
+    primera_simulacion();
+    distanciarecorrida();
+  }
+});
+
+
+masa_externa1.addEventListener("change", (event) => {
+  if (parseFloat(masa_externa1.value) < 50 || parseFloat(tiempo_externa1.value) > 300) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'INGRESE VALORES ENTRE 50 Y 300',
+      confirmButtonColor: "#020887"
+    })
+    return
+  } else {
+    primera_simulacion();
+    distanciarecorrida();
+  }
 });
 
 const boton1 = document.getElementById("Reiniciar-Simulacion1")
-boton1.addEventListener('click', (event)=>{
+boton1.addEventListener('click', (event) => {
   if (fuerza_externa1.value != "") {
-    if (parseFloat(fuerza_externa1.value) > 50 || parseFloat(fuerza_externa1.value) < -50 ) {
+    if (parseFloat(fuerza_externa1.value) > 50 || parseFloat(fuerza_externa1.value) < 0) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'INGRESE VALORES ENTRE -50 Y 50',
+        text: 'INGRESE VALORES ENTRE 0 Y 50',
         confirmButtonColor: "#020887"
       })
     } else {
-      primera_simulacion();  
+      primera_simulacion();
     }
   } else {
     Swal.fire({
@@ -296,7 +271,7 @@ function segunda_simulacion() {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-          ];
+            ];
         }
       }
       if (!strings.__module__)
@@ -403,13 +378,13 @@ function segunda_simulacion() {
       ]);
       while (tiempo_i["<"](deltaTiempo)) {
         await rate(5);
-        tiempo_i =tiempo_i+1
-        distancia_f = distancia_f + (velocidad_f*tiempo_i)+((1/2)*(0*Math.pow(tiempo_i,2)))
+        tiempo_i = tiempo_i + 1
+        distancia_f = distancia_f + (velocidad_f * tiempo_i) + ((1 / 2) * (0 * Math.pow(tiempo_i, 2)))
         velocidad_f = velocidad_i + tiempo_i
         if (tiempo_i === tiempo_estudio) {
-          distancia_f = distancia_f + (velocidad_i*tiempo_i)+((1/2)*(fuerza*Math.pow(tiempo_i,2)))
+          distancia_f = distancia_f + (velocidad_i * tiempo_i) + ((1 / 2) * (fuerza * Math.pow(tiempo_i, 2)))
           velocidad_f = velocidad_i + (fuerza * tiempo_i)
-          tiempo_i =tiempo_i+1
+          tiempo_i = tiempo_i + 1
         }
         plot1.plot(tiempo_i, distancia_f);
         plot2.plot(tiempo_i, velocidad_f);
@@ -429,22 +404,22 @@ function segunda_simulacion() {
   })();
 }
 
-tEstudio.addEventListener('change', (event) =>{
-    segunda_simulacion()
+tEstudio.addEventListener('change', (event) => {
+  segunda_simulacion()
 })
-Ttotal.addEventListener('change', (event) =>{
-    segunda_simulacion()
+Ttotal.addEventListener('change', (event) => {
+  segunda_simulacion()
 })
-fuerzas_2.addEventListener('change', (event) =>{
-    segunda_simulacion()
+fuerzas_2.addEventListener('change', (event) => {
+  segunda_simulacion()
 })
-velocidad_2.addEventListener('change', (event) =>{
-    segunda_simulacion()
+velocidad_2.addEventListener('change', (event) => {
+  segunda_simulacion()
 })
 
 const boton2 = document.getElementById("Reiniciar-Simulacion2")
-boton2.addEventListener('click', (event)=>{
-  if (velocidad_2.value != "" && Ttotal.value != ""&& fuerzas_2 != "" && tEstudio.value != "") {
+boton2.addEventListener('click', (event) => {
+  if (velocidad_2.value != "" && Ttotal.value != "" && fuerzas_2 != "" && tEstudio.value != "") {
     segunda_simulacion()
   } else {
     Swal.fire({

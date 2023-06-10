@@ -121,7 +121,7 @@ function simulador1(params) {
         ρσ_desugar_kwargs({
           pos: p_i,
           color: color.blue,
-          radius: 1,
+          radius: 0.3,
           make_trail: true,
         }),
       ]);

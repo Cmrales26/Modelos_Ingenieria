@@ -438,13 +438,28 @@ function Simular() {
         __name__,
         type,
         ρσ_ls,
-        p_ix,
-        p_iy,
-        speed,
-        p_fx,
-        p_fy,
-        movil,
-        r;
+        scene,
+        ppax,
+        ppay,
+        pyax,
+        pyay,
+        ppbx,
+        ppby,
+        pybx,
+        pyby,
+        punto_partida_A,
+        punto_llegada_A,
+        punto_partida_B,
+        punto_llegada_B,
+        escala_x,
+        escala_y,
+        vector_A,
+        vector_B,
+        tiempo_inicial,
+        tiempo_final,
+        velocidad_resultante,
+        esfera_partida,
+        flecha_resultante;
       version = ρσ_list_decorate(["3.2", "glowscript"]);
       Array.prototype["+"] = function (r) {
         return this.concat(r);
@@ -460,104 +475,113 @@ function Simular() {
       var strings = ρσ_modules.pythonize.strings;
 
       strings();
-      sleep(0.1);
-      ρσ_interpolate_kwargs.call(this, canvas, [
+      ("5");
+      scene = ρσ_interpolate_kwargs.call(this, canvas, [
         ρσ_desugar_kwargs({
           width: 520,
           height: 420,
-          background: vector(250, 250, 250),
+          background: color.white,
         }),
       ]);
-      p_ix = parseFloat(document.getElementById("pllx").value);
-      p_iy = parseFloat(document.getElementById("plly").value);
-      speed = respuesta();
-      p_fx = parseFloat(document.getElementById("pllx2").value);
-      p_fy = parseFloat(document.getElementById("plly2").value);
-      movil = ρσ_interpolate_kwargs.call(this, sphere, [
+
+
+      var vix = parseFloat(document.getElementById("ppx").value);
+      var viy = parseFloat(document.getElementById("ppy").value);
+      var vfx = parseFloat(document.getElementById("pllx").value);
+      var vfy = parseFloat(document.getElementById("plly").value);
+    
+      //SEGUNDO VECTOR
+      var vix2 = parseFloat(document.getElementById("ppx2").value);
+      var viy2 = parseFloat(document.getElementById("ppy2").value);
+      var vfx2 = parseFloat(document.getElementById("pllx2").value);
+      var vfy2 = parseFloat(document.getElementById("plly2").value);
+    
+      //TIEMPO
+      var ti = parseFloat(document.getElementById("ti").value);
+      var tf = parseFloat(document.getElementById("tf").value);
+
+
+
+      ppax = vix;
+      ppay = viy;
+      pyax = vfx;
+      pyay = vfy;
+
+
+      ppbx = vix2;
+      ppby = viy2;
+      pybx = vfx2;
+      pyby = vfy2;
+
+
+
+      punto_partida_A = vector(ppax, ppay, 0);
+      punto_llegada_A = vector(pyax, pyay, 0);
+      punto_partida_B = vector(ppbx, ppby, 0);
+      punto_llegada_B = vector(pybx, pyby, 0);
+      escala_x = (5)["/"](max(abs(punto_llegada_A.x), abs(punto_llegada_B.x)));
+      escala_y = (5)["/"](max(abs(punto_llegada_A.y), abs(punto_llegada_B.y)));
+      punto_partida_A = punto_partida_A["*"](escala_x)["*"](escala_y);
+      punto_llegada_A = punto_llegada_A["*"](escala_x)["*"](escala_y);
+      punto_partida_B = punto_partida_B["*"](escala_x)["*"](escala_y);
+      punto_llegada_B = punto_llegada_B["*"](escala_x)["*"](escala_y);
+      vector_A = ρσ_interpolate_kwargs.call(this, curve, [
         ρσ_desugar_kwargs({
-          pos: vector(p_ix, p_iy, 0),
-          radius: 2,
-          color: color.blue,
-          make_trail: true,
+          pos: ρσ_list_decorate([punto_partida_A, punto_llegada_A]),
+          color: color.orange,
+          radius: 0.02,
         }),
       ]);
-      r = vector(p_ix, p_iy, 0);
-      if (r.x[">"](p_fx) && r.y[">"](p_fy)) {
-        while (r.x[">"](p_fx) && r.y[">"](p_fy)) {
-          await rate(speed);
-          movil.pos = r;
-          r.x = r.x["-"]((1)["*"](1));
-          r.y = r.y["-"]((1)["*"](1));
-          print(r);
-        }
-      } else if (r.x["<"](p_fx) && r.y["<"](p_fy)) {
-        while (r.x["<"](p_fx) && r.y["<"](p_fy)) {
-          await rate(speed);
-          movil.pos = r;
-          r.x = r.x["+"](1);
-          r.y = r.y["+"](1);
-          print(r);
-        }
-      } else if (r.x[">"](p_fx) && r.y["<"](p_fy)) {
-        console.log("HOLA x > fx");
-        while (r.x[">"](p_fx) && r.y["<"](p_fy)) {
-          await rate(speed);
-          movil.pos = r;
-          r.x = r.x["-"]((1)["*"](1));
-          r.y = r.y["+"](1);
-          print(r);
-        }
-      } else if (r.x["<"](p_fx) && r.y[">"](p_fy)) {
-        console.log("HOLA x < fx");
-        while (r.x["<"](p_fx) && r.y[">"](p_fy)) {
-          await rate(speed);
-          movil.pos = r;
-          r.x = r.x["+"](1);
-          r.y = r.y["-"]((1)["*"](1));
-          print(r);
-        }
-      } else if (
-        r.x === p_fx ||
-        (typeof r.x === "object" && ρσ_equals(r.x, p_fx))
-      ) {
-        print("HOLA x");
-        print("inicial x:"["+"](p_ix), "inicial y: "["+"](p_iy), p_fx, p_fy);
-        if (r.y["<"](p_fy)) {
-          while (r.y["<"](p_fy)) {
-            await rate(speed);
-            movil.pos = r;
-            r.y = r.y["+"](1);
-            print(r);
-          }
-        } else if (r.y[">"](p_fy)) {
-          while (r.y[">"](p_fy)) {
-            await rate(speed);
-            movil.pos = r;
-            r.y = r.y["-"]((1)["*"](1));
-            print(r);
-          }
-        }
-      } else if (
-        r.y === p_fy ||
-        (typeof r.y === "object" && ρσ_equals(r.y, p_fy))
-      ) {
-        print("HOLA Y");
-        if (r.x["<"](p_fx)) {
-          while (r.x["<"](p_fx)) {
-            await rate(speed);
-            movil.pos = r;
-            r.x = r.x["+"](1);
-            print(r);
-          }
-        } else if (r.x[">"](p_fx)) {
-          while (r.x[">"](p_fx)) {
-            await rate(speed);
-            movil.pos = r;
-            r.x = r.x["-"]((1)["*"](1));
-            print(r);
-          }
+      vector_B = ρσ_interpolate_kwargs.call(this, curve, [
+        ρσ_desugar_kwargs({
+          pos: ρσ_list_decorate([punto_partida_B, punto_llegada_B]),
+          color: color.green,
+          radius: 0.02,
+        }),
+      ]);
+
+      tiempo_inicial = ti 
+      tiempo_final = tf
+
+      velocidad_resultante = punto_llegada_B["-"]((1)["*"](punto_llegada_A))[
+        "/"
+      ](tiempo_final["-"]((1)["*"](tiempo_inicial)));
+      esfera_partida = ρσ_interpolate_kwargs.call(this, sphere, [
+        ρσ_desugar_kwargs({
+          pos: punto_llegada_A,
+          color: color.red,
+          radius: 0.05,
+        }),
+      ]);
+      flecha_resultante = ρσ_interpolate_kwargs.call(this, arrow, [
+        ρσ_desugar_kwargs({
+          pos: punto_llegada_A,
+          axis: vector(0, 0, 0),
+          color: color.red,
+          shaftwidth: 0.02,
+          headwidth: 0.06,
+        }),
+      ]);
+
+      // scene.camera.follow(flecha_resultante);
+
+      async function animar_vector_resultante() {
+        var ρσ_ls, t;
+        t = tiempo_inicial;
+        ("60");
+        await rate(30);
+        while (t["<="](tiempo_final)) {
+          await rate(30);
+          flecha_resultante.axis = velocidad_resultante["*"](t);
+          t = t["+"](0.1);
         }
       }
+      if (!animar_vector_resultante.__module__)
+        Object.defineProperties(animar_vector_resultante, {
+          __module__: { value: null },
+        });
+
+      await animar_vector_resultante();
     }
     if (!__main__.__module__)
       Object.defineProperties(__main__, {

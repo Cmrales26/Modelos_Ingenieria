@@ -1,10 +1,13 @@
-let Distancia = document.getElementById("Distancia")
-let T_i = document.getElementById("T_i")
-let T_f = document.getElementById("T_f")
+let Distancia = document.getElementById("Distancia");
+let T_i = document.getElementById("T_i");
+let T_f = document.getElementById("T_f");
 
 function Calcular() {
-  let resultado = (parseFloat(Distancia.value) / (parseFloat(T_f.value) - parseFloat(T_i.value)));
-  document.getElementById("Respuesta-valor").innerHTML = resultado.toFixed(2) + "m/s";
+  let resultado =
+    parseFloat(Distancia.value) /
+    (parseFloat(T_f.value) - parseFloat(T_i.value));
+  document.getElementById("Respuesta-valor").innerHTML =
+    resultado.toFixed(2) + "m/s";
   simulacion();
 }
 
@@ -90,16 +93,20 @@ function simulacion() {
         __name__,
         type,
         ρσ_ls,
-        canva1,
+        tiempo_inicial,
+        tiempo_final,
         distancia,
-        tiempo_i,
-        tiempo_f,
-        deltat,
-        rapidez,
-        rapidez_v,
+        velocidad,
+        direccion,
+        tiempo_simulacion,
+        scene,
+        superficie,
         objeto,
-        i,
-        rapidez_c;
+        etiqueta_distancia,
+        vector_velocidad,
+        etiqueta_velocidad,
+        tiempo,
+        distancia_recorrida;
       version = ρσ_list_decorate(["3.2", "glowscript"]);
       Array.prototype["+"] = function (r) {
         return this.concat(r);
@@ -115,61 +122,100 @@ function simulacion() {
       var strings = ρσ_modules.pythonize.strings;
 
       strings();
-      canva1 = ρσ_interpolate_kwargs.call(this, canvas, [
+      tiempo_inicial = parseFloat(T_i.value);
+      tiempo_final = parseFloat(T_f.value)
+      distancia = parseFloat(Distancia.value)
+      velocidad = distancia["/"](
+        abs(tiempo_final["-"]((1)["*"](tiempo_inicial)))
+      );
+      direccion = tiempo_final[">="](tiempo_inicial) ? 1 : (1)["-u"]()["*"](1);
+      tiempo_simulacion = abs(tiempo_final["-"]((1)["*"](tiempo_inicial)));
+      scene = ρσ_interpolate_kwargs.call(this, canvas, [
+        ρσ_desugar_kwargs({ width: 600, height: 225, background: color.white }),
+      ]);
+      superficie = ρσ_interpolate_kwargs.call(this, box, [
         ρσ_desugar_kwargs({
-          width: 600,
-          height: 225,
-          background: vector(250, 250, 250),
+          pos: vector(direccion["*"](0), (1)["-u"]()["*"](0.5), 0),
+          size: vector(direccion["*"](distancia), 0.1, 1),
+          color: color.gray(0.7),
         }),
       ]);
-      distancia = parseFloat(Distancia.value);
-      tiempo_i = parseFloat(T_i.value);
-      tiempo_f = parseFloat(T_f.value);
-      deltat = tiempo_f["-"]((1)["*"](tiempo_i));
-      rapidez = distancia["/"](deltat);
-      rapidez_v = vector(0, 0, 0);
-      objeto = ρσ_interpolate_kwargs.call(this, sphere, [
+      objeto = ρσ_interpolate_kwargs.call(this, box, [
         ρσ_desugar_kwargs({
-          pos: vector(0, 0, 0),
+          pos: vector((1)["-u"]()["*"](distancia)["/"](2), 0, 0),
+          size: vector(1, 1, 1),
           color: color.blue,
-          radius: rapidez["/"](3),
-          make_trail: true,
         }),
       ]);
-      canva1.camera.follow(objeto);
-      i = 0;
-      if (rapidez[">="](0)) {
-        rapidez_c = ρσ_interpolate_kwargs.call(this, arrow, [
-          ρσ_desugar_kwargs({
-            pos: vector(0, 0, 0),
-            axis: vector(rapidez["*"](2), 0, 0),
-            color: color.blue,
-            shaftwidth: rapidez["/"](5),
-          }),
-        ]);
-        while (i["<"](deltat)) {
-          await rate(rapidez);
-          objeto.pos = rapidez_v;
-          rapidez_c.pos = rapidez_v;
-          rapidez_v.x = rapidez_v.x["+"](1);
-          i = i["+"](1);
-        }
-      } else if (rapidez["<="]((1)["-u"]()["*"](0))) {
-        rapidez_c = ρσ_interpolate_kwargs.call(this, arrow, [
-          ρσ_desugar_kwargs({
-            pos: vector(0, 0, 0),
-            axis: vector(rapidez["*"](2), 0, 0),
-            color: color.blue,
-            shaftwidth: rapidez["*"]((1)["-u"]())["*"](1)["/"](5),
-          }),
-        ]);
-        while (i[">"](deltat)) {
-          await rate(rapidez["*"]((1)["-u"]())["*"](1));
-          objeto.pos = rapidez_v;
-          rapidez_c.pos = rapidez_v;
-          rapidez_v.x = rapidez_v.x["-"](1);
-          i = i["-"](1);
-        }
+      etiqueta_distancia = ρσ_interpolate_kwargs.call(this, label, [
+        ρσ_desugar_kwargs({
+          pos: objeto.pos,
+          text: "Distancia: "["+"](ρσ_str.format("{:.2f}", 0))["+"](" m"),
+          box: false,
+          height: 15,
+          yoffset: 30,
+        }),
+      ]);
+      vector_velocidad = ρσ_interpolate_kwargs.call(this, arrow, [
+        ρσ_desugar_kwargs({
+          pos: objeto.pos,
+          axis: vector(direccion["*"](velocidad)["*"](5), 0, 0),
+          color: color.red,
+          shaftwidth: 0.3,
+        }),
+      ]);
+      etiqueta_velocidad = ρσ_interpolate_kwargs.call(this, label, [
+        ρσ_desugar_kwargs({
+          pos: objeto.pos["+"](vector((1)["-u"]()["*"](1), 4, 0)),
+          text: "Velocidad: "
+            ["+"](ρσ_str.format("{:.2f}", direccion["*"](velocidad)))
+            ["+"](" m/s"),
+          box: false,
+          height: 15,
+          xoffset: 40,
+        }),
+      ]);
+      tiempo = 0;
+      distancia_recorrida = 0;
+      while (
+        tiempo["<="](tiempo_simulacion) &&
+        distancia_recorrida["<"](distancia)
+      ) {
+        await rate(100);
+
+        objeto.pos.x = (1)
+          ["-u"]()
+          ["*"](distancia)
+          ["/"](2)
+          ["+"](direccion["*"](distancia_recorrida));
+
+        etiqueta_distancia.pos = objeto.pos;
+
+        etiqueta_distancia.text = "Distancia: "
+          ["+"](ρσ_str.format("{:.2f}", distancia_recorrida))
+          ["+"](" m");
+
+        vector_velocidad.pos = objeto.pos;
+
+        vector_velocidad.axis = vector(direccion["*"](velocidad)["*"](5), 0, 0);
+
+        etiqueta_velocidad.pos = objeto.pos["+"](
+          vector((1)["-u"]()["*"](1), 0, 0)
+        );
+
+        etiqueta_velocidad.text = "Velocidad: "
+          ["+"](ρσ_str.format("{:.2f}", direccion["*"](velocidad)))
+          ["+"](" m/s");
+
+        distancia_recorrida = velocidad["*"](tiempo);
+
+        tiempo = tiempo["+"](0.1);
+
+        scene.camera.pos = objeto.pos["+"](vector(0, 0, 10));
+
+        scene.camera.axis = (1)["-u"]()["*"](vector(0, 0, 10));
+
+        scene.camera.follow(objeto);
       }
     }
     if (!__main__.__module__)
@@ -187,16 +233,15 @@ function simulacion() {
 }
 const boton = document.getElementById("Resultado");
 
-boton.addEventListener("click", (event)=>{
-  if (Distancia.value != "" && T_f.value != "" && T_i.value != "" ) {
-    Calcular()
+boton.addEventListener("click", (event) => {
+  if (Distancia.value != "" && T_f.value != "" && T_i.value != "") {
+    Calcular();
   } else {
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'INGRESE LOS DATOS PARA LA SIMULACIÓN',
-      confirmButtonColor: "#020887"
-    })
+      icon: "error",
+      title: "Oops...",
+      text: "INGRESE LOS DATOS PARA LA SIMULACIÓN",
+      confirmButtonColor: "#020887",
+    });
   }
 });
-

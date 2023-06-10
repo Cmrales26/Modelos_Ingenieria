@@ -519,8 +519,20 @@ function Simular() {
       punto_llegada_A = vector(pyax, pyay, 0);
       punto_partida_B = vector(ppbx, ppby, 0);
       punto_llegada_B = vector(pybx, pyby, 0);
-      escala_x = (5)["/"](max(abs(punto_llegada_A.x), abs(punto_llegada_B.x)));
-      escala_y = (5)["/"](max(abs(punto_llegada_A.y), abs(punto_llegada_B.y)));
+
+
+      if (pyax["<"](50) || pyay["<"](50) || pybx["<"](50) || pyby["<"](50)) {
+        escala_x = 5["/"](max(abs(punto_llegada_A.x), abs(punto_llegada_B.x)));
+        escala_y = 5["/"](max(abs(punto_llegada_A.y), abs(punto_llegada_B.y)));
+        print("< 50");
+    }
+    if (pyax[">"](50) || pyay[">"](50) || pybx[">"](50) || pyby[">"](50)) {
+        escala_x = 20["/"](max(abs(punto_llegada_A.x), abs(punto_llegada_B.x)));
+        escala_y = 20["/"](max(abs(punto_llegada_A.y), abs(punto_llegada_B.y)));
+    }
+
+
+
       punto_partida_A = punto_partida_A["*"](escala_x)["*"](escala_y);
       punto_llegada_A = punto_llegada_A["*"](escala_x)["*"](escala_y);
       punto_partida_B = punto_partida_B["*"](escala_x)["*"](escala_y);

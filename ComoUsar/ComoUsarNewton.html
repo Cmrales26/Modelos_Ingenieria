@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <link rel="stylesheet" href="../index/index.css">
+    <link rel="stylesheet" href="./ComoUsar.css">
+    <link rel="icon" href="../index/img/Circle-icons1.svg" type="image/x-icon">
+    <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+    <script type="text/javascript" src="https://www.glowscript.org/package/glow.3.2.min.js"></script>
+    <script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.2.min.js"></script>
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="ventanaModalTutorial" id="ventanaModalTutorial-Cinamatica">
+
+        <div class="ContenedorTutorial">
+            <h1>Modo de uso Simuladores <span id="iralfinal"> <a href="#VerSimuladoresCinameticos"><i class="fa-solid fa-arrow-down"></i> Ir al final del tutorial</a> </span> </h1>
+            <p>En este tutorial, aprenderás a utilizar tanto el mouse como el teclado para moverte alrededor de nuestras
+                emocionantes simulaciones. El mouse te permitirá interactuar con los elementos visuales de la
+                simulación, mientras que el teclado te brindará opciones adicionales de navegación. ¡Sigue leyendo para
+                descubrir cómo aprovechar al máximo estas herramientas y explorar nuestras simulaciones de manera fluida
+                y eficiente!</p>
+
+            <div class="Zoom">
+                <h2>Zoom</h2>
+                <p>En este tutorial, te explicaremos cómo realizar zoom en nuestras simulaciones utilizando una función
+                    muy sencilla. Para acercar la imagen, simplemente desplaza la rueda de desplazamiento del mouse
+                    hacia arriba. De esta manera, podrás ampliar los detalles y examinar de cerca cada aspecto de la
+                    simulación. Si deseas alejar la imagen, solo tienes que desplazar la rueda de desplazamiento hacia
+                    abajo. De esta forma, podrás obtener una vista más amplia y general de la simulación.</p>
+
+
+                <h3 style="text-align: center;">Inténtalo</h3>
+                <div class="prueba_zoom">
+                    <div class="simulacion-zoom" id="simulacion-zoom"></div>
+                    <div class="middle">
+                        <div class="mouse"></div>
+                    </div>
+                </div>
+
+                <p>Tambien puede realizar el zoom manteniendo precionado la rueda del mouse y moviendo el mouse hacia
+                    arriba para acercar, hacia abajo para alejar, Inténtalo: </p>
+            </div>
+
+
+            <div class="comorotar">
+                <h2>Rotar</h2>
+                <p>En este tutorial, te enseñaremos cómo rotar la cámara en nuestras simulaciones utilizando una función
+                    intuitiva. Para comenzar, mantén presionado el botón derecho del mouse. Una vez hecho esto, mueve el
+                    mouse en la dirección en la que deseas rotar la cámara. De esta manera, podrás explorar la
+                    simulación desde diferentes ángulos y perspectivas.
+
+                    Al mantener presionado el clic derecho y mover el mouse, podrás girar la cámara suavemente para
+                    obtener una vista panorámica de la simulación. Esta función te permitirá observar todos los detalles
+                    desde distintos ángulos y apreciar la experiencia de manera más inmersiva.</p>
+
+                <h3 style="text-align: center;">Inténtalo</h3>
+
+                <div class="rotar">
+                    <div class="simulacion-rotar" id="simulacion-rotar"></div>
+                    <div class="mouse-rotar">
+                        <div id="mouse-rotar">
+                            <div class="left-button"></div>
+                            <div class="right-button"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comoMover">
+                <div class="explicacion-texto">
+                    <h2>Mover por los ejes</h2>
+                    <p>En este tutorial, aprenderás cómo mover la cámara vertical y horizontalmente en nuestras
+                        simulaciones
+                        utilizando una combinación de teclas y el mouse. Para comenzar, mantén presionados tanto el
+                        botón
+                        izquierdo del mouse como la tecla Shift simultáneamente.
+
+                        Una vez que hayas hecho esto, mueve el mouse en la dirección en la que deseas desplazar la
+                        cámara.
+                        Al hacerlo, podrás moverte tanto verticalmente como horizontalmente en la simulación, explorando
+                        diferentes áreas y perspectivas.
+
+                        Esta función te permitirá navegar de manera más precisa y controlada, ya que podrás desplazarte
+                        hacia arriba, abajo, hacia la izquierda y hacia la derecha con mayor facilidad. Es especialmente
+                        útil para explorar grandes áreas o moverte a través de paisajes detallados.</p>
+
+                    <h3 style="text-align: center;">Inténtalo</h3>
+                </div>
+
+                <div class="mover">
+                    <div class="simulacion-mover" id="simulacion-mover"></div>
+
+
+
+                    <div class="Indicaciones">
+                        <div class="shift-key">
+                            <span class="key-text">Shift</span>
+                        </div>
+
+                        <div class="mouse-mover">
+                            <div id="mouse-mover">
+                                <div class="left-button-mover"></div>
+                                <div class="right-button-mover"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="botonversim">
+                <button id="VerSimuladoresCinameticos"> <a href="../Newton/newton.html">ver simuladores</a></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./ComoUsar.js"></script>
+
+</body>
+</html>

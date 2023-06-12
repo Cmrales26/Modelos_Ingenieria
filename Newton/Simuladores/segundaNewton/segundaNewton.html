@@ -1,173 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="segundaNewton.css" />
-    <link rel="stylesheet" href="../../../index/index.css" />
-    <link rel="shortcut icon" href="../../../index/img/Circle-icons1.svg" type="image/x-icon">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
-    <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
-    <script type="text/javascript" src="https://www.glowscript.org/package/glow.3.2.min.js"></script>
-    <script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.2.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script type="text/javascript" id="MathJax-script" defer
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-    <title>Segunda Ley de Newton</title>
-  </head>
 
-  <body>
-    <header id="header">
-      <div class="container_header">
-        <div class="logo">
-          <!-- <i class="fa-solid fa-gauge-high"></i> -->
-          <h2><a href="../../../index.html">SEGUNDA LEY DE NEWTON</a></h2>
-        </div>
-        <nav id="nav">
-          <ul class="nav-menu">
-            <li><a href="../../../index.html">INICIO</a></li>
-            <li>
-              <a href="../../../Todos/todos-simuladores.html">SIMULADORES </a>
-            </li>
-            <li><a href="#Footer" class="select">CONTACTO</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <section class="teoria">
-      <h1>SEGUNDA LEY DE NEWTON</h1>
-      <p>
-        La segunda ley de Newton establece que si una fuerza neta es aplicada en
-        un objeto, la velocidad del objeto cambiará dado que su dirección o
-        rapidez cambiará. En palabras simples la segunda ley de newton busca
-        explicar la la relación que existe entre la fuerza y la aceleración.<br /><br />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="segundaNewton.css" />
+  <link rel="stylesheet" href="../../../index/index.css" />
+  <link rel="shortcut icon" href="../../../index/img/Circle-icons1.svg" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+  <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+  <script type="text/javascript" src="https://www.glowscript.org/package/glow.3.2.min.js"></script>
+  <script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.2.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript" id="MathJax-script" defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <title>Segunda Ley de Newton</title>
+</head>
 
-        Para entender esto, primero debemos de dos conceptos muy importante es: El
-        concepto de <span>Masa</span> y el concepto de <span>Peso</span>
-      </p>
-      <div class="masa">
-        <h1>Masa</h1>
-        <p>La segunda ley de newton establece a la masa como la cantidad de material que posea un cuerpo, esta es inversamente proporcional a la aceleración es decir, <span>A mayor cantidad de masa, menor sera la aceleración</span> su sistema intencional de medida es el <span>Kg</span> </p>
+<body>
+  <header id="header">
+    <div class="container_header">
+      <div class="logo">
+        <!-- <i class="fa-solid fa-gauge-high"></i> -->
+        <h2><a href="../../../index.html">SEGUNDA LEY DE NEWTON</a></h2>
       </div>
-      <div class="peso">
-        <h1>peso</h1>
-        <p style="margin-bottom:2%;">Es tan solo otra palabra para la fuerza de gravedad. El peso es una fuerza que actúa en todo momento sobre todos los objetos cercanos a la superficie de la Tierra. La Tierra jala a todos los objetos con una fuerza de gravedad dirigida hacia su centro. La magnitud de esta fuerza se puede encontrar al multiplicar la masa m del objeto por la magnitud de la aceleración debida a la gravedad.</p>
-      </div>
-      <div class="simulador-peso">
-        <center>
-            <span><i>Para una mejor visualización ingrese una masa < a 10kg </i></span>
-            <div class="contenedor-sim-peso">
-                <div class="simulacion-peso" id="simulacion-peso"></div>
-            </div>
-            <div class="entradas-sim-peso">
-                <input type="text" placeholder="Masa (kg)" id="Masa-sim-peso" min="0" max="">
-                <input type="button" value="Reiniciar Simulación" id="Reiniciar-sim-1">
-            </div>
-        </center>
-      </div>
-      
-      <div class="grafica_pes">
-        <h2>Análisis Gráfico de la fuerza</h2>
-        <p>El peso es la fuerza con la que la gravedad atrae a los objetos hacia la Tierra. En nuestro caso, considerando que la gravedad en la Tierra es de aproximadamente `9.8 m/s^2`, podemos calcular la fuerza que actúa sobre el resorte. Para obtener esta información, podemos analizar la interacción mediante la representación gráfica del resorte.</p>
-        
-        <center>
-          <div class="simulacion-peso-grafica" id="simulacion-peso-grafica" style="margin-top: 2rem;"> </div>
-        </center><br>
-        O por otro lado podemos aplicar la formula para saber la fuerza que esta siendo ejercida sobre el resorte, Sabiendo que para hallar la fuerza debemos aplicar la formula: `F = m\cdot g` y sabiendo ya la gravedad y la masa podemos concluir que la fuerza aplicada sobre el objeto es de: 
-
-        <h1 style="text-transform: capitalize; text-align: center;" id="Resultado-peso"></h1>
-        
-      </div>
-
-      <div class="formulas-primeraley">
-        <h1>formulas principales</h1>
-        <center>
-            <table class="GeneratedTable" style="margin-top: 4%;">
-                <thead>
-                    <tr>
-                        <th>FUERZA</th>
-                        <th>MASA</th>
-                        <th>ACELERACIÓN</th>
-                        <th>GRAVEDAD</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>`F = m\cdot g`</td>
-                        <td>`m = \frac{F}{g}`</td>
-                        <td>`a= \frac{F}{m}`</td>
-                        <td>`g = 9.8m/s^2`</td>
-                    </tr>
-                </tbody>
-            </table>
-        </center>
-        <h1>En un plano</h1>
-        <p>Cuando un cuerpo se encuentra en un plano <span>X</span> las fuerzas en y, es decir la gravedad y la inversa de esta dan 0 por lo que se toman en cuenta a la hora de realizar la Simulación, en este ejemplo, tomaremos como datos la fuerza aplicada al objeto, la fricción que este posee y su masa</p>
-        <div class="simulador-dos-newton">
-            <center>
-                <div class="contenedor-dos-newton">
-                    <div class="simulacion-dos-newton" id="simulacion-dos-newton"></div>
-                </div>
-                <div class="entradas-dos-newton">
-                    <input type="text" placeholder="Fuerza (N)" id="Fuerza_sim2">
-                    <input type="text" placeholder="Fricción(N)" id="Friccion_sim2">
-                    <input type="text" placeholder="Masa (kG)" id="Masa_sim2">
-                    <input type="button" value="Reiniciar Simulación" id="Reiniciar-sim-2">
-                </div>
-            </center>
-            <h1 style="text-transform: capitalize; text-align: center;" id="Resultado-peso"></h1>
-          </div>
-          <div class="analisis-Grafico">
-              <h1 style="margin-bottom: 2%;">Análisis gráfico</h1>
-              <div class="graficas-simulacion">
-                    <div style="display: flex;" class="graficas-sim2" id="graficas-sim2"></div>
-                    <center>
-                        <input style="margin-left: 15%; margin-top: 2%;" type="button" value="VER GRÁFICAS" id="Ver-graficas-sim2">
-                    </center>
-              </div>
-            <p> <h3>Analizando las gráficas y la simulaciones podemos llevar a ciertas conclusiones:</h3><br>
-                <ul>
-                    <li>Cuando la Masa del objeto es mayor la aceleración es menor, por lo que al cuerpo le tomara una mayor cantidad de tiempo llegar a su destino.</li>
-                    <li>Es necesaria una fuerza mayor a la fuerza de fricción para que el objeto se pueda mover, una fuerza de fricción de igual magnitud hará que el objeto este en reposo dada la sumatoria de fuerzas vista en el capitulo de <span><a href="../fuerza/fuerza.html"> Fuerzas</a></span></li>
-                    <li>La Fuerza neta del sistema es la resta de de las componentes inversas de las fuerzas, es decir, para este sistema la fuerza aplicada menos la fricción. <br><span class="Importante">NOTA: En este sistema no se toma en cuenta la variación de fuerza aplicada en una situación real. Cuando se toma en cuenta la gráfica <i>Tiempo vs fuerza Neta</i> queda mas o menos de la siguiente maneras: </span></li>
-                    <center>
-                        <img src="https://i.ibb.co/F5ZpYyd/descarga.png" alt="Ejemplo de la fuerza neta en la vida real">
-                    </center>
-                    <p>Se puede observar de esta forma como la fuerza neta va disminuyendo a traves del tiempo, esto se debe a que, en entornos reales la fuerza que ejerce un móvil sobre el otro no es constante de forma indeterminada ya que existen perdidas de energía, potencia y entre otras magnitudes.</p>
-                </ul>
-            </p>
-          </div>
-      </div>
-      <div class="sig-ant">
-        <div class="anterior">
-            <a href="../primeraNewton/primeraNewton.html"><i class="fa-solid fa-circle-left"></i> Primera ley de Newton</a>
-
-        </div>
-        <div class="siguiente">
-            <a href="../terceroNewton/TerceraNewton.html"> Tercera Ley de Newton <i
-                    class="fa-solid fa-circle-right"></i></a>
-        </div>
+      <nav id="nav">
+        <ul class="nav-menu">
+          <li><a href="../../../index.html">INICIO</a></li>
+          <li>
+            <a href="../../../Todos/todos-simuladores.html">SIMULADORES </a>
+          </li>
+          <li><a href="#Footer" class="select">CONTACTO</a></li>
+        </ul>
+      </nav>
     </div>
-</section>
-<Footer id="Footer">
-    <div class="container_footer">
-        <div class="box_footer">
-            <div class="contacto">
-                <H4>CREADO Y DISEÑADO POR</H4>
-                <P><a href="https://github.com/Sblanco16" target="_blank">SHARITH BLANCO - </a> <a href="https://github.com/Cmrales26" target="_blank">NELSON MORALES - </a> <a href="https://github.com/Dicavimer" target="_blank">DIANA VIDAL</a></P>
-            </div>
+  </header>
+  <section class="teoria">
+    <h1>SEGUNDA LEY DE NEWTON</h1>
+    <p>
+      La segunda ley de Newton establece que si una fuerza neta es aplicada en
+      un objeto, la velocidad del objeto cambiará dado que su dirección o
+      rapidez cambiará. En palabras simples la segunda ley de newton busca
+      explicar la la relación que existe entre la fuerza y la aceleración.<br /><br />
+
+      Para entender esto, primero debemos de dos conceptos muy importante es: El
+      concepto de <span>Masa</span> y el concepto de <span>Peso</span>
+    </p>
+    <div class="masa">
+      <h1>Masa</h1>
+      <p>La segunda ley de newton establece a la masa como la cantidad de material que posea un cuerpo, esta es
+        inversamente proporcional a la aceleración es decir, <span>A mayor cantidad de masa, menor sera la
+          aceleración</span> su sistema intencional de medida es el <span>Kg</span> </p>
+    </div>
+    <div class="peso">
+      <h1>peso</h1>
+      <p style="margin-bottom:2%;">Es tan solo otra palabra para la fuerza de gravedad. El peso es una fuerza que actúa
+        en todo momento sobre todos los objetos cercanos a la superficie de la Tierra. La Tierra jala a todos los
+        objetos con una fuerza de gravedad dirigida hacia su centro. La magnitud de esta fuerza se puede encontrar al
+        multiplicar la masa m del objeto por la magnitud de la aceleración debida a la gravedad.</p>
+    </div>
+
+    <div class="formulas-primeraley" style="margin-bottom: 2rem;">
+      <h1>formulas principales</h1>
+      <center>
+        <table class="GeneratedTable" style="margin-top: 4%;">
+          <thead>
+            <tr>
+              <th>FUERZA</th>
+              <th>MASA</th>
+              <th>ACELERACIÓN</th>
+              <th>GRAVEDAD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>`F = m\cdot g`</td>
+              <td>`m = \frac{F}{g}`</td>
+              <td>`a= \frac{F}{m}`</td>
+              <td>`g = 9.8m/s^2`</td>
+            </tr>
+          </tbody>
+        </table>
+      </center>
+    </div>
+    
+    <div class="simulador-peso">
+      <center>
+        <span><i>Para una mejor visualización ingrese una masa < a 10kg </i></span>
+        <div class="contenedor-sim-peso">
+          <div class="simulacion-peso" id="simulacion-peso"></div>
         </div>
+        <div class="entradas-sim-peso">
+          <input type="text" placeholder="Masa (kg)" id="Masa-sim-peso" min="0" max="">
+          <input type="button" value="Reiniciar Simulación" id="Reiniciar-sim-1">
+        </div>
+      </center>
+    </div>
+
+    <div class="grafica_pes">
+      <h2>Análisis Gráfico de la fuerza</h2>
+      <p>El peso es la fuerza con la que la gravedad atrae a los objetos hacia la Tierra. En nuestro caso, considerando
+        que la gravedad en la Tierra es de aproximadamente `9.8 m/s^2`, podemos calcular la fuerza que actúa sobre el
+        resorte. Para obtener esta información, podemos analizar la interacción mediante la representación gráfica del
+        resorte.</p>
+
+      <center>
+        <div class="simulacion-peso-grafica" id="simulacion-peso-grafica" style="margin-top: 2rem;"> </div>
+      </center><br>
+      O por otro lado podemos aplicar la formula para saber la fuerza que esta siendo ejercida sobre el resorte,
+      Sabiendo que para hallar la fuerza debemos aplicar la formula: `F = m\cdot g` y sabiendo ya la gravedad y la masa
+      podemos concluir que la fuerza aplicada sobre el objeto es de:
+
+      <h1 style="text-transform: capitalize; text-align: center;" id="Resultado-peso"></h1>
+
+    </div>
+
+    <div>
+      <h1>En un plano</h1>
+      <p>Cuando un cuerpo se encuentra en un plano <span>X</span> las fuerzas en y, es decir la gravedad y la inversa de
+        esta dan 0 por lo que se toman en cuenta a la hora de realizar la Simulación, en este ejemplo, tomaremos como
+        datos la fuerza aplicada al objeto, la fricción que este posee y su masa</p>
+      <div class="simulador-dos-newton">
+        <center>
+          <div class="contenedor-dos-newton">
+            <div class="simulacion-dos-newton" id="simulacion-dos-newton"></div>
+          </div>
+          <div class="entradas-dos-newton">
+            <input type="text" placeholder="Fuerza (N)" id="Fuerza_sim2">
+            <input type="text" placeholder="Fricción(N)" id="Friccion_sim2">
+            <input type="text" placeholder="Masa (kG)" id="Masa_sim2">
+            <input type="button" value="Reiniciar Simulación" id="Reiniciar-sim-2">
+          </div>
+        </center>
+        <h1 style="text-transform: capitalize; text-align: center;" id="Resultado-peso"></h1>
+      </div>
+      <div class="analisis-Grafico">
+        <h1 style="margin-bottom: 2%;">Análisis gráfico</h1>
+        <div class="graficas-simulacion">
+          <div style="display: flex;" class="graficas-sim2" id="graficas-sim2"></div>
+          <center>
+            <input style="margin-left: 15%; margin-top: 2%;" type="button" value="VER GRÁFICAS" id="Ver-graficas-sim2">
+          </center>
+        </div>
+        <p>
+        <h3>Analizando las gráficas y la simulaciones podemos llevar a ciertas conclusiones:</h3><br>
+        <ul>
+          <li>Cuando la Masa del objeto es mayor la aceleración es menor, por lo que al cuerpo le tomara una mayor
+            cantidad de tiempo llegar a su destino.</li>
+          <li>Es necesaria una fuerza mayor a la fuerza de fricción para que el objeto se pueda mover, una fuerza de
+            fricción de igual magnitud hará que el objeto este en reposo dada la sumatoria de fuerzas vista en el
+            capitulo de <span><a href="../fuerza/fuerza.html"> Fuerzas</a></span></li>
+          <li>La Fuerza neta del sistema es la resta de de las componentes inversas de las fuerzas, es decir, para este
+            sistema la fuerza aplicada menos la fricción. <br><span class="Importante">NOTA: En este sistema no se toma
+              en cuenta la variación de fuerza aplicada en una situación real. Cuando se toma en cuenta la gráfica
+              <i>Tiempo vs fuerza Neta</i> queda mas o menos de la siguiente maneras: </span></li>
+          <center>
+            <img src="https://i.ibb.co/F5ZpYyd/descarga.png" alt="Ejemplo de la fuerza neta en la vida real">
+          </center>
+          <p>Se puede observar de esta forma como la fuerza neta va disminuyendo a traves del tiempo, esto se debe a
+            que, en entornos reales la fuerza que ejerce un móvil sobre el otro no es constante de forma indeterminada
+            ya que existen perdidas de energía, potencia y entre otras magnitudes.</p>
+        </ul>
+        </p>
+      </div>
+    </div>
+    <div class="sig-ant">
+      <div class="anterior">
+        <a href="../primeraNewton/primeraNewton.html"><i class="fa-solid fa-circle-left"></i> Primera ley de Newton</a>
+
+      </div>
+      <div class="siguiente">
+        <a href="../terceroNewton/TerceraNewton.html"> Tercera Ley de Newton <i
+            class="fa-solid fa-circle-right"></i></a>
+      </div>
+    </div>
+  </section>
+  <Footer id="Footer">
+    <div class="container_footer">
+      <div class="box_footer">
+        <div class="contacto">
+          <H4>CREADO Y DISEÑADO POR</H4>
+          <P><a href="https://github.com/Sblanco16" target="_blank">SHARITH BLANCO - </a> <a
+              href="https://github.com/Cmrales26" target="_blank">NELSON MORALES - </a> <a
+              href="https://github.com/Dicavimer" target="_blank">DIANA VIDAL</a></P>
+        </div>
+      </div>
     </div>
     <div class="aviso-footer">
-        <hr>
-        <p>Este sitio ha sido creado para fines académicos.</p>
+      <hr>
+      <p>Este sitio ha sido creado para fines académicos.</p>
     </div>
-</Footer>
-    <script src="segundaNewton.js"></script>
-  </body>
+  </Footer>
+  <script src="segundaNewton.js"></script>
+</body>
+
 </html>

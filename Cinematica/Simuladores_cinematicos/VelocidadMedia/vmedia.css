@@ -38,3 +38,22 @@
 .botocito {
     margin-top: 1%;
 }
+
+.concepto {
+    max-width: 65rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 2.5%;
+    margin-top: 2%;
+}
+
+p {
+    text-align: justify;
+}
+
+h1 {
+    color: #020887;
+    text-transform: uppercase;
+}

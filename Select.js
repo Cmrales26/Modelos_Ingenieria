@@ -20,14 +20,14 @@ function SeleccionCinema() {
   }).then((result) => {
     if (result.isConfirmed) {
       swalWithBootstrapButtons.fire(
-        window.location.href = "../Cinematica/cinematica.html",
+        window.location.href = "./Cinematica/cinematica.html"
       )
     } else if (
       /* Read more about handling dismissals below */
       result.dismiss === Swal.DismissReason.cancel
     ) {
       swalWithBootstrapButtons.fire(
-        window.location.href = "../ComoUsar/ComoUsarCinematica.html"
+        window.location.href = "./ComoUsar/ComoUsarCinematica.html"
       )
     }
   })
@@ -54,14 +54,14 @@ function SeleccionNewton() {
   }).then((result) => {
     if (result.isConfirmed) {
       swalWithBootstrapButtons.fire(
-        window.location.href = "../Newton/newton.html",
+        window.location.href = "./Newton/newton.html"
       )
     } else if (
       /* Read more about handling dismissals below */
       result.dismiss === Swal.DismissReason.cancel
     ) {
       swalWithBootstrapButtons.fire(
-        window.location.href = "../ComoUsar/ComoUsarNewton.html"
+        window.location.href = "./ComoUsar/ComoUsarNewton.html"
       )
     }
   })

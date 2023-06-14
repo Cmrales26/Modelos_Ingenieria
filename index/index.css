@@ -169,6 +169,7 @@ footer {
 }
 
 .aviso-footer p {
+    text-align: center;
     margin-top: 1%;
     margin-bottom: 1%;
     color: #7a7a7a;

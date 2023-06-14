@@ -192,7 +192,7 @@ function simulacion() {
         etiqueta_distancia.pos = objeto.pos;
 
         etiqueta_distancia.text = "Distancia: "
-          ["+"](ρσ_str.format("{:.2f}", distancia_recorrida))
+          ["+"](ρσ_str.format("{:.2f}", Math.ceil(distancia_recorrida)))
           ["+"](" m");
 
         vector_velocidad.pos = objeto.pos;
@@ -207,9 +207,9 @@ function simulacion() {
           ["+"](ρσ_str.format("{:.2f}", direccion["*"](velocidad)))
           ["+"](" m/s");
 
-        distancia_recorrida = velocidad["*"](tiempo);
+        tiempo = tiempo["+"](.1);
 
-        tiempo = tiempo["+"](0.1);
+        distancia_recorrida = velocidad["*"](tiempo);
 
         scene.camera.pos = objeto.pos["+"](vector(0, 0, 10));
 

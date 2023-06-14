@@ -7,7 +7,7 @@ function SeleccionCinema() {
     },
     buttonsStyling: true
   })
-  
+
   swalWithBootstrapButtons.fire({
     title: '¿Qué quieres hacer primero?',
     icon: 'question',
@@ -19,19 +19,14 @@ function SeleccionCinema() {
     color: '#716add',
   }).then((result) => {
     if (result.isConfirmed) {
-      swalWithBootstrapButtons.fire(
         window.location.href = "./Cinematica/cinematica.html"
-      )
-    } else if (
-      /* Read more about handling dismissals below */
-      result.dismiss === Swal.DismissReason.cancel
-    ) {
-      swalWithBootstrapButtons.fire(
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
         window.location.href = "./ComoUsar/ComoUsarCinematica.html"
-      )
     }
   })
 }
+
+
 function SeleccionNewton() {
 
   const swalWithBootstrapButtons = Swal.mixin({
@@ -41,7 +36,7 @@ function SeleccionNewton() {
     },
     buttonsStyling: true
   })
-  
+
   swalWithBootstrapButtons.fire({
     title: '¿Qué quieres hacer primero?',
     icon: 'question',
@@ -53,16 +48,9 @@ function SeleccionNewton() {
     color: '#716add',
   }).then((result) => {
     if (result.isConfirmed) {
-      swalWithBootstrapButtons.fire(
-        window.location.href = "./Newton/newton.html"
-      )
-    } else if (
-      /* Read more about handling dismissals below */
-      result.dismiss === Swal.DismissReason.cancel
-    ) {
-      swalWithBootstrapButtons.fire(
-        window.location.href = "./ComoUsar/ComoUsarNewton.html"
-      )
+      window.location.href = "./Newton/newton.html"
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      window.location.href = "./ComoUsar/ComoUsarNewton.html"
     }
   })
 }

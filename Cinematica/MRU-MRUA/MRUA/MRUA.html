@@ -26,6 +26,7 @@
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 
+
 <body>
     <header id="header">
         <div class="container_header">
@@ -136,7 +137,8 @@
             </div>
             <h1>Relación velocidad tiempo</h1>
             <p style="padding-bottom: 4%;">La relacionarte velocidad y tiempo en el MRUAse describe mediante una
-                relación lineal donde la velocidad aumenta a una tasa constante durante la duración total del movimiento. <br><br>
+                relación lineal donde la velocidad aumenta a una tasa constante durante la duración total del
+                movimiento. <br><br>
                 Para observar esta relación, es posible representar gráficamente valores de la velocidad de un objeto en
                 función del tiempo.
 
@@ -152,92 +154,172 @@
                     </div>
                 </center>
                 <div class="inputs-v-vs-t">
-                <input type="text" id="ac-v-vs-t" placeholder="ACELERACIÓN (m/s^2)">
-                <input type="text" id="ti-v-vs-t" placeholder="TIEMPO (s)">
-                <input type="button" value="Reiniciar Simulación" id="Reiniciar-Simulacion2">
+                    <input type="text" id="ac-v-vs-t" placeholder="ACELERACIÓN (m/s^2)">
+                    <input type="text" id="ti-v-vs-t" placeholder="TIEMPO (s)">
+                    <input type="button" value="Reiniciar Simulación" id="Reiniciar-Simulacion2">
+                </div>
+                <div class="analisis-v-vs-t">
+                    <h1>análisis de la gráfica velocidad tiempo</h1>
+                    <p>La relación resultante es una función lineal, lo que significa que la velocidad aumentará
+                        constantemente. <br><br>
+                        También podemos considerar la situación opuesta, es decir, un móvil que frena solo para
+                        detenerse en una parada obligatoria. <span style="color: #020887;">Tomando para esta ocasión la
+                            velocidad final de la simulación pasada usando la ecuación `v_{f} = v_{0}+a\cdot
+                            \Deltat`,</span>
+                    <h2 id="VelocidadFinal" style="text-align: center; margin-top: 2%;"></h2><br>
+                    <p style="padding-bottom:4%;">veamos que sucede con la gráfica cuando el Movil disminuye su
+                        aceleración:</p>
+                    </p>
+                    <center>
+                        <div class="contenedorv_vs_t">
+                            <div class="grficap-vs-t-out-neg" id="grficap-vs-t-out-neg">
+                                <h2>esperando datos</h2>
+                            </div>
+                        </div>
+                    </center>
+                    <p>La relación resultante también es una función lineal: sin embargo, esto
+                        es negativo, lo que
+                        significa que la velocidad disminuirá constantemente. <br><br>
+
+                        Si se calculara la pendiente de estos gráficos, el valor obtenido sería igual al de la
+                        aceleración
+                        usando la formula `a = \frac{\Delta v}{\Delta t} =` <span id="Aceleracion_v_vs_t"></span>`
+                        m`/`s^2`.Como la gráfica obtenida es una recta, deducimos que la aceleración es constante.
+                    </p>
+                </div>
             </div>
-            <div class="analisis-v-vs-t">
-                <h1>análisis de la gráfica velocidad tiempo</h1>
-                <p>La relación resultante es una función lineal, lo que significa que la velocidad aumentará
-                    constantemente. <br><br>
-                    También podemos considerar la situación opuesta, es decir, un móvil que frena solo para
-                    detenerse en una parada obligatoria. <span style="color: #020887;">Tomando para esta ocasión la
-                        velocidad final de la simulación pasada usando la ecuación `v_{f} = v_{0}+a\cdot
-                        \Deltat`,</span>
-                <h2 id="VelocidadFinal" style="text-align: center; margin-top: 2%;"></h2><br>
-                <p style="padding-bottom:4%;">veamos que sucede con la gráfica cuando el Movil disminuye su
-                    aceleración:</p>
-                </p>
+            <div class="avst">
+                <h1>Relación aceleración vs tiempo</h1>
+                <p>La relación entre aceleración y tiempo en MRUA se describe mediante una relación nula durante la cual
+                    la aceleración es constante para la duración total del movimiento. <br><br>Para observar esta
+                    relación, es posible representar gráficamente los valores de aceleración de un objeto en función del
+                    tiempo. Consideramos el movimiento de un móvil que acelera después de hacer una parada obligatoria.
+                    La aceleración del automóvil se determina en diferentes momentos durante su movimiento se vera de la
+                    siguiente manera</p>
+                <h3 style="text-align: center; color: #020887; margin-bottom: 2%;">Asumiendo que `v_{0} = 0 ` y
+                    `t_{0}=0`</h3>
                 <center>
-                    <div class="contenedorv_vs_t">
-                        <div class="grficap-vs-t-out-neg" id="grficap-vs-t-out-neg"> <h2>esperando datos</h2>
+                    <div class="contedora_vs_t" stu>
+                        <div class="grafica-a-vs-t" id="grafica-a-vs-t">
+                            <h1>Ingrese los datos para la Simulación</h1>
+                        </div>
                     </div>
+                    <div class="inputsa_vs_t">
+                        <input type="text" id="velocidadavst" placeholder="Velocidad Final (m/s)">
+                        <input type="text" id="tiempoavst" placeholder="Tiempo final (s)">
+                        <input type="button" value="Reiniciar Simulacion" id="Reiniciar-Simulacion3">
                     </div>
                 </center>
-                <p>La relación resultante también es una función lineal: sin embargo, esto
-                    es negativo, lo que
-                    significa que la velocidad disminuirá constantemente. <br><br>
-
-                    Si se calculara la pendiente de estos gráficos, el valor obtenido sería igual al de la aceleración
-                    usando la formula `a = \frac{\Delta v}{\Delta t} =` <span id="Aceleracion_v_vs_t"></span>`
-                    m`/`s^2`.Como la gráfica obtenida es una recta, deducimos que la aceleración es constante.
+                <h1>análisis de la gráfica Aceleración tiempo</h1>
+                <p>La relación resultante es una función nula, lo que significa que la aceleración no cambia durante un
+                    intervalo de tiempo dado. Por lo tanto, la aceleración es constante durante el viaje del automóvil.
+                    <br><br>Si la aceleración estuviera por debajo del eje x, la aceleración sería negativa. Esto
+                    significa que
+                    el coche cambiaría de marcha en la dirección opuesta a la del Sistema de referencia.
                 </p>
             </div>
-        </div>
-        <div class="avst">
-            <h1>Relación aceleración vs tiempo</h1>
-            <p>La relación entre aceleración y tiempo en MRUA se describe mediante una relación nula durante la cual
-                la aceleración es constante para la duración total del movimiento. <br><br>Para observar esta
-                relación, es posible representar gráficamente los valores de aceleración de un objeto en función del
-                tiempo. Consideramos el movimiento de un móvil que acelera después de hacer una parada obligatoria.
-                La aceleración del automóvil se determina en diferentes momentos durante su movimiento se vera de la
-                siguiente manera</p>
-            <h3 style="text-align: center; color: #020887; margin-bottom: 2%;">Asumiendo que `v_{0} = 0 ` y `t_{0}=0`</h3>
-            <center>
-                <div class="contedora_vs_t" stu>
-                    <div class="grafica-a-vs-t" id="grafica-a-vs-t"> <h1>Ingrese los datos para la Simulación</h1></div>
-                </div>
-                <div class="inputsa_vs_t">
-                    <input type="text" id="velocidadavst" placeholder="Velocidad Final (m/s)">
-                    <input type="text" id="tiempoavst" placeholder="Tiempo final (s)">
-                    <input type="button" value="Reiniciar Simulacion" id="Reiniciar-Simulacion3">
-                </div>
-            </center>
-            <h1>análisis de la gráfica Aceleración tiempo</h1>
-            <p>La relación resultante es una función nula, lo que significa que la aceleración no cambia durante un
-                intervalo de tiempo dado. Por lo tanto, la aceleración es constante durante el viaje del automóvil.
-                <br><br>Si la aceleración estuviera por debajo del eje x, la aceleración sería negativa. Esto
-                significa que
-                el coche cambiaría de marcha en la dirección opuesta a la del Sistema de referencia.
-            </p>
+
+            <div class="ejersicio-caida-libre">
+                <h1>EJERCICIO CAÍDA LIBRE Y PROYECTIL</h1>
+                <p>En la física newtoniana, la caída libre es cualquier movimiento de un cuerpo en el que la gravedad es
+                    la única fuerza que actúa sobre él. En el contexto de la relatividad general, donde la gravitación
+                    se reduce a una curvatura del espacio-tiempo, un cuerpo en caída libre no tiene ninguna fuerza que
+                    actúe sobre él.</p>
+                <center>
+                    <div class="cotenedorcaidalibre">
+                        <div class="simulacionCaidaLibre" id="simulacionCaidaLibre">
+                            <h1>Ingrese los datos para la Simulación</h1>
+                        </div>
+                    </div>
+                    <div class="Entradas_caidaLibre">
+                        <input type="text" id="Altura" placeholder="ALTURA (m)">
+                        <input type="text" id="v_x" placeholder="VELOCIDAD INICIAL X (m/s)">
+                        <input type="text" id="v_y" placeholder="VELOCIDAD INICIAL Y (m/s)">
+                        <input type="button" value="Reiniciar Simulación" id="Reiniciar-Simulacion4">
+                    </div>
+                </center>
+            </div>
+            <div class="analisis-grafico">
+                <h1 style="margin-bottom:4%;">análisis gráfico</h1>
+                <center>
+                    <div style="display:flex" class="distanciavstiempocaidaL" id="distanciavstiempocaidaL"
+                        style=" height: 300px; width: 50%px"></div>
+                    <input type="button" value="Ver gráficas" id="Ver_graficas">
+                </center>
+            </div>
         </div>
 
-        <div class="ejersicio-caida-libre">
-            <h1>EJERCICIO CAÍDA LIBRE Y PROYECTIL</h1>
-            <p>En la física newtoniana, la caída libre es cualquier movimiento de un cuerpo en el que la gravedad es
-                la única fuerza que actúa sobre él. En el contexto de la relatividad general, donde la gravitación
-                se reduce a una curvatura del espacio-tiempo, un cuerpo en caída libre no tiene ninguna fuerza que
-                actúe sobre él.</p>
+        <div class="ejercicioPractico">
+            <h1>Ejercicio Caída Libre Rampa</h1>
+            <p>En la práctica pensemos que tomamos una serie de datos de posición y tiempo de un carrito que se desplaza
+                a través de un plano inclinado a cierto ángulo</p>
             <center>
-                <div class="cotenedorcaidalibre">
-                    <div class="simulacionCaidaLibre" id="simulacionCaidaLibre"> <h1>Ingrese los datos para la Simulación</h1></div>
-                </div>
-                <div class="Entradas_caidaLibre">
-                    <input type="text" id="Altura" placeholder="ALTURA (m)">
-                    <input type="text" id="v_x" placeholder="VELOCIDAD INICIAL X (m/s)">
-                    <input type="text" id="v_y" placeholder="VELOCIDAD INICIAL Y (m/s)">
-                    <input type="button" value="Reiniciar Simulación" id="Reiniciar-Simulacion4">
+                <div class="cotenedorcaidarampa" style="margin-top: 2rem;">
+                    <div class="simulacionCaidarampa" id="simulacionCaidarampa">
+                        <h1>Ingrese los datos para la Simulación</h1>
+                    </div>
                 </div>
             </center>
-        </div>
-        <div class="analisis-grafico">
-            <h1 style="margin-bottom:4%;">análisis gráfico</h1>
-            <center>
-                <div style="display:flex" class="distanciavstiempocaidaL" id="distanciavstiempocaidaL"
-                    style=" height: 300px; width: 50%px"></div>
-                <input type="button" value="Ver gráficas" id="Ver_graficas">
+            <div class="datos-sim-ram">
+                <input type="text" id="rampa_long" placeholder="Longitud del plano (cm)">
+                <input type="text" id="rampa_grados" placeholder="Grado de inclinación (°)">
+                <input type="button" value="Reiniciar Simulación" onclick="simulacionRampa()">
+            </div>
+
+            <div class="analisis" style="margin-top: 2rem;">
+                <div class="ver_analisis">
+                    <h1>Análisis de la simulación</h1> <span id="ver_analisis_ramp">VER TABLAS Y GRÁFICAS</span>
+                </div>
+                Asumiendo que el Movil parte del reposo, es decir que su velocidad inicial es de 0 m/s obtenemos la
+                siguiente gráfica para la velocidad
+
+                <div class="tiempovel-ram" style="margin-left: 2rem; margin-top: 2rem;">
+                    <h4>GRAFICAS</h4>
+                    <center>
+                        <div class="contenedorgraficatiempovel-ram" id="contenedorgraficatiempovel-ram">
+                            <div class="graficatiemmpoverl-ram" id="graficatiemmpoverl-ram"></div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+
+
+            <h1>Tabla de datos</h1>
+            <div class="tablasderesultados" style="margin-left: 2rem; margin-top: 1.5rem;">
+                <div class="container-tabla-datos">
+                    <div class="tablatv">
+                        <h4>Tabla Velocidad Contra Tiempo</h4>
+                        <div class="tablaTiempotsv" id="tablaTiempotsv"></div>
+                    </div>
+                    <div class="tablatd" style="margin-top: 2rem;">
+                        <h4>Tabla Distancia Contra Tiempo</h4>
+                        <div class="tablaTiempotvsd" id="tablaTiempotvsd"></div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Dado que el modelo matemático de este comportamiento en donde la gráfica posición vs tiempo obedece a la
+                ecuación: `x = x_{0} + v_{0}t+\frac{1}{2}at^2 ` al ser una parabola, se puede linealizar la función de
+                la siguiente manera:
+
+                $$\frac{x-x_0}{t}=+v_0+\frac{1}{2}at$$
+
+                Asumiendo de acuerdo con la Tabla anterior que en `t = 0`, `x_0 = 0`, la expresión queda
+                de la forma `x⁄t = vo + \frac{1}{2}at` por lo que calculamos los valores `x⁄t` demostrados en
+                la siguiente tabla:
+            </p>
+
+            <div class="tablatd-lin" style="margin-top: 2rem;">
+                <h4>Tabla Distancia Contra Tiempo Linealizada</h4>
+                <div class="tablaTiempotvsd-lin" id="tablaTiempotvsd-lin"></div>
+            </div>
+
+            <center>                
+                <div class="grafica-tabla-lin">
+                    <div class="graftalin" id="graftalin" style="margin-bottom: 2rem;"></div>
+                    <input type="button" name="Ver_graftalin" id="Ver_graftalin" onclick="graficoDistanciaLineal()" value="Ver Grafico">
+                </div>
             </center>
-        </div>
         </div>
 
         <div class="sig-ant">
@@ -260,7 +342,9 @@
             <div class="box_footer">
                 <div class="contacto">
                     <H4>CREADO Y DISEÑADO POR</H4>
-                    <P><a href="https://github.com/Sblanco16" target="_blank">SHARITH BLANCO - </a> <a href="https://github.com/Cmrales26" target="_blank">NELSON MORALES - </a> <a href="https://github.com/Dicavimer" target="_blank">DIANA VIDAL</a></P>
+                    <P><a href="https://github.com/Sblanco16" target="_blank">SHARITH BLANCO - </a> <a
+                            href="https://github.com/Cmrales26" target="_blank">NELSON MORALES - </a> <a
+                            href="https://github.com/Dicavimer" target="_blank">DIANA VIDAL</a></P>
                 </div>
             </div>
         </div>

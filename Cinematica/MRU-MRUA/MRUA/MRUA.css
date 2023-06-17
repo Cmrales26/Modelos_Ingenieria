@@ -1,29 +1,33 @@
-.sig-ant{
+.sig-ant {
     display: flex;
     justify-content: space-between;
 }
-.siguiente , 
-.anterior{
+
+.siguiente,
+.anterior {
     margin-top: 4%;
     text-align: right;
     margin-bottom: 4%;
     cursor: pointer;
 }
-.siguiente a, 
-.anterior a{
+
+.siguiente a,
+.anterior a {
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
     color: gray;
     transform: 2;
 }
-.siguiente a:hover, 
-.anterior a:hover{
+
+.siguiente a:hover,
+.anterior a:hover {
     font-size: 16.8px;
     transition: 0.2s ease;
     color: #020887;
 }
-#informacion{
+
+#informacion {
     max-width: 65rem;
     margin-left: auto;
     margin-right: auto;
@@ -31,33 +35,46 @@
     padding-right: 3rem;
     padding-top: 2.5%;
 }
-.Definicion{
+
+.Definicion {
     text-align: justify;
 }
-.conceptos-grafico{
+
+.conceptos-grafico {
     text-align: justify;
 }
-h1{
+
+h1 {
     padding-top: 2%;
     text-transform: uppercase;
     color: #020887;
     /* padding-bottom: 2%; */
 }
-h2{
+
+h2 {
     text-transform: uppercase;
     color: #020887;
 }
-h4{
+
+h4 {
     color: #020887;
 }
-ul{
+
+ul {
     margin-left: 4%;
 }
-.Definicion li{
+
+.Definicion li {
     list-style: disc;
     padding: .5%;
 }
-.contendorGrafica1, .contenedorv_vs_t,.contenedorv_vs_t,.contedora_vs_t, .cotenedorcaidalibre{
+
+.contendorGrafica1,
+.contenedorv_vs_t,
+.contenedorv_vs_t,
+.contedora_vs_t,
+.cotenedorcaidalibre,
+.cotenedorcaidarampa {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,20 +86,30 @@ ul{
     height: 300px;
     margin-bottom: 4%;
 }
-.cotenedorcaidalibre{
+
+.cotenedorcaidalibre {
     margin-top: 4%;
     height: 350px;
 }
-.grficap-vs-t h1, .contenedorv_vs_t h1,.contedora_vs_t h1,.contenedorv_vs_t h2, .simulacionCaidaLibre h1{
-    color: rgba(2, 8, 135,.1);
+
+.grficap-vs-t h1,
+.contenedorv_vs_t h1,
+.contedora_vs_t h1,
+.contenedorv_vs_t h2,
+.simulacionCaidaLibre h1,
+.simulacionCaidarampa h1 {
+    color: rgba(2, 8, 135, .1);
 }
-.inputsp-vs-t, .inputs-v-vs-t{
+
+.inputsp-vs-t,
+.inputs-v-vs-t {
     text-align: center;
     /* border: 1px solid  #020887; */
     /* margin-top: -6%; */
     margin-left: 4%;
     margin-bottom: 4%;
 }
+
 input[type=text] {
     border: 2px solid rgb(2, 8, 135);
     border-radius: 5px;
@@ -90,6 +117,7 @@ input[type=text] {
     /* text-transform: uppercase; */
     padding: .4%;
 }
+
 table.GeneratedTable {
     width: 70%;
     background-color: #ffffff;
@@ -109,7 +137,8 @@ table.GeneratedTable th {
     padding: 3px;
     text-align: center;
 }
-.vi-vm{
+
+.vi-vm {
     width: 100%;
     margin: auto;
     display: flex;
@@ -120,32 +149,38 @@ table.GeneratedTable th {
 table.GeneratedTable thead {
     background-color: #ffffff;
 }
-.vi-pt{
-margin-top: 3%;
+
+.vi-pt {
+    margin-top: 3%;
 }
-#vi-pt-dat{
+
+#vi-pt-dat {
     text-align: center;
     border: 2px solid #020887;
     border-radius: 2px;
     width: 100%;
     color: #020887;
 }
-#PosicionFinal{
+
+#PosicionFinal {
     padding-top: 2%;
     text-align: center;
-    text-transform: initial ;
+    text-transform: initial;
 }
+
 .glowscript-canvas-wrapper {
     border: none !important;
     padding: 2%;
 }
 
-.distanciavstiempocaidaL .glowscript-canvas-wrapper{
+.distanciavstiempocaidaL .glowscript-canvas-wrapper {
     display: none !important;
 }
-.contacto H4{
+
+.contacto H4 {
     color: gray !important;
 }
+
 input[type=button] {
     margin-left: 20px;
     border: none;
@@ -156,17 +191,68 @@ input[type=button] {
     cursor: pointer;
     transition: .2s;
 }
-#Ver_graficas{
+
+.glowscript-graph {
+    margin-top: 2rem;
+}
+
+.datos-sim-ram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#Ver_graficas {
     justify-content: center;
     align-items: center;
 }
 
 input[type=button]:hover {
     scale: 1.1;
-}   
-.distanciavstiempocaidaL{
+}
+
+.distanciavstiempocaidaL {
     width: 100%;
 }
-.Entradas_caidaLibre input[type=text]{
-    width:20%;
+
+table {
+    width: 100%;
+    text-align: center;
+    border: 2px solid #020887;
+}
+
+tr,
+td {
+    border: 2px solid #020887;
+    padding: 5px;
+}
+
+.Entradas_caidaLibre input[type=text] {
+    width: 20%;
+}
+
+.ver_analisis {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    & span {
+        padding-top: 2%;
+        color: #020887;
+        font-weight: 500;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+#Ver_analisis_rampa {
+    /* margin-left: 20px;
+    border: none;
+    padding: .3% 7% !important;
+    border-radius: 10px;
+    background-color: #020887;
+    color: white;
+    cursor: pointer;
+    transition: .2s; */
 }

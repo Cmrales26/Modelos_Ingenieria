@@ -8,7 +8,7 @@
     <title>Movimiento Rectilíneo Uniforme acelerado</title>
     <link rel="stylesheet" href="../../../index/index.css">
     <link rel="stylesheet" href="./MRUA.css">
-  <link rel="shortcut icon" href="../../../index/img/Circle-icons1.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../index/img/Circle-icons1.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -309,17 +309,142 @@
                 la siguiente tabla:
             </p>
 
-            <div class="tablatd-lin" style="margin-top: 2rem;">
+            <div class="tablatd-lin" style="margin-top: 2rem; margin-bottom: 2rem;">
                 <h4>Tabla Distancia Contra Tiempo Linealizada</h4>
                 <div class="tablaTiempotvsd-lin" id="tablaTiempotvsd-lin"></div>
             </div>
 
-            <center>                
+            <div class="pendienteeintercepto">
+                <h4>Pendiente e Intercepto</h4>
+                <p>Para calcular los valores de pendiente e intercepto tomamos los valores de la tabla anterior y los
+                    cambiamos en las siguientes ecuaciones, siendo `m ` La pendiente y `b ` el intercepto</p>
+
+                <div class="formulaspendienteeintercepto">
+                    <span style="padding-bottom: 2rem;">
+                        $$m = \frac{n(\sum x_iy_i)-(\sum x_i)(\sum y_i)}{n(\sum x_i^2)-(\sum x_i)^2}$$
+                    </span>
+                    <span style="margin-top: 2rem;">
+                        $$ b = \frac{(\sum y_i)-m(\sum x_i)}{n} $$
+                    </span>
+                </div>
+            </div>
+
+            <center>
                 <div class="grafica-tabla-lin">
                     <div class="graftalin" id="graftalin" style="margin-bottom: 2rem;"></div>
-                    <input type="button" name="Ver_graftalin" id="Ver_graftalin" onclick="graficoDistanciaLineal()" value="Ver Grafico">
+                    <input type="button" name="Ver_graftalin" id="Ver_graftalin" onclick="graficoDistanciaLineal()"
+                        value="Ver Grafico">
                 </div>
             </center>
+            <p style="margin-top: 2rem;">Teniendo en cuenta los valores de la tabla de linealizada y comparando con las
+                variables
+                en las ecuaciones de pendencien e intercepto se escribe una nueva para calcular
+                todas estas variables
+            </p>
+
+            <div class="tablaMinimosCuadrados" style="margin-top: 2rem;">
+                <table class="tg" border="1" style="border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th class="tg-9wq8" rowspan="2">`n`</th>
+                            <th class="tg-0pky">`x_i`</th>
+                            <th class="tg-0pky">`y_i`</th>
+                            <th class="tg-0pky">`x^2_1`</th>
+                            <th class="tg-0pky">`x_iy_i`</th>
+                            <th class="tg-0pky">` \sum (y_i-mx_1-b)^2 `</th>
+                        </tr>
+                        <tr>
+                            <th class="tg-0pky">`t`</th>
+                            <th class="tg-0pky">`z=x/t`</th>
+                            <th class="tg-0pky">`t^2`</th>
+                            <th class="tg-0pky">`zt`</th>
+                            <th class="tg-0pky">` \sum(z-mt-b)^2 `</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="tg-9wq8" rowspan="7">`7`</td>
+                            <td class="tg-0pky tiempo"></td>
+                            <td class="tg-0pky ztabla"></td>
+                            <td class="tg-0pky tiempocuadrado"></td>
+                            <td class="tg-0pky zttabla"></td>
+                            <td class="tg-0pky formulota"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax tiempo"></td>
+                            <td class="tg-0lax ztabla"></td>
+                            <td class="tg-0pky tiempocuadrado"></td>
+                            <td class="tg-0lax zttabla"></td>
+                            <td class="tg-0lax formulota"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax tiempo"></td>
+                            <td class="tg-0pky ztabla"></td>
+                            <td class="tg-0pky tiempocuadrado"></td>
+                            <td class="tg-0pky zttabla"></td>
+                            <td class="tg-0pky formulota"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax tiempo"></td>
+                            <td class="tg-0pky ztabla"></td>
+                            <td class="tg-0pky tiempocuadrado"></td>
+                            <td class="tg-0pky zttabla"></td>
+                            <td class="tg-0pky formulota"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax tiempo"></td>
+                            <td class="tg-0lax ztabla"></td>
+                            <td class="tg-0pky tiempocuadrado"></td>
+                            <td class="tg-0lax zttabla"></td>
+                            <td class="tg-0lax formulota"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax tiempo"></td>
+                            <td class="tg-0lax ztabla"></td>
+                            <td class="tg-0pky tiempocuadrado"></td>
+                            <td class="tg-0lax zttabla"></td>
+                            <td class="tg-0lax formulota"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0lax tiempo"></td>
+                            <td class="tg-0lax ztabla"></td>
+                            <td class="tg-0pky tiempocuadrado"></td>
+                            <td class="tg-0lax zttabla"></td>
+                            <td class="tg-0lax formulota"></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-c3ow">` \sum `</td>
+                            <td class="tg-0pky sumt"></td>
+                            <td class="tg-0pky sumz"></td>
+                            <td class="tg-0pky sumt2"></td>
+                            <td class="tg-0pky sumzt"></td>
+                            <td class="tg-0pky sumformu"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="solucion-ejemplo" style="margin-top: 2rem;">
+            <div class="aceleracionejemplo">
+                <p>
+                    De la ecuación de la pendiente mostrada anteriormente se obtiene el valor de la pendiente y reemplazando los valores de la Tabla anterior  se obtiene el siguiente resultado: 
+                    `(m = \frac{1}{2}a_0 = \frac{n(\sum x_iy_i)-(\sum x_i)(\sum y_i)}{n(\sum x_i^2)-(\sum x_i)^2}) =`
+                </p>
+                <center>
+                    <div class="respuesta" style="margin-top: 2rem;">
+                        <h4 id="respuestaejemploxd"></h4>
+                    </div>
+                </center>
+
+                <p style=" margin-top: 2rem;">Por tanto, la aceleración se puede calcular como `a_0 = 2*m` lo que da como resultado que la aceleración del movil es de: <span id="Aceleracionejercicio">  </span> `m/s^2` </p>
+            </div>
+
+            <p>Debido a que la aceleración es constante, la gráfica que lo representa será una linea recta perpendicular al eje de las `x` ubicada en `y` aceleración de la siguiente manera:</p>
+
+            <div class="grafica-aceleracionrampa" id="grafica-aceleracionrampa">
+
+            </div>
         </div>
 
         <div class="sig-ant">

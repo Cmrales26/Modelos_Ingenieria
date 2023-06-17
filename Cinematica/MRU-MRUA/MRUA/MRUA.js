@@ -1269,6 +1269,7 @@ const simulacionRampa = () => {
 
     //Calculo de la aceleración
     var aceleracion = 9.8 * Math.sin(radianes);
+    console.log(aceleracion)
 
     //Calculo del tiempo
     var tiempo = Math.sqrt((2 * hipotenusa) / aceleracion);
@@ -1806,9 +1807,12 @@ theta.addEventListener("change", (event) => {
   }
   if (tiempos.length > 0) {
     linealizacionDistancia(tiempos, distancias);
-  } else {
-    console.log("TAVACIO");
   }
+
+  if (linealizacion.length > 0 && tiempos.length > 0) {
+    llenartabla(tiempos, gettiempocuadrado(tiempos), linealizacion, getzt(tiempos, linealizacion), getformulota(tiempos, linealizacion, getPendiente(), getintercepto()))
+  }
+
 });
 
 b.addEventListener("change", (event) => {
@@ -1821,9 +1825,12 @@ b.addEventListener("change", (event) => {
 
   if (tiempos.length > 0) {
     linealizacionDistancia(tiempos, distancias);
-  } else {
-    console.log("TAVACIO");
   }
+
+  if (linealizacion.length > 0 && tiempos.length > 0) {
+    llenartabla(tiempos, gettiempocuadrado(tiempos), linealizacion, getzt(tiempos, linealizacion), getformulota(tiempos, linealizacion, getPendiente(), getintercepto()))
+  }
+
 });
 
 //TABLAS
@@ -2038,11 +2045,11 @@ const getintercepto = () => {
   var n = tiempo.length;
   var m = getPendiente();
   var c = (sumY - m * sumX) / n;
-  
+
   return c
 }
 
-const getPendiente = () =>{
+const getPendiente = () => {
   var tiempo = tiempos;
   var distancia = linealizacion;
 
@@ -2237,3 +2244,137 @@ const graficoDistanciaLineal = () => {
     });
   })();
 };
+
+// ! MINIMOS CUADRADOS
+let tabletiempo = tiempos;
+let tabladistancia = linealizacion;
+let tablatiempoCuadrado = [];
+let tablazt = [];
+let tablaFormulota = [];
+
+const gettiempocuadrado = (tiempos) => {
+  if (tablatiempoCuadrado.length >= 1) {
+    tablatiempoCuadrado = [];
+  }
+
+  for (let i = 0; i < tiempos.length; i++) {
+    let tcua = Math.pow(tiempos[i], 2)
+    tablatiempoCuadrado.push(tcua.toFixed(2))
+  }
+  return tablatiempoCuadrado;
+}
+
+const getzt = (tiempo, distancia) => {
+  if (tablazt.length >= 1) {
+    tablazt = [];
+  }
+  for (let i = 0; i < tiempo.length; i++) {
+    let zt = distancia[i] * tiempo[i]
+    tablazt.push(zt.toFixed(2))
+  }
+  return tablazt
+}
+
+const getformulota = (tiempo, distancia, m, c) => {
+
+  if (tablaFormulota.length >= 1) {
+    tablaFormulota = [];
+  }
+
+  for (let i = 0; i < tiempo.length; i++) {
+    let formulota = Math.pow(distancia[i] - (m * tiempo[i]) - c, 2)
+    tablaFormulota.push(formulota.toFixed(5));
+  }
+  return tablaFormulota
+}
+
+
+const llenartabla = (tiempo, tiempocuadrado, linealizacion, zt, formulota) => {
+  var tiempoCells = document.getElementsByClassName("tiempo");
+  var tiempocuadradoCells = document.getElementsByClassName("tiempocuadrado");
+  var ztablaCells = document.getElementsByClassName("ztabla");
+  var zttablaCells = document.getElementsByClassName("zttabla");
+  var formulotaCells = document.getElementsByClassName("formulota");
+
+  for (var i = 0; i < tiempoCells.length; i++) {
+    tiempoCells[i].innerHTML = tiempo[i];
+    tiempocuadradoCells[i].innerHTML = tiempocuadrado[i];
+    ztablaCells[i].innerHTML = linealizacion[i];
+    zttablaCells[i].innerHTML = zt[i]
+    formulotaCells[i].innerHTML = formulota[i]
+  }
+
+  //!SUMATORIAS
+  let sumt = 0
+  var sumtCells = document.getElementsByClassName("sumt");
+  for (var i = 0; i < tiempo.length; i++) {
+    sumt += tiempo[i];
+  }
+
+  let sumz = 0
+  var sumzCells = document.getElementsByClassName("sumz");
+  for (var i = 0; i < linealizacion.length; i++) {
+    sumz += linealizacion[i];
+  }
+
+  let sumt2 = 0
+  var sumt2Cells = document.getElementsByClassName("sumt2");
+  for (var i = 0; i < tiempocuadrado.length; i++) {
+    sumt2 += parseFloat(tiempocuadrado[i]);
+  }
+
+  let sumzt = 0
+  var sumztCells = document.getElementsByClassName("sumzt");
+  for (var i = 0; i < zt.length; i++) {
+    sumzt += parseFloat(zt[i]);
+  }
+
+  let sumformu = 0
+  var sumformuCells = document.getElementsByClassName("sumformu");
+  for (var i = 0; i < formulota.length; i++) {
+    sumformu += parseFloat(formulota[i]);
+  }
+
+  sumtCells[0].innerHTML = sumt.toFixed(2)
+  sumzCells[0].innerHTML = sumz.toFixed(2)
+  sumt2Cells[0].innerHTML = sumt2.toFixed(2)
+  sumztCells[0].innerHTML = sumzt.toFixed(2)
+  sumformuCells[0].innerHTML = sumformu.toFixed(6)
+
+  let resultadoreal = (tiempo.length * (sumzt) - (sumt) * (sumz)) / (tiempo.length * (sumt2) - Math.pow(sumt, 2))
+
+  const Resultado = document.getElementById("respuestaejemploxd")
+  Resultado.innerHTML = `m = (${tiempo.length}(${sumzt.toFixed(2)})-(${sumt.toFixed(2)})(${sumz.toFixed(2)}))/(${tiempo.length}(${sumt2.toFixed(2)})-(${Math.pow(sumt, 2)})) =  ${resultadoreal.toFixed(3)}`
+
+  console.log(resultadoreal)
+
+  let aceleracion = 2 * resultadoreal
+  document.getElementById("Aceleracionejercicio").innerHTML = `${aceleracion.toFixed(2)}`
+
+  const origen = { x: 0, y: aceleracion };
+  const destino = { x: tiempo.length, y: (aceleracion) };
+
+  // Crear los datos de la línea
+  const trace = {
+    x: [origen.x, destino.x],
+    y: [origen.y, destino.y],
+    mode: 'lines',
+  };
+
+  // Crear el diseño de la gráfica
+  const layout = {
+    xaxis: { range: [0, tiempo.length] },
+    yaxis: { range: [0, aceleracion + 5] },
+  };
+
+  // Crear el arreglo de datos
+  const data = [trace];
+
+  Plotly.newPlot('grafica-aceleracionrampa', data, layout);
+
+}
+
+
+const tiempo = [1, 2, 3, 4, 5, 6, 7]; // Aquí deberías tener tus propios datos
+let aceleracion = 4
+

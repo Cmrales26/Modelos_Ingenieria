@@ -2373,8 +2373,3 @@ const llenartabla = (tiempo, tiempocuadrado, linealizacion, zt, formulota) => {
   Plotly.newPlot('grafica-aceleracionrampa', data, layout);
 
 }
-
-
-const tiempo = [1, 2, 3, 4, 5, 6, 7]; // Aquí deberías tener tus propios datos
-let aceleracion = 4
-

@@ -1811,6 +1811,7 @@ theta.addEventListener("change", (event) => {
 
   if (linealizacion.length > 0 && tiempos.length > 0) {
     llenartabla(tiempos, gettiempocuadrado(tiempos), linealizacion, getzt(tiempos, linealizacion), getformulota(tiempos, linealizacion, getPendiente(), getintercepto()))
+    getincertidumbre()
   }
 
 });
@@ -1829,6 +1830,7 @@ b.addEventListener("change", (event) => {
 
   if (linealizacion.length > 0 && tiempos.length > 0) {
     llenartabla(tiempos, gettiempocuadrado(tiempos), linealizacion, getzt(tiempos, linealizacion), getformulota(tiempos, linealizacion, getPendiente(), getintercepto()))
+    getincertidumbre()
   }
 
 });
@@ -2285,11 +2287,14 @@ const getformulota = (tiempo, distancia, m, c) => {
     let formulota = Math.pow(distancia[i] - (m * tiempo[i]) - c, 2)
     tablaFormulota.push(formulota.toFixed(5));
   }
+  console.log( "FORMULOTAAAA " +sumformu)
   return tablaFormulota
 }
 
+let sumt = 0; let sumz = 0; let sumt2 = 0; let sumzt = 0; let sumformu = 0; let aceleracion = 0; let resultadoreal = 0
 
 const llenartabla = (tiempo, tiempocuadrado, linealizacion, zt, formulota) => {
+  sumt = 0; sumz = 0; sumt2 = 0; sumzt = 0; sumformu = 0; aceleracion = 0, resultadoreal = 0
   var tiempoCells = document.getElementsByClassName("tiempo");
   var tiempocuadradoCells = document.getElementsByClassName("tiempocuadrado");
   var ztablaCells = document.getElementsByClassName("ztabla");
@@ -2305,31 +2310,26 @@ const llenartabla = (tiempo, tiempocuadrado, linealizacion, zt, formulota) => {
   }
 
   //!SUMATORIAS
-  let sumt = 0
   var sumtCells = document.getElementsByClassName("sumt");
   for (var i = 0; i < tiempo.length; i++) {
     sumt += tiempo[i];
   }
 
-  let sumz = 0
   var sumzCells = document.getElementsByClassName("sumz");
   for (var i = 0; i < linealizacion.length; i++) {
     sumz += linealizacion[i];
   }
 
-  let sumt2 = 0
   var sumt2Cells = document.getElementsByClassName("sumt2");
   for (var i = 0; i < tiempocuadrado.length; i++) {
     sumt2 += parseFloat(tiempocuadrado[i]);
   }
 
-  let sumzt = 0
   var sumztCells = document.getElementsByClassName("sumzt");
   for (var i = 0; i < zt.length; i++) {
     sumzt += parseFloat(zt[i]);
   }
 
-  let sumformu = 0
   var sumformuCells = document.getElementsByClassName("sumformu");
   for (var i = 0; i < formulota.length; i++) {
     sumformu += parseFloat(formulota[i]);
@@ -2341,14 +2341,14 @@ const llenartabla = (tiempo, tiempocuadrado, linealizacion, zt, formulota) => {
   sumztCells[0].innerHTML = sumzt.toFixed(2)
   sumformuCells[0].innerHTML = sumformu.toFixed(6)
 
-  let resultadoreal = (tiempo.length * (sumzt) - (sumt) * (sumz)) / (tiempo.length * (sumt2) - Math.pow(sumt, 2))
+  resultadoreal = (tiempo.length * (sumzt) - (sumt) * (sumz)) / (tiempo.length * (sumt2) - Math.pow(sumt, 2))
 
   const Resultado = document.getElementById("respuestaejemploxd")
   Resultado.innerHTML = `m = (${tiempo.length}(${sumzt.toFixed(2)})-(${sumt.toFixed(2)})(${sumz.toFixed(2)}))/(${tiempo.length}(${sumt2.toFixed(2)})-(${Math.pow(sumt, 2)})) =  ${resultadoreal.toFixed(3)}`
 
   console.log(resultadoreal)
 
-  let aceleracion = 2 * resultadoreal
+  aceleracion = 2 * resultadoreal
   document.getElementById("Aceleracionejercicio").innerHTML = `${aceleracion.toFixed(2)}`
 
   const origen = { x: 0, y: aceleracion };
@@ -2372,4 +2372,64 @@ const llenartabla = (tiempo, tiempocuadrado, linealizacion, zt, formulota) => {
 
   Plotly.newPlot('grafica-aceleracionrampa', data, layout);
 
+}
+
+const getincertidumbre = () => {
+  // Agregar el valor de formulota al html
+  document.getElementById("numeradorgamma").innerHTML = `${sumformu.toFixed(5)}`
+  document.getElementById("denominadorgamma").innerHTML = `${tiempos.length - 2}`
+
+  //CALCULO GAMMA
+  let gamma = Math.sqrt((sumformu) / (tiempos.length - 2))
+  document.getElementById("ResultadoGamma").innerHTML = `${gamma.toFixed(5)}`
+
+  //LLENAR TABLA
+  let n_incer = document.getElementsByClassName("n_incer")
+  let gamma_incer = document.getElementsByClassName("gamma_incer")
+  let sumax2 = document.getElementsByClassName("sumax2")
+  let sumax = document.getElementsByClassName("sumax")
+  let denominadorincer = Math.abs(tiempos.length * (sumt2) - Math.pow(sumt, 2))
+  let totalincer = (gamma * Math.sqrt(tiempos.length)) / (Math.sqrt(denominadorincer))
+
+  n_incer[0].innerHTML = tiempos.length
+  gamma_incer[0].innerHTML = gamma.toFixed(5)
+  sumax2[0].innerHTML = sumt2.toFixed(2)
+  sumax[0].innerHTML = sumt
+
+
+  var gammaFixed = gamma.toFixed(5);
+  var tiemposLength = tiempos.length;
+  var sumt2Fixed = sumt2.toFixed(2);
+  var denominadorIncer = denominadorincer.toFixed(3);
+  var totalIncer = totalincer.toFixed(3);
+  var totalIncerTimes2 = (2 * totalIncer).toFixed(3);
+  var aceleracionFixed = aceleracion.toFixed(3);
+
+  var formula1 = `\\Delta m = \\left( \\frac{1}{2} \\right)\\Delta a = \\frac{${gammaFixed} \\sqrt{${tiemposLength}}}{\\sqrt{${tiemposLength}(${sumt2Fixed})-(${sumt})^2}} = \\frac{${gammaFixed} \\sqrt{${tiemposLength}}}{\\sqrt{${denominadorIncer}}} \\approx ${totalIncer}`;
+  renderMathJax('Resulincer', formula1);
+
+  var formula2 = `\\Delta a = 2(${totalIncer})\\ cm/s^2 \\rightarrow \\Delta a = ${totalIncerTimes2}\\ cm/s^2`;
+  renderMathJax('Incertidumbre_aceleracion', formula2);
+
+  var resultado = `a = (${aceleracionFixed} \\pm ${totalIncerTimes2})\\ cm/s^2`;
+  renderMathJax('Resultado-incertidumbre-masmeno', resultado);
+
+  var errorporcentual = `\\%\\varepsilon _r = \\left ( \\frac{${totalIncerTimes2}}{${aceleracionFixed}} \\times 100\\right)\\% \\rightarrow \\%\\varepsilon _r = ${((totalIncerTimes2/aceleracionFixed)*100).toFixed(1)}\\%`;
+  renderMathJax('errorporcentualaceleracion', errorporcentual)
+
+  var velocidad_inicial = `b=v_0=\\frac{(${sumz.toFixed(2)})-${resultadoreal.toFixed(2)}(${sumt})}{${tiempos.length}} = ${(((sumz)-(resultadoreal*sumt))/(tiempos.length)).toFixed(3)}\\ cm/s`
+  renderMathJax('Velocidad_inicial', velocidad_inicial)
+
+  var incertidumbre_velocidad_inicial = `\\Delta b = ${totalIncer} \\sqrt{\\frac{${sumt2Fixed} }{${tiemposLength}}}= ${((totalIncer*(Math.sqrt((sumt2Fixed/tiemposLength))))).toFixed(3)}\\ cm/s`
+  renderMathJax('incertidumbreVelocidad', incertidumbre_velocidad_inicial)
+
+  var inicialterminada = `v_0 = (${(((sumz)-(resultadoreal*sumt))/(tiempos.length)).toFixed(3)} \\pm ${((totalIncer*(Math.sqrt((sumt2Fixed/tiemposLength))))).toFixed(3)}\\ cm/s)`
+  renderMathJax('velocidadinicialterminada', inicialterminada)
+}
+
+
+function renderMathJax(elementId, formula) {
+  var element = document.getElementById(elementId);
+  element.innerHTML = '\\(' + formula + '\\)';
+  MathJax.Hub.Queue(['Typeset', MathJax.Hub, element]);
 }

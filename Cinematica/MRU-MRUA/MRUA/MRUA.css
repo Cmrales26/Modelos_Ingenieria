@@ -245,7 +245,15 @@ td {
         cursor: pointer;
     }
 }
-
+.Resulincer,  #errorporcentualaceleracion,#Velocidad_inicial,#incertidumbreVelocidad,#velocidadinicialterminada{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+#Incertidumbre_aceleracion,  #errorporcentualaceleracion{
+    font-size: 15px;
+}
 #Ver_analisis_rampa {
     /* margin-left: 20px;
     border: none;

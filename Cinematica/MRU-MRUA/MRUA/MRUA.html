@@ -22,7 +22,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.3.1/math.js"
         integrity="sha512-Q1qOFs0DNtp9bviP8uSyPm0d1ES7zw8BXZ7AF2XCWIVKHObK6U7mkMZ+SGOf1vF71zI/60lO+FjBTrzaYGRqnw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/startup.js" integrity="sha512-MX1gf/vgby10l/kdwswRVeldCBh5oHrhKOUNC5TjHh9wJui1UO62UxGT73T6nYo7ViCWg/Qo4clj8JJvgic7bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/startup.js"
+        integrity="sha512-MX1gf/vgby10l/kdwswRVeldCBh5oHrhKOUNC5TjHh9wJui1UO62UxGT73T6nYo7ViCWg/Qo4clj8JJvgic7bg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 
@@ -249,7 +251,10 @@
         </div>
 
         <div class="ejercicioPractico">
-            <h1>Ejercicio Caída Libre Rampa</h1>
+            <div class="tituloLibro">
+                <h1>Simulación Caída Libre Rampa</h1>
+                <button id="EjemploPractico"> ¡Ver Ejemplo Laboratorio! </button>
+            </div>
             <p>En la práctica pensemos que tomamos una serie de datos de posición y tiempo de un carrito que se desplaza
                 a través de un plano inclinado a cierto ángulo</p>
             <center>
@@ -267,7 +272,7 @@
 
             <div class="analisis" style="margin-top: 2rem;">
                 <div class="ver_analisis">
-                    <h1>Análisis de la simulación</h1> <span id="ver_analisis_ramp">VER TABLAS Y GRÁFICAS</span>
+                    <h1>Análisis de la simulación</h1>
                 </div>
                 Asumiendo que el Movil parte del reposo, es decir que su velocidad inicial es de 0 m/s obtenemos la
                 siguiente gráfica para la velocidad
@@ -497,9 +502,13 @@
             <div class="Resultado-incertidumbre" style="margin-top: 2rem;">
                 <h4>El valor de la incertidumbre de la pendiente se puede calcular con la siguiente ecuación: </h4>
                 <div id="Resulincer" class="Resulincer"></div>
-                <p>Por lo que, a partir de estos datos podemos obtener la incertidumbre de la aceleración de la siguiente manera:</p>
+                <p>Por lo que, a partir de estos datos podemos obtener la incertidumbre de la aceleración de la
+                    siguiente manera:</p>
                 <div id="Incertidumbre_aceleracion" class="Resulincer"></div>
-                <p>Por lo que el valor de la aceleración con la incertidumbre es: <span id="Resultado-incertidumbre-masmeno"></span> Una vez calculado podemos calcular el error porcentual, Usando la siguiente Formula: $$\%\varepsilon_r = \left ( \frac{\Delta a}{a_0} \times 100\right )\%$$ </p>
+                <p>Por lo que el valor de la aceleración con la incertidumbre es: <span
+                        id="Resultado-incertidumbre-masmeno"></span> Una vez calculado podemos calcular el error
+                    porcentual, Usando la siguiente Formula: $$\%\varepsilon_r = \left ( \frac{\Delta a}{a_0} \times
+                    100\right )\%$$ </p>
 
                 <p>Por lo que el resultado del error es el siguiente: </p>
                 <div id="errorporcentualaceleracion"></div>
@@ -508,14 +517,22 @@
 
         <div class="velocidad_Inicial">
             <h1>Velocidad Inicial</h1>
-            <p>En una gráfica de posición vs tiempo, la pendiente representa la velocidad del objeto. Si la gráfica es una línea recta, entonces la pendiente es constante y representa la velocidad constante del objeto. En este caso, el valor del intercepto en el eje vertical (cuando el tiempo es cero) representa la posición inicial del objeto. Si se gráfica la velocidad en función del tiempo, entonces el valor del intercepto en el eje vertical representa la velocidad inicial del objeto. Esta se puede calcular de la siguiente manera: </p>
+            <p>En una gráfica de posición vs tiempo, la pendiente representa la velocidad del objeto. Si la gráfica es
+                una línea recta, entonces la pendiente es constante y representa la velocidad constante del objeto. En
+                este caso, el valor del intercepto en el eje vertical (cuando el tiempo es cero) representa la posición
+                inicial del objeto. Si se gráfica la velocidad en función del tiempo, entonces el valor del intercepto
+                en el eje vertical representa la velocidad inicial del objeto. Esta se puede calcular de la siguiente
+                manera: </p>
 
-            $$b = \frac{(\sum y_i)-m(\sum x_i)}{n}$$ 
+            $$b = \frac{(\sum y_i)-m(\sum x_i)}{n}$$
 
-            <p>Por lo que tomando los valores de la  <a href="#tablaMinimosCuadrados">tabla</a>  obtenemos la siguiente formula: </p>
+            <p>Por lo que tomando los valores de la <a href="#tablaMinimosCuadrados">tabla</a> obtenemos la siguiente
+                formula: </p>
 
             <div id="Velocidad_inicial"></div>
-            <p>A su vez se le puede hallar el valor de la incertidumbre de igual forma como se realizo con la aceleración. Para hallar la incertidumbre de la velocidad inicial se hace uso de la siguiente formula: </p>
+            <p>A su vez se le puede hallar el valor de la incertidumbre de igual forma como se realizo con la
+                aceleración. Para hallar la incertidumbre de la velocidad inicial se hace uso de la siguiente formula:
+            </p>
             $$ \Delta b =\Delta m\sqrt{\frac{\sum x_i^2 }{n}} $$
             <p>De modo que, Debido a que Ya sabemos estos datos, podemos realizar su solución:</p>
             <div id="incertidumbreVelocidad"></div>
@@ -524,8 +541,176 @@
         </div>
 
         <div id="ejercicioPractico-Estatico">
-            <h1>Ejercicio Practico</h1>
-            
+            <div class="contextualizacion">
+                <h1>Ejercicio Practico</h1>
+                <p>Un estudiante de ingeniería realiza una práctica de laboratorio donde hace
+                    deslizar un carrito por un riel inclinado. El estudiante logra determinar los diferentes tiempos
+                    para posiciones de 20 cm en 20 cm tal como se muestra en la
+                    siguiente Simulación <span onclick="ejemplolab()" id="VERSIMUEJE">¡VER SIMULACIÓN!</span></p>
+                <div id="LaboratorioejemploSim" class="LaboratorioejemploSim"></div>
+                <i>Si desea Reinicar la simulación de clic en ¡VER SIMULACIÓN!</i>
+
+                <div class="tablaDatosDesalineados" style="margin-top: 2rem;">
+                    <p>Una vez Realizado el ejercicio el estudiante recoge ños datos obtenidos a través del sensor de
+                        movimiento para la medida de posición y tiempo se presentan en la siguiente Tabla</p>
+                    <table border="1" style="border-collapse: collapse; margin-top: 1rem;">
+                        <thead>
+                            <tr>
+                                <th>`t(s)`</th>
+                                <th>0</th>
+                                <th>1.16</th>
+                                <th>1.58</th>
+                                <th>1.93</th>
+                                <th>2.29</th>
+                                <th>2.58</th>
+                                <th>2.82</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: bold;">`x(cm)`</td>
+                                <td>0</td>
+                                <td>20.00</td>
+                                <td>40.00</td>
+                                <td>60.00</td>
+                                <td>80.00</td>
+                                <td>100.00</td>
+                                <td>120.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: 2rem;">A partir de estos datos el estudiante busca determinar el valor central ±
+                    incertidumbre de la aceleración y velocidad inicial del carrito, por lo que inicialmente realiza la
+                    gráfica de la posición vs el tiempo la cual se ve de la siguiente manera: </p>
+            </div>
+            <div class="RespuestaEjemplo">
+                <div id="DistanciaVsTiempoDesalineadoEjercicioP"></div>
+                <p>En este punto el estudiante se da cuenta que la gráfica de la posición es una parabola por lo que
+                    realiza la linealización de los datos usando la formula presentada en la explicación por lo que
+                    procede a registrar los datos en una tabla, al hacerlo se da cuenta que en `t_0 = 0, x_0=0` por lo
+                    que la tabla queda representada de la siguiente manera: </p>
+
+                <div class="tablaDatosLinealizados">
+                    <table border="1" style="border-collapse: collapse; margin-top: 1rem; margin-bottom: 1rem;">
+                        <thead>
+                            <tr>
+                                <th>`t(s)`</th>
+                                <th>1.16</th>
+                                <th>1.58</th>
+                                <th>1.93</th>
+                                <th>2.29</th>
+                                <th>2.58</th>
+                                <th>2.82</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: bold;">`x(cm)`</td>
+                                <td>17.24</td>
+                                <td>25.31</td>
+                                <td>31.08</td>
+                                <td>34.93</td>
+                                <td>38.75</td>
+                                <td>42.55</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Por lo que al realizar la gráfica para los datos obtenidos en la tabla puede obtener la pendiente y
+                    el intercepto, por lo que la gráfica final queda de la siguiente manera: </p>
+                <div id="DistanciaVsTiempoLineadoEjercicioP" style="margin-bottom: 2rem;"></div>
+                <p>Una vez analizada la gráfica el estudiante recopila los datos en la tabla Ajuste lineal para mínimos
+                    cuadrados para de este modo iniciar con la ejecución de las ecuaciones </p>
+
+                <div class="tablaLinealMinimo">
+                    <table class="tg" border="1" style="border-collapse: collapse; margin-top: 2rem; margin-bottom: 1rem;">
+                        <thead>
+                            <tr>
+                                <th class="tg-9wq8" rowspan="2">`n`</th>
+                                <th class="tg-0pky">`x_i`</th>
+                                <th class="tg-0pky">`y_i`</th>
+                                <th class="tg-0pky">`x_i^2`</th>
+                                <th class="tg-0pky">`x_iy_i`</th>
+                                <th class="tg-0pky">` \sum (y_i-mx_1-b)^2 `</th>
+                            </tr>
+                            <tr>
+                                <th class="tg-0pky">`t`</th>
+                                <th class="tg-0pky">`z=x/t`</th>
+                                <th class="tg-0pky">`t^2`</th>
+                                <th class="tg-0pky">`zt`</th>
+                                <th class="tg-0pky">` \sum(z-mt-b)^2 `</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="tg-9wq8" rowspan="6">`6`</td>
+                                <td class="tg-0pky">1.16</td>
+                                <td class="tg-0pky">17.24</td>
+                                <td class="tg-0pky">1.35</td>
+                                <td class="tg-0pky">20.00</td>
+                                <td class="tg-0pky">1.3433</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">1.58</td>
+                                <td class="tg-0lax">25.31</td>
+                                <td class="tg-0pky">2.50</td>
+                                <td class="tg-0lax">39.99</td>
+                                <td class="tg-0lax">0.5333</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">1.93</td>
+                                <td class="tg-0pky">31.08</td>
+                                <td class="tg-0pky">3.72</td>
+                                <td class="tg-0pky">59.98</td>
+                                <td class="tg-0pky">1.8217</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">2.29</td>
+                                <td class="tg-0pky">34.93</td>
+                                <td class="tg-0pky">5.24</td>
+                                <td class="tg-0pky">79.99</td>
+                                <td class="tg-0pky">0.0096</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">2.58</td>
+                                <td class="tg-0lax">38.75</td>
+                                <td class="tg-0pky">6.66</td>
+                                <td class="tg-0lax">99.98</td>
+                                <td class="tg-0lax">0.2976</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0lax">2.82</td>
+                                <td class="tg-0lax">42.55</td>
+                                <td class="tg-0pky">7.95</td>
+                                <td class="tg-0lax">119.99</td>
+                                <td class="tg-0lax">0.0769</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-c3ow">` \sum `</td>
+                                <td class="tg-0pky sumt">12.36</td>
+                                <td class="tg-0pky sumz">189.86</td>
+                                <td class="tg-0pky sumt2">27.42</td>
+                                <td class="tg-0pky sumzt">419.93</td>
+                                <td class="tg-0pky sumformu">4.08</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p>Una vez teniendo la tabla con los valores y las sumatorias puede realizar las ecuaciones con el objetivo de calcular lo solicitado</p>
+            <h4 style="margin-top: 1rem;">Recordemos estas formulas</h4>
+            <div class="formulasImportantes">
+                <div class="deltam">
+                    $$\Delta m = \frac{\gamma \sqrt{n}}{\sqrt{n(\sum x_i^2)-(\sum x_i)^2}}$$
+                </div>
+                <div class="deltav">
+                    $$\Delta b =\Delta m\sqrt{\frac{\sum x_i^2 }{n}}$$
+                </div>
+                <div class="gammaform">
+                    $$\gamma =\sqrt{\frac{\sum (y_i-mx_i-b)^2}{n-2}}$$
+                </div>
+            </div>
         </div>
 
         <div class="sig-ant">
@@ -542,6 +727,7 @@
     </section>
 
     <script src="MRUA.js"></script>
+    <script src="EjercicioPractico.js"></script>
 
     <Footer id="Footer">
         <div class="container_footer">

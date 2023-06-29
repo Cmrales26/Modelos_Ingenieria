@@ -99,7 +99,7 @@ function grficap_vs_t() {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-            ];
+          ];
         }
       }
       if (!strings.__module__)
@@ -322,7 +322,7 @@ function grafica_v_vs_t() {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-            ];
+          ];
         }
       }
       if (!strings.__module__)
@@ -466,7 +466,7 @@ function grafica_v_vs_t_n() {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-            ];
+          ];
         }
       }
       if (!strings.__module__)
@@ -638,7 +638,7 @@ function grafica_a_vs_t(params) {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-            ];
+          ];
         }
       }
       if (!strings.__module__)
@@ -793,7 +793,7 @@ function simulacionCaidaL() {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-            ];
+          ];
         }
       }
       if (!strings.__module__)
@@ -997,7 +997,7 @@ function Graficas(params) {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-            ];
+          ];
         }
       }
       if (!strings.__module__)
@@ -1269,7 +1269,7 @@ const simulacionRampa = () => {
 
     //Calculo de la aceleración
     var aceleracion = 9.8 * Math.sin(radianes);
-    console.log(aceleracion)
+    console.log(aceleracion);
 
     //Calculo del tiempo
     var tiempo = Math.sqrt((2 * hipotenusa) / aceleracion);
@@ -1322,7 +1322,7 @@ const simulacionRampa = () => {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-            ];
+          ];
         }
       }
       if (!strings.__module__)
@@ -1542,7 +1542,7 @@ const graficav_t_ram = () => {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-            ];
+          ];
         }
       }
       if (!strings.__module__)
@@ -1700,7 +1700,7 @@ const graficap_t_ram = () => {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-            ];
+          ];
         }
       }
       if (!strings.__module__)
@@ -1803,17 +1803,22 @@ theta.addEventListener("change", (event) => {
   graficav_t_ram();
   graficap_t_ram();
   if (b.value != "") {
-    tablavvst(.1);
+    tablavvst(0.1);
   }
   if (tiempos.length > 0) {
     linealizacionDistancia(tiempos, distancias);
   }
 
   if (linealizacion.length > 0 && tiempos.length > 0) {
-    llenartabla(tiempos, gettiempocuadrado(tiempos), linealizacion, getzt(tiempos, linealizacion), getformulota(tiempos, linealizacion, getPendiente(), getintercepto()))
-    getincertidumbre()
+    llenartabla(
+      tiempos,
+      gettiempocuadrado(tiempos),
+      linealizacion,
+      getzt(tiempos, linealizacion),
+      getformulota(tiempos, linealizacion, getPendiente(), getintercepto())
+    );
+    getincertidumbre();
   }
-
 });
 
 b.addEventListener("change", (event) => {
@@ -1821,7 +1826,7 @@ b.addEventListener("change", (event) => {
   graficav_t_ram();
   graficap_t_ram();
   if (theta.value != "") {
-    tablavvst(.1);
+    tablavvst(0.1);
   }
 
   if (tiempos.length > 0) {
@@ -1829,10 +1834,15 @@ b.addEventListener("change", (event) => {
   }
 
   if (linealizacion.length > 0 && tiempos.length > 0) {
-    llenartabla(tiempos, gettiempocuadrado(tiempos), linealizacion, getzt(tiempos, linealizacion), getformulota(tiempos, linealizacion, getPendiente(), getintercepto()))
-    getincertidumbre()
+    llenartabla(
+      tiempos,
+      gettiempocuadrado(tiempos),
+      linealizacion,
+      getzt(tiempos, linealizacion),
+      getformulota(tiempos, linealizacion, getPendiente(), getintercepto())
+    );
+    getincertidumbre();
   }
-
 });
 
 //TABLAS
@@ -2048,8 +2058,8 @@ const getintercepto = () => {
   var m = getPendiente();
   var c = (sumY - m * sumX) / n;
 
-  return c
-}
+  return c;
+};
 
 const getPendiente = () => {
   var tiempo = tiempos;
@@ -2071,8 +2081,8 @@ const getPendiente = () => {
   var n = tiempo.length;
   var m = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
 
-  return m
-}
+  return m;
+};
 
 const graficoDistanciaLineal = () => {
   (function () {
@@ -2128,7 +2138,7 @@ const graficoDistanciaLineal = () => {
             typeof name === "number" && name < 0
               ? ρσ_expr_temp.length + name
               : name
-            ];
+          ];
         }
       }
       if (!strings.__module__)
@@ -2260,41 +2270,51 @@ const gettiempocuadrado = (tiempos) => {
   }
 
   for (let i = 0; i < tiempos.length; i++) {
-    let tcua = Math.pow(tiempos[i], 2)
-    tablatiempoCuadrado.push(tcua.toFixed(2))
+    let tcua = Math.pow(tiempos[i], 2);
+    tablatiempoCuadrado.push(tcua.toFixed(2));
   }
   return tablatiempoCuadrado;
-}
+};
 
 const getzt = (tiempo, distancia) => {
   if (tablazt.length >= 1) {
     tablazt = [];
   }
   for (let i = 0; i < tiempo.length; i++) {
-    let zt = distancia[i] * tiempo[i]
-    tablazt.push(zt.toFixed(2))
+    let zt = distancia[i] * tiempo[i];
+    tablazt.push(zt.toFixed(2));
   }
-  return tablazt
-}
+  return tablazt;
+};
 
 const getformulota = (tiempo, distancia, m, c) => {
-
   if (tablaFormulota.length >= 1) {
     tablaFormulota = [];
   }
 
   for (let i = 0; i < tiempo.length; i++) {
-    let formulota = Math.pow(distancia[i] - (m * tiempo[i]) - c, 2)
+    let formulota = Math.pow(distancia[i] - m * tiempo[i] - c, 2);
     tablaFormulota.push(formulota.toFixed(5));
   }
-  console.log( "FORMULOTAAAA " +sumformu)
-  return tablaFormulota
-}
+  console.log("FORMULOTAAAA " + sumformu);
+  return tablaFormulota;
+};
 
-let sumt = 0; let sumz = 0; let sumt2 = 0; let sumzt = 0; let sumformu = 0; let aceleracion = 0; let resultadoreal = 0
+let sumt = 0;
+let sumz = 0;
+let sumt2 = 0;
+let sumzt = 0;
+let sumformu = 0;
+let aceleracion = 0;
+let resultadoreal = 0;
 
 const llenartabla = (tiempo, tiempocuadrado, linealizacion, zt, formulota) => {
-  sumt = 0; sumz = 0; sumt2 = 0; sumzt = 0; sumformu = 0; aceleracion = 0, resultadoreal = 0
+  sumt = 0;
+  sumz = 0;
+  sumt2 = 0;
+  sumzt = 0;
+  sumformu = 0;
+  (aceleracion = 0), (resultadoreal = 0);
   var tiempoCells = document.getElementsByClassName("tiempo");
   var tiempocuadradoCells = document.getElementsByClassName("tiempocuadrado");
   var ztablaCells = document.getElementsByClassName("ztabla");
@@ -2305,8 +2325,8 @@ const llenartabla = (tiempo, tiempocuadrado, linealizacion, zt, formulota) => {
     tiempoCells[i].innerHTML = tiempo[i];
     tiempocuadradoCells[i].innerHTML = tiempocuadrado[i];
     ztablaCells[i].innerHTML = linealizacion[i];
-    zttablaCells[i].innerHTML = zt[i]
-    formulotaCells[i].innerHTML = formulota[i]
+    zttablaCells[i].innerHTML = zt[i];
+    formulotaCells[i].innerHTML = formulota[i];
   }
 
   //!SUMATORIAS
@@ -2335,30 +2355,40 @@ const llenartabla = (tiempo, tiempocuadrado, linealizacion, zt, formulota) => {
     sumformu += parseFloat(formulota[i]);
   }
 
-  sumtCells[0].innerHTML = sumt.toFixed(2)
-  sumzCells[0].innerHTML = sumz.toFixed(2)
-  sumt2Cells[0].innerHTML = sumt2.toFixed(2)
-  sumztCells[0].innerHTML = sumzt.toFixed(2)
-  sumformuCells[0].innerHTML = sumformu.toFixed(6)
+  sumtCells[0].innerHTML = sumt.toFixed(2);
+  sumzCells[0].innerHTML = sumz.toFixed(2);
+  sumt2Cells[0].innerHTML = sumt2.toFixed(2);
+  sumztCells[0].innerHTML = sumzt.toFixed(2);
+  sumformuCells[0].innerHTML = sumformu.toFixed(6);
 
-  resultadoreal = (tiempo.length * (sumzt) - (sumt) * (sumz)) / (tiempo.length * (sumt2) - Math.pow(sumt, 2))
+  resultadoreal =
+    (tiempo.length * sumzt - sumt * sumz) /
+    (tiempo.length * sumt2 - Math.pow(sumt, 2));
 
-  const Resultado = document.getElementById("respuestaejemploxd")
-  Resultado.innerHTML = `m = (${tiempo.length}(${sumzt.toFixed(2)})-(${sumt.toFixed(2)})(${sumz.toFixed(2)}))/(${tiempo.length}(${sumt2.toFixed(2)})-(${Math.pow(sumt, 2)})) =  ${resultadoreal.toFixed(3)}`
+  const Resultado = document.getElementById("respuestaejemploxd");
+  Resultado.innerHTML = `m = (${tiempo.length}(${sumzt.toFixed(
+    2
+  )})-(${sumt.toFixed(2)})(${sumz.toFixed(2)}))/(${
+    tiempo.length
+  }(${sumt2.toFixed(2)})-(${Math.pow(sumt, 2)})) =  ${resultadoreal.toFixed(
+    3
+  )}`;
 
-  console.log(resultadoreal)
+  console.log(resultadoreal);
 
-  aceleracion = 2 * resultadoreal
-  document.getElementById("Aceleracionejercicio").innerHTML = `${aceleracion.toFixed(2)}`
+  aceleracion = 2 * resultadoreal;
+  document.getElementById(
+    "Aceleracionejercicio"
+  ).innerHTML = `${aceleracion.toFixed(2)}`;
 
   const origen = { x: 0, y: aceleracion };
-  const destino = { x: tiempo.length, y: (aceleracion) };
+  const destino = { x: tiempo.length, y: aceleracion };
 
   // Crear los datos de la línea
   const trace = {
     x: [origen.x, destino.x],
     y: [origen.y, destino.y],
-    mode: 'lines',
+    mode: "lines",
   };
 
   // Crear el diseño de la gráfica
@@ -2370,32 +2400,35 @@ const llenartabla = (tiempo, tiempocuadrado, linealizacion, zt, formulota) => {
   // Crear el arreglo de datos
   const data = [trace];
 
-  Plotly.newPlot('grafica-aceleracionrampa', data, layout);
-
-}
+  Plotly.newPlot("grafica-aceleracionrampa", data, layout);
+};
 
 const getincertidumbre = () => {
   // Agregar el valor de formulota al html
-  document.getElementById("numeradorgamma").innerHTML = `${sumformu.toFixed(5)}`
-  document.getElementById("denominadorgamma").innerHTML = `${tiempos.length - 2}`
+  document.getElementById("numeradorgamma").innerHTML = `${sumformu.toFixed(
+    5
+  )}`;
+  document.getElementById("denominadorgamma").innerHTML = `${
+    tiempos.length - 2
+  }`;
 
   //CALCULO GAMMA
-  let gamma = Math.sqrt((sumformu) / (tiempos.length - 2))
-  document.getElementById("ResultadoGamma").innerHTML = `${gamma.toFixed(5)}`
+  let gamma = Math.sqrt(sumformu / (tiempos.length - 2));
+  document.getElementById("ResultadoGamma").innerHTML = `${gamma.toFixed(5)}`;
 
   //LLENAR TABLA
-  let n_incer = document.getElementsByClassName("n_incer")
-  let gamma_incer = document.getElementsByClassName("gamma_incer")
-  let sumax2 = document.getElementsByClassName("sumax2")
-  let sumax = document.getElementsByClassName("sumax")
-  let denominadorincer = Math.abs(tiempos.length * (sumt2) - Math.pow(sumt, 2))
-  let totalincer = (gamma * Math.sqrt(tiempos.length)) / (Math.sqrt(denominadorincer))
+  let n_incer = document.getElementsByClassName("n_incer");
+  let gamma_incer = document.getElementsByClassName("gamma_incer");
+  let sumax2 = document.getElementsByClassName("sumax2");
+  let sumax = document.getElementsByClassName("sumax");
+  let denominadorincer = Math.abs(tiempos.length * sumt2 - Math.pow(sumt, 2));
+  let totalincer =
+    (gamma * Math.sqrt(tiempos.length)) / Math.sqrt(denominadorincer);
 
-  n_incer[0].innerHTML = tiempos.length
-  gamma_incer[0].innerHTML = gamma.toFixed(5)
-  sumax2[0].innerHTML = sumt2.toFixed(2)
-  sumax[0].innerHTML = sumt
-
+  n_incer[0].innerHTML = tiempos.length;
+  gamma_incer[0].innerHTML = gamma.toFixed(5);
+  sumax2[0].innerHTML = sumt2.toFixed(2);
+  sumax[0].innerHTML = sumt;
 
   var gammaFixed = gamma.toFixed(5);
   var tiemposLength = tiempos.length;
@@ -2406,30 +2439,254 @@ const getincertidumbre = () => {
   var aceleracionFixed = aceleracion.toFixed(3);
 
   var formula1 = `\\Delta m = \\left( \\frac{1}{2} \\right)\\Delta a = \\frac{${gammaFixed} \\sqrt{${tiemposLength}}}{\\sqrt{${tiemposLength}(${sumt2Fixed})-(${sumt})^2}} = \\frac{${gammaFixed} \\sqrt{${tiemposLength}}}{\\sqrt{${denominadorIncer}}} \\approx ${totalIncer}`;
-  renderMathJax('Resulincer', formula1);
+  renderMathJax("Resulincer", formula1);
 
   var formula2 = `\\Delta a = 2(${totalIncer})\\ cm/s^2 \\rightarrow \\Delta a = ${totalIncerTimes2}\\ cm/s^2`;
-  renderMathJax('Incertidumbre_aceleracion', formula2);
+  renderMathJax("Incertidumbre_aceleracion", formula2);
 
   var resultado = `a = (${aceleracionFixed} \\pm ${totalIncerTimes2})\\ cm/s^2`;
-  renderMathJax('Resultado-incertidumbre-masmeno', resultado);
+  renderMathJax("Resultado-incertidumbre-masmeno", resultado);
 
-  var errorporcentual = `\\%\\varepsilon _r = \\left ( \\frac{${totalIncerTimes2}}{${aceleracionFixed}} \\times 100\\right)\\% \\rightarrow \\%\\varepsilon _r = ${((totalIncerTimes2/aceleracionFixed)*100).toFixed(1)}\\%`;
-  renderMathJax('errorporcentualaceleracion', errorporcentual)
+  var errorporcentual = `\\%\\varepsilon _r = \\left ( \\frac{${totalIncerTimes2}}{${aceleracionFixed}} \\times 100\\right)\\% \\rightarrow \\%\\varepsilon _r = ${(
+    (totalIncerTimes2 / aceleracionFixed) *
+    100
+  ).toFixed(1)}\\%`;
+  renderMathJax("errorporcentualaceleracion", errorporcentual);
 
-  var velocidad_inicial = `b=v_0=\\frac{(${sumz.toFixed(2)})-${resultadoreal.toFixed(2)}(${sumt})}{${tiempos.length}} = ${(((sumz)-(resultadoreal*sumt))/(tiempos.length)).toFixed(3)}\\ cm/s`
-  renderMathJax('Velocidad_inicial', velocidad_inicial)
+  var velocidad_inicial = `b=v_0=\\frac{(${sumz.toFixed(
+    2
+  )})-${resultadoreal.toFixed(2)}(${sumt})}{${tiempos.length}} = ${(
+    (sumz - resultadoreal * sumt) /
+    tiempos.length
+  ).toFixed(3)}\\ cm/s`;
+  renderMathJax("Velocidad_inicial", velocidad_inicial);
 
-  var incertidumbre_velocidad_inicial = `\\Delta b = ${totalIncer} \\sqrt{\\frac{${sumt2Fixed} }{${tiemposLength}}}= ${((totalIncer*(Math.sqrt((sumt2Fixed/tiemposLength))))).toFixed(3)}\\ cm/s`
-  renderMathJax('incertidumbreVelocidad', incertidumbre_velocidad_inicial)
+  var incertidumbre_velocidad_inicial = `\\Delta b = ${totalIncer} \\sqrt{\\frac{${sumt2Fixed} }{${tiemposLength}}}= ${(
+    totalIncer * Math.sqrt(sumt2Fixed / tiemposLength)
+  ).toFixed(3)}\\ cm/s`;
+  renderMathJax("incertidumbreVelocidad", incertidumbre_velocidad_inicial);
 
-  var inicialterminada = `v_0 = (${(((sumz)-(resultadoreal*sumt))/(tiempos.length)).toFixed(3)} \\pm ${((totalIncer*(Math.sqrt((sumt2Fixed/tiemposLength))))).toFixed(3)}\\ cm/s)`
-  renderMathJax('velocidadinicialterminada', inicialterminada)
-}
-
+  var inicialterminada = `v_0 = (${(
+    (sumz - resultadoreal * sumt) /
+    tiempos.length
+  ).toFixed(3)} \\pm ${(
+    totalIncer * Math.sqrt(sumt2Fixed / tiemposLength)
+  ).toFixed(3)}\\ cm/s)`;
+  renderMathJax("velocidadinicialterminada", inicialterminada);
+};
 
 function renderMathJax(elementId, formula) {
   var element = document.getElementById(elementId);
-  element.innerHTML = '\\(' + formula + '\\)';
-  MathJax.Hub.Queue(['Typeset', MathJax.Hub, element]);
+  element.innerHTML = "\\(" + formula + "\\)";
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub, element]);
 }
+
+//LABORATORIO
+
+const ejemplolab = () => {
+  (function () {
+    var ρσ_modules = {};
+    ρσ_modules.pythonize = {};
+
+    let simu = document.getElementById("LaboratorioejemploSim");
+    if (simu == null) {
+      $(".LaboratorioejemploSim").attr("id", "LaboratorioejemploSim");
+      const myNode = document.getElementById("LaboratorioejemploSim");
+      while (myNode.firstChild) {
+        myNode.removeChild(myNode.lastChild);
+      }
+    }
+    (function () {
+      function strings() {
+        var string_funcs, exclude, name;
+        string_funcs = set(
+          "capitalize strip lstrip rstrip islower isupper isspace lower upper swapcase center count endswith startswith find rfind index rindex format join ljust rjust partition rpartition replace split rsplit splitlines zfill".split(
+            " "
+          )
+        );
+        if (!arguments.length) {
+          exclude = (function () {
+            var s = ρσ_set();
+            s.jsset.add("split");
+            s.jsset.add("replace");
+            return s;
+          })();
+        } else if (arguments[0]) {
+          exclude = Array.prototype.slice.call(arguments);
+        } else {
+          exclude = null;
+        }
+        if (exclude) {
+          string_funcs = string_funcs.difference(set(exclude));
+        }
+        var ρσ_Iter0 = string_funcs;
+        ρσ_Iter0 =
+          typeof ρσ_Iter0[Symbol.iterator] === "function"
+            ? ρσ_Iter0 instanceof Map
+              ? ρσ_Iter0.keys()
+              : ρσ_Iter0
+            : Object.keys(ρσ_Iter0);
+        for (var ρσ_Index0 of ρσ_Iter0) {
+          name = ρσ_Index0;
+          (ρσ_expr_temp = String.prototype)[
+            typeof name === "number" && name < 0
+              ? ρσ_expr_temp.length + name
+              : name
+          ] = (ρσ_expr_temp = ρσ_str.prototype)[
+            typeof name === "number" && name < 0
+              ? ρσ_expr_temp.length + name
+              : name
+          ];
+        }
+      }
+      if (!strings.__module__)
+        Object.defineProperties(strings, {
+          __module__: { value: "pythonize" },
+        });
+
+      ρσ_modules.pythonize.strings = strings;
+    })();
+    async function __main__() {
+      "use strict";
+      var display = canvas;
+      var scene = canvas();
+
+      var version,
+        print,
+        arange,
+        __name__,
+        type,
+        ρσ_ls,
+        punto_inicio,
+        punto_fin,
+        Punto_inicio_o,
+        Punto_fin_o,
+        Punto_inicio_h,
+        Punto_fin_h,
+        Adyacente,
+        Opuesto,
+        Hipotenusa,
+        cubo,
+        direccion,
+        distancia,
+        delta,
+        angulo,
+        delta_x,
+        delta_y,
+        arrow_up,
+        arrow_down,
+        arrow_forward,
+        t_inicial;
+      version = ρσ_list_decorate(["3.2", "glowscript"]);
+      Array.prototype["+"] = function (r) {
+        return this.concat(r);
+      };
+      Array.prototype["*"] = function (r) {
+        return __array_times_number(this, r);
+      };
+      window.__GSlang = "vpython";
+      print = GSprint;
+      arange = range;
+      __name__ = "__main__";
+      type = pytype;
+      var strings = ρσ_modules.pythonize.strings;
+
+      strings();
+      scene.background = color.white;
+      scene.width = 900;
+      scene.height = 200;
+      punto_inicio = vector(30, 0, 0);
+      punto_fin = vector(0, 0, 0);
+      Punto_inicio_o = punto_fin;
+      Punto_fin_o = vector(punto_fin.x, 8, 0);
+      Punto_inicio_h = punto_inicio;
+      Punto_fin_h = Punto_fin_o;
+      Adyacente = ρσ_interpolate_kwargs.call(this, curve, [
+        ρσ_desugar_kwargs({
+          pos: ρσ_list_decorate([punto_inicio, punto_fin]),
+          color: color.black,
+          radius: 0.1,
+        }),
+      ]);
+      Opuesto = ρσ_interpolate_kwargs.call(this, curve, [
+        ρσ_desugar_kwargs({
+          pos: ρσ_list_decorate([Punto_inicio_o, Punto_fin_o]),
+          color: color.red,
+          radius: 0.1,
+        }),
+      ]);
+      Hipotenusa = ρσ_interpolate_kwargs.call(this, curve, [
+        ρσ_desugar_kwargs({
+          pos: ρσ_list_decorate([Punto_inicio_h, Punto_fin_h]),
+          color: color.green,
+          radius: 0.1,
+        }),
+      ]);
+      cubo = ρσ_interpolate_kwargs.call(this, box, [
+        ρσ_desugar_kwargs({
+          pos: vector(punto_fin.x["+"](0.5), Punto_fin_o.y["+"](0.5), 0),
+          size: vector(1, 1, 1),
+          color: color.blue,
+        }),
+      ]);
+      direccion = norm(punto_inicio["-"]((1)["*"](Punto_fin_o)));
+      distancia = mag(punto_inicio["-"]((1)["*"](Punto_fin_o)));
+      delta = (0.01)["*"](distancia)["/"](5);
+      angulo = await radians(15);
+      delta_x = delta["*"](cos(angulo));
+      delta_y = delta["*"](sin(angulo));
+      ρσ_interpolate_kwargs.call(cubo, cubo.rotate, [
+        ρσ_desugar_kwargs({
+          angle: await radians((1)["-u"]()["*"](15)),
+          axis: vector(0, 0, 1),
+        }),
+      ]);
+      arrow_up = ρσ_interpolate_kwargs.call(this, arrow, [
+        ρσ_desugar_kwargs({
+          pos: cubo.pos,
+          axis: vector(2, 2, 0),
+          color: color.orange,
+          shaftwidth: 0.1,
+        }),
+      ]);
+      arrow_down = ρσ_interpolate_kwargs.call(this, arrow, [
+        ρσ_desugar_kwargs({
+          pos: cubo.pos,
+          axis: vector(0, (1)["-u"]()["*"](2), 0),
+          color: color.purple,
+          shaftwidth: 0.1,
+        }),
+      ]);
+      arrow_forward = ρσ_interpolate_kwargs.call(this, arrow, [
+        ρσ_desugar_kwargs({
+          pos: cubo.pos,
+          axis: vector(3, (1)["-u"]()["*"](0.7), 0),
+          color: color.cyan,
+          shaftwidth: 0.1,
+        }),
+      ]);
+      t_inicial = 0;
+      while (t_inicial["<="](5)) {
+        await rate((1)["/"](0.01));
+        cubo.pos.x = cubo.pos.x["+"](delta_x);
+        cubo.pos.y = cubo.pos.y["-"](delta_y);
+        t_inicial = t_inicial["+"](0.01);
+        arrow_up.pos = cubo.pos;
+        arrow_down.pos = cubo.pos;
+        arrow_forward.pos = cubo.pos;
+        print("Tiempo transcurrido:", t_inicial, "segundos");
+      }
+    }
+    if (!__main__.__module__)
+      Object.defineProperties(__main__, {
+        __module__: { value: null },
+      });
+
+    $(function () {
+      window.__context = {
+        glowscript_container: $("#LaboratorioejemploSim").removeAttr("id"),
+      };
+      __main__();
+    });
+  })();
+};

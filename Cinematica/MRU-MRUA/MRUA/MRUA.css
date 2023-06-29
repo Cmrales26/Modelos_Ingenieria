@@ -28,11 +28,9 @@
 }
 
 #informacion {
+    margin: auto;
     max-width: 65rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding: 0rem 3rem;
     padding-top: 2.5%;
 }
 
@@ -254,6 +252,52 @@ td {
 #Incertidumbre_aceleracion,  #errorporcentualaceleracion{
     font-size: 15px;
 }
+.tituloLibro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #020887;
+    margin: 2rem 0rem;
+    width: 100%;
+    padding: 0rem 1rem;
+    & h1{
+        color: white;
+        padding: .5rem;
+    }
+    & #EjemploPractico{
+        font-weight: 700;
+        padding: .5rem;
+        background: white;
+        border: none;
+        border-radius: 2rem;
+        color: red;
+        transition: ease .5s; 
+        cursor: pointer;
+    }
+    & #EjemploPractico:hover{
+        scale: 1.5;
+    }
+}
+.contextualizacion{
+    & #VERSIMUEJE{
+        color: #020887;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    & i{
+        color: gray;
+    }
+}
+.LaboratorioejemploSim{
+    border: 3px solid #020887;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+.formulasImportantes{
+    display: flex;
+    justify-content: space-between;
+}
+
 #Ver_analisis_rampa {
     /* margin-left: 20px;
     border: none;

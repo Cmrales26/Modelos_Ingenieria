@@ -22,9 +22,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.3.1/math.js"
         integrity="sha512-Q1qOFs0DNtp9bviP8uSyPm0d1ES7zw8BXZ7AF2XCWIVKHObK6U7mkMZ+SGOf1vF71zI/60lO+FjBTrzaYGRqnw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/startup.js"
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/startup.js"
         integrity="sha512-MX1gf/vgby10l/kdwswRVeldCBh5oHrhKOUNC5TjHh9wJui1UO62UxGT73T6nYo7ViCWg/Qo4clj8JJvgic7bg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 </head>
 
 
@@ -250,7 +250,7 @@
             </div>
         </div>
 
-        <div class="ejercicioPractico">
+        <div class="SimulacionCaidaLibre">
             <div class="tituloLibro">
                 <h1>Simulación Caída Libre Rampa</h1>
                 <button id="EjemploPractico"> ¡Ver Ejemplo Laboratorio! </button>
@@ -427,122 +427,140 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+            <div class="solucion-ejemplo" style="margin-top: 2rem;">
+                <div class="aceleracionejemplo">
+                    <p>
+                        De la ecuación de la pendiente mostrada anteriormente se obtiene el valor de la pendiente y
+                        reemplazando los valores de la Tabla anterior se obtiene el siguiente resultado:
+                        `(m = \frac{1}{2}a_0 = \frac{n(\sum x_iy_i)-(\sum x_i)(\sum y_i)}{n(\sum x_i^2)-(\sum x_i)^2})
+                        =`
+                    </p>
+                    <center>
+                        <div class="respuesta" style="margin-top: 2rem;">
+                            <h4 id="respuestaejemploxd"></h4>
+                        </div>
+                    </center>
 
-        <div class="solucion-ejemplo" style="margin-top: 2rem;">
-            <div class="aceleracionejemplo">
-                <p>
-                    De la ecuación de la pendiente mostrada anteriormente se obtiene el valor de la pendiente y
-                    reemplazando los valores de la Tabla anterior se obtiene el siguiente resultado:
-                    `(m = \frac{1}{2}a_0 = \frac{n(\sum x_iy_i)-(\sum x_i)(\sum y_i)}{n(\sum x_i^2)-(\sum x_i)^2}) =`
-                </p>
-                <center>
-                    <div class="respuesta" style="margin-top: 2rem;">
-                        <h4 id="respuestaejemploxd"></h4>
+                    <p style=" margin-top: 2rem;">Por tanto, la aceleración se puede calcular como `a_0 = 2*m` lo que da
+                        como resultado que la aceleración del movil es de: <span id="Aceleracionejercicio"> </span>
+                        `m/s^2`
+                    </p>
+                </div>
+
+                <p>Debido a que la aceleración es constante, la gráfica que lo representa será una linea recta
+                    perpendicular
+                    al eje de las `x` ubicada en `y` aceleración de la siguiente manera:</p>
+
+                <div class="grafica-aceleracionrampa" id="grafica-aceleracionrampa">
+
+                </div>
+            </div>
+
+            <div class="incertidumbre-aceleracion">
+                <div class="definicion">
+                    <h1>Incertidumbre</h1>
+                    <p>La incertidumbre en física se refiere al rango de valores posibles dentro del cual se encuentra
+                        el
+                        valor real de la medición. La guía ISO 3534-1 define incertidumbre como “una estimación unida al
+                        resultado de un ensayo que caracteriza el intervalo de valores dentro de los cuales se afirma
+                        que
+                        está el valor verdadero”. <span style="color: #020887;">Esta valor se puede calcular usando la
+                            siguiente formula</span></p>
+                    <div class="formulaincertidumbre">
+                        $$ \Delta m = \frac{\gamma \sqrt{n}}{\sqrt{n(\sum x_i^2)-(\sum x_i)^2}} $$
                     </div>
-                </center>
+                    <p>Donde los valores para las sumatorias y `n` se encuentran la tabla y donde `\gamma` se calcula de
+                        la
+                        siguiente manera: </p>
+                    <div class="furmulagamma">
+                        $$\gamma =\sqrt{\frac{\sum (y_i-mx_i-b)^2}{n-2}}$$
+                    </div>
+                    <p style="text-align: center;"> Sabiendo que `\sum (y_i-mx_i-b)^2 = ` <span
+                            id="numeradorgamma"></span>
+                        y que `n-2 = ` <span id="denominadorgamma"></span> Obtenemos que: `\gamma = ` <span
+                            id="ResultadoGamma"></span> </p>
 
-                <p style=" margin-top: 2rem;">Por tanto, la aceleración se puede calcular como `a_0 = 2*m` lo que da
-                    como resultado que la aceleración del movil es de: <span id="Aceleracionejercicio"> </span> `m/s^2`
+                    <p style="margin-top: 2rem;">Una vez obtenido el valor de `\gamma` podemos ahora si realizar la
+                        ecuación
+                        de la incertidumbre, para esto nos ayudaremos de los datos de la siguiente tabla: </p>
+
+                    <div class="tabladatos" style="margin-top: 2rem;">
+                        <table border="1" style="border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th>`n`</th>
+                                    <th>`\gamma`</th>
+                                    <th>`\sum x_i^2 `</th>
+                                    <th>`\sum x_i`</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="n_incer"></td>
+                                    <td class="gamma_incer"></td>
+                                    <td class="sumax2"></td>
+                                    <td class="sumax"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="Resultado-incertidumbre" style="margin-top: 2rem;">
+                    <h4>El valor de la incertidumbre de la pendiente se puede calcular con la siguiente ecuación: </h4>
+                    <div id="Resulincer" class="Resulincer"></div>
+                    <p>Por lo que, a partir de estos datos podemos obtener la incertidumbre de la aceleración de la
+                        siguiente manera:</p>
+                    <div id="Incertidumbre_aceleracion" class="Resulincer"></div>
+                    <p>Por lo que el valor de la aceleración con la incertidumbre es: <span
+                            id="Resultado-incertidumbre-masmeno"></span> Una vez calculado podemos calcular el error
+                        porcentual, Usando la siguiente Formula: $$\%\varepsilon_r = \left ( \frac{\Delta a}{a_0} \times
+                        100\right )\%$$ </p>
+
+                    <p>Por lo que el resultado del error es el siguiente: </p>
+                    <div id="errorporcentualaceleracion"></div>
+                </div>
+            </div>
+
+            <div class="velocidad_Inicial">
+                <h1>Velocidad Inicial</h1>
+                <p>En una gráfica de posición vs tiempo, la pendiente representa la velocidad del objeto. Si la gráfica
+                    es
+                    una línea recta, entonces la pendiente es constante y representa la velocidad constante del objeto.
+                    En
+                    este caso, el valor del intercepto en el eje vertical (cuando el tiempo es cero) representa la
+                    posición
+                    inicial del objeto. Si se gráfica la velocidad en función del tiempo, entonces el valor del
+                    intercepto
+                    en el eje vertical representa la velocidad inicial del objeto. Esta se puede calcular de la
+                    siguiente
+                    manera: </p>
+
+                $$b = \frac{(\sum y_i)-m(\sum x_i)}{n}$$
+
+                <p>Por lo que tomando los valores de la <a href="#tablaMinimosCuadrados">tabla</a> obtenemos la
+                    siguiente
+                    formula: </p>
+
+                <div id="Velocidad_inicial"></div>
+                <p>A su vez se le puede hallar el valor de la incertidumbre de igual forma como se realizo con la
+                    aceleración. Para hallar la incertidumbre de la velocidad inicial se hace uso de la siguiente
+                    formula:
                 </p>
-            </div>
-
-            <p>Debido a que la aceleración es constante, la gráfica que lo representa será una linea recta perpendicular
-                al eje de las `x` ubicada en `y` aceleración de la siguiente manera:</p>
-
-            <div class="grafica-aceleracionrampa" id="grafica-aceleracionrampa">
-
+                $$ \Delta b =\Delta m\sqrt{\frac{\sum x_i^2 }{n}} $$
+                <p>De modo que, Debido a que Ya sabemos estos datos, podemos realizar su solución:</p>
+                <div id="incertidumbreVelocidad"></div>
+                <h4>Por lo que el valor de la velocidad inicial se escribe como: </h4>
+                <div id="velocidadinicialterminada"></div>
             </div>
         </div>
 
-        <div class="incertidumbre-aceleracion">
-            <div class="definicion">
-                <h1>Incertidumbre</h1>
-                <p>La incertidumbre en física se refiere al rango de valores posibles dentro del cual se encuentra el
-                    valor real de la medición. La guía ISO 3534-1 define incertidumbre como “una estimación unida al
-                    resultado de un ensayo que caracteriza el intervalo de valores dentro de los cuales se afirma que
-                    está el valor verdadero”. <span style="color: #020887;">Esta valor se puede calcular usando la
-                        siguiente formula</span></p>
-                <div class="formulaincertidumbre">
-                    $$ \Delta m = \frac{\gamma \sqrt{n}}{\sqrt{n(\sum x_i^2)-(\sum x_i)^2}} $$
-                </div>
-                <p>Donde los valores para las sumatorias y `n` se encuentran la tabla y donde `\gamma` se calcula de la
-                    siguiente manera: </p>
-                <div class="furmulagamma">
-                    $$\gamma =\sqrt{\frac{\sum (y_i-mx_i-b)^2}{n-2}}$$
-                </div>
-                <p style="text-align: center;"> Sabiendo que `\sum (y_i-mx_i-b)^2 = ` <span id="numeradorgamma"></span>
-                    y que `n-2 = ` <span id="denominadorgamma"></span> Obtenemos que: `\gamma = ` <span
-                        id="ResultadoGamma"></span> </p>
-
-                <p style="margin-top: 2rem;">Una vez obtenido el valor de `\gamma` podemos ahora si realizar la ecuación
-                    de la incertidumbre, para esto nos ayudaremos de los datos de la siguiente tabla: </p>
-
-                <div class="tabladatos" style="margin-top: 2rem;">
-                    <table border="1" style="border-collapse: collapse;">
-                        <thead>
-                            <tr>
-                                <th>`n`</th>
-                                <th>`\gamma`</th>
-                                <th>`\sum x_i^2 `</th>
-                                <th>`\sum x_i`</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="n_incer"></td>
-                                <td class="gamma_incer"></td>
-                                <td class="sumax2"></td>
-                                <td class="sumax"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="Resultado-incertidumbre" style="margin-top: 2rem;">
-                <h4>El valor de la incertidumbre de la pendiente se puede calcular con la siguiente ecuación: </h4>
-                <div id="Resulincer" class="Resulincer"></div>
-                <p>Por lo que, a partir de estos datos podemos obtener la incertidumbre de la aceleración de la
-                    siguiente manera:</p>
-                <div id="Incertidumbre_aceleracion" class="Resulincer"></div>
-                <p>Por lo que el valor de la aceleración con la incertidumbre es: <span
-                        id="Resultado-incertidumbre-masmeno"></span> Una vez calculado podemos calcular el error
-                    porcentual, Usando la siguiente Formula: $$\%\varepsilon_r = \left ( \frac{\Delta a}{a_0} \times
-                    100\right )\%$$ </p>
-
-                <p>Por lo que el resultado del error es el siguiente: </p>
-                <div id="errorporcentualaceleracion"></div>
-            </div>
-        </div>
-
-        <div class="velocidad_Inicial">
-            <h1>Velocidad Inicial</h1>
-            <p>En una gráfica de posición vs tiempo, la pendiente representa la velocidad del objeto. Si la gráfica es
-                una línea recta, entonces la pendiente es constante y representa la velocidad constante del objeto. En
-                este caso, el valor del intercepto en el eje vertical (cuando el tiempo es cero) representa la posición
-                inicial del objeto. Si se gráfica la velocidad en función del tiempo, entonces el valor del intercepto
-                en el eje vertical representa la velocidad inicial del objeto. Esta se puede calcular de la siguiente
-                manera: </p>
-
-            $$b = \frac{(\sum y_i)-m(\sum x_i)}{n}$$
-
-            <p>Por lo que tomando los valores de la <a href="#tablaMinimosCuadrados">tabla</a> obtenemos la siguiente
-                formula: </p>
-
-            <div id="Velocidad_inicial"></div>
-            <p>A su vez se le puede hallar el valor de la incertidumbre de igual forma como se realizo con la
-                aceleración. Para hallar la incertidumbre de la velocidad inicial se hace uso de la siguiente formula:
-            </p>
-            $$ \Delta b =\Delta m\sqrt{\frac{\sum x_i^2 }{n}} $$
-            <p>De modo que, Debido a que Ya sabemos estos datos, podemos realizar su solución:</p>
-            <div id="incertidumbreVelocidad"></div>
-            <h4>Por lo que el valor de la velocidad inicial se escribe como: </h4>
-            <div id="velocidadinicialterminada"></div>
-        </div>
 
         <div id="ejercicioPractico-Estatico">
             <div class="contextualizacion">
-                <h1>Ejercicio Practico</h1>
+                <div class="tituloejemplopractico">
+                    <h1>Ejercicio Practico</h1>
+                    <button id="Simulaciones-Rampa"> ¡Ver Simulaciones! </button>
+                </div>
                 <p>Un estudiante de ingeniería realiza una práctica de laboratorio donde hace
                     deslizar un carrito por un riel inclinado. El estudiante logra determinar los diferentes tiempos
                     para posiciones de 20 cm en 20 cm tal como se muestra en la
@@ -624,7 +642,8 @@
                     cuadrados para de este modo iniciar con la ejecución de las ecuaciones </p>
 
                 <div class="tablaLinealMinimo">
-                    <table class="tg" border="1" style="border-collapse: collapse; margin-top: 2rem; margin-bottom: 1rem;">
+                    <table class="tg" border="1"
+                        style="border-collapse: collapse; margin-top: 2rem; margin-bottom: 1rem;">
                         <thead>
                             <tr>
                                 <th class="tg-9wq8" rowspan="2">`n`</th>
@@ -698,7 +717,8 @@
                     </table>
                 </div>
             </div>
-            <p>Una vez teniendo la tabla con los valores y las sumatorias puede realizar las ecuaciones con el objetivo de calcular lo solicitado</p>
+            <p>Una vez teniendo la tabla con los valores y las sumatorias puede realizar las ecuaciones con el objetivo
+                de calcular lo solicitado</p>
             <h4 style="margin-top: 1rem;">Recordemos estas formulas</h4>
             <div class="formulasImportantes">
                 <div class="deltam">
@@ -710,6 +730,58 @@
                 <div class="gammaform">
                     $$\gamma =\sqrt{\frac{\sum (y_i-mx_i-b)^2}{n-2}}$$
                 </div>
+            </div>
+            <div class="calculos-ejerciciop">
+                <p>Una vez recordadas las formulas, el estudiante realiza la sustitución de los valores para obtener los
+                    resultados</p>
+                <div class="respuestasconformula">
+                    <div id="valorDeltaMP"></div>
+                    <div id="valorDeltabP"></div>
+                    <div id="valorGammaP"></div>
+                </div>
+            </div>
+            <p>Una vez conociendo estos datos el estudiante se da cuenta que ya puede realizar los calculos para la
+                aceleración y velocidad.</p>
+            <br>
+            <h4>Aceleración</h4>
+            <div class="AceleracioneIncertidumbre">
+                <table border="1" style="border-collapse: collapse; margin-bottom: 2rem;">
+                    <thead>
+                        <tr>
+                            <th>`a_0 = 2 \cdot m `</th>
+                            <th>` \Delta a = 2 \cdot \Delta m`</th>
+                            <th>` a = (a_0 \pm \Delta a)`</th>
+                            <th>$$\%\varepsilon_r = ( \frac{\Delta a}{a_0} \times 100)\%$$</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> `a_0 = 2 \cdot 14.72 = 29.44 \ m/s^2`</td>
+                            <td> ` \Delta a = 2 \cdot 0.72 = 1.44 \ m/s^2`</td>
+                            <td> ` a = (29.44 \pm 1.44)\ m/s^2 ` </td>
+                            <td> ` \%\varepsilon_r = ( \frac{1.44}{29.44} \times 100) = 4.89\% ` </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h4>Velocidad</h4>
+            <div class="VelocidadIncertidumbre">
+                <table border="1" style="border-collapse: collapse; margin-bottom: 2rem;">
+                    <thead>
+                        <tr>
+                            <th>$$v_0 = b$$</th>
+                            <th>`\Delta v_0 = \Delta b`</th>
+                            <th>` v_0 = (v_0 \pm \Delta v_0)`</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> `1.33 m/s`</td>
+                            <td> `1.57 m/s`</td>
+                            <td> ` v_0 = (1.33 \pm 1.57)\ m/s ` </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 

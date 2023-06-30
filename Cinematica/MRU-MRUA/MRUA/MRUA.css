@@ -260,6 +260,7 @@ td {
     margin: 2rem 0rem;
     width: 100%;
     padding: 0rem 1rem;
+
     & h1{
         color: white;
         padding: .5rem;
@@ -288,6 +289,32 @@ td {
         color: gray;
     }
 }
+.tituloejemplopractico{
+    background-color: #020887;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    margin-bottom: 1rem;
+
+    & h1{
+        color: #ffffff;
+        padding: 0  ;
+    }
+    & #Simulaciones-Rampa{
+        font-weight: 700;
+        padding: .5rem;
+        background: white;
+        border: none;
+        border-radius: 2rem;
+        color: red;
+        transition: ease .5s; 
+        cursor: pointer;
+    }
+    & #Simulaciones-Rampa:hover{
+        scale: 1.5;
+    }
+}
 .LaboratorioejemploSim{
     border: 3px solid #020887;
     border-radius: 10px;
@@ -296,6 +323,12 @@ td {
 .formulasImportantes{
     display: flex;
     justify-content: space-between;
+}
+.respuestasconformula{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 18px;
 }
 
 #Ver_analisis_rampa {
